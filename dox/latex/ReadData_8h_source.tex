@@ -1,0 +1,51 @@
+\hypertarget{ReadData_8h_source}{}\doxysection{Read\+Data.\+h}
+\label{ReadData_8h_source}\index{tools/ReadData.h@{tools/ReadData.h}}
+\mbox{\hyperlink{ReadData_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef READDATA\_H}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define READDATA\_H}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../inc/eigen-\/3.4.0/Eigen/Dense"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mytools_8h}{mytools.h}}"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}../inc/random.hpp"{}}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{31 \textcolor{keyword}{using namespace }Eigen;}
+\DoxyCodeLine{32 \textcolor{keyword}{using namespace }std::chrono;}
+\DoxyCodeLine{33 \textcolor{keyword}{using} Random = effolkronium::random\_static;}
+\DoxyCodeLine{42 Eigen::MatrixXd \mbox{\hyperlink{ReadData_8h_a3c2da117b6d8079659b9d6ba6e15fed7}{getClass}}(Eigen::MatrixXd data, vector<char> label, \textcolor{keywordtype}{char} type);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 Eigen::MatrixXd getClassLabelled(Eigen::MatrixXd data, vector<char> Label, vector<char>\& newLabel, \textcolor{keywordtype}{char} type);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{58 \textcolor{keywordtype}{void} \mbox{\hyperlink{ReadData_8h_a84ae2c8440383fed7b4006741e91cff3}{getFold}}(Eigen::MatrixXd data, vector<char> Label, Eigen::MatrixXd \&training, vector<char> \&TLabel,}
+\DoxyCodeLine{59         Eigen::MatrixXd \&test, vector<char>\& TtLabel, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} num=1);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{76 \textcolor{keywordtype}{void} \mbox{\hyperlink{ReadData_8h_a74e85088fcdeddd5575177adddcd564f}{getFoldbyLoop}}(Eigen::MatrixXd data, vector<char> Label, Eigen::MatrixXd \&training, vector<char> \&TLabel,}
+\DoxyCodeLine{77         Eigen::MatrixXd \&test, vector<char>\& TtLabel, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{comment}{/*}}
+\DoxyCodeLine{80 \textcolor{comment}{ * La idea es obtener una distribución balanceada de datos para el}}
+\DoxyCodeLine{81 \textcolor{comment}{ * conjunto de entreno / test.}}
+\DoxyCodeLine{82 \textcolor{comment}{ * @param group1 Grupo con características de clase 1;}}
+\DoxyCodeLine{83 \textcolor{comment}{ * @param label1 Vector con las etiquetas de clase 1;}}
+\DoxyCodeLine{84 \textcolor{comment}{ * @param group2 Grupo con características de clase 2;}}
+\DoxyCodeLine{85 \textcolor{comment}{ * @param label2 Vector con las etiquetas de clase 2;}}
+\DoxyCodeLine{86 \textcolor{comment}{ * @param training Matrix resultante para el conjunto de entreno.}}
+\DoxyCodeLine{87 \textcolor{comment}{ * @param Tlabel Vector con las etiquetas resultante para el entreno}}
+\DoxyCodeLine{88 \textcolor{comment}{ * @param test Matrix resultante con el conjunto de test,}}
+\DoxyCodeLine{89 \textcolor{comment}{ * @param Ttlabel Vector con las etiquetas resultantes para el test.}}
+\DoxyCodeLine{90 \textcolor{comment}{ * @param num Número de correspondencia de fold.}}
+\DoxyCodeLine{91 \textcolor{comment}{ * @param seed Semilla para el barajado final}}
+\DoxyCodeLine{92 \textcolor{comment}{ *@see getFold();}}
+\DoxyCodeLine{93 \textcolor{comment}{ **/}}
+\DoxyCodeLine{94 \textcolor{keywordtype}{void} \mbox{\hyperlink{ReadData_8h_a996e2cf1dca6d6f6b2e5004fd6c8f789}{getBalancedFold}}(Eigen::MatrixXd group1, vector<char> label1,Eigen::MatrixXd group2,}
+\DoxyCodeLine{95         vector<char> label2, Eigen::MatrixXd \&training, vector<char> \&TLabel,}
+\DoxyCodeLine{96         Eigen::MatrixXd \&test, vector<char>\& TtLabel, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} num, \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} seed);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{105 Eigen::MatrixXd \mbox{\hyperlink{ReadData_8h_aef11c31862b1e9d5623ad9611548fd14}{readValues}}(\textcolor{keywordtype}{string} filename, vector<char>\& label);}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

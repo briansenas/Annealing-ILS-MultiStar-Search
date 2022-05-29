@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Práctica de Metaheurística: Referencia del Archivo tools/Genetics.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Práctica de Metaheurística<span id="projectnumber">&#160;1</span>
+   </div>
+   <div id="projectbrief">APC Clasification Problem, Greedy vs LocalSearch</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4eeb864c4eec08c7d6b9d3b0352cfdde.html">tools</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">typedefs</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del Archivo Genetics.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Should be used with the help of <a class="el" href="mytools_8h.html" title="Herramientas definidas para la práctica.">mytools.h</a>.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &quot;../inc/eigen-3.4.0/Eigen/Dense&quot;</code><br />
+<code>#include &quot;<a class="el" href="Euclidean_8h_source.html">Euclidean.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mytools_8h_source.html">mytools.h</a>&quot;</code><br />
+<code>#include &quot;../inc/random.hpp&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div>
+<p><a href="Genetics_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+typedefs</h2></td></tr>
+<tr class="memitem:a180f0653ebd0d5cdf633574b8c8512d3"><td class="memItemLeft" align="right" valign="top"><a id="a180f0653ebd0d5cdf633574b8c8512d3" name="a180f0653ebd0d5cdf633574b8c8512d3"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Random</b> = effolkronium::random_static</td></tr>
+<tr class="separator:a180f0653ebd0d5cdf633574b8c8512d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:acaa3c9401b41a0fc5d08b54d478ecdb2"><td class="memItemLeft" align="right" valign="top"><a id="acaa3c9401b41a0fc5d08b54d478ecdb2" name="acaa3c9401b41a0fc5d08b54d478ecdb2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ArithmeticCross</b> (RowVectorXd parent1, RowVectorXd parent2, RowVectorXd &amp;res1, RowVectorXd &amp;res2, long int seed=-1)</td></tr>
+<tr class="separator:acaa3c9401b41a0fc5d08b54d478ecdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1cc5e06b8ba244b6c092e3292c95d4c"><td class="memItemLeft" align="right" valign="top"><a id="aa1cc5e06b8ba244b6c092e3292c95d4c" name="aa1cc5e06b8ba244b6c092e3292c95d4c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>BLXCross</b> (RowVectorXd parent1, RowVectorXd parent2, RowVectorXd &amp;res1, RowVectorXd &amp;res2, float alpha=0.3, long int seed=-1)</td></tr>
+<tr class="separator:aa1cc5e06b8ba244b6c092e3292c95d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc41d7c3ec8014f317023854bfbf393"><td class="memItemLeft" align="right" valign="top"><a id="acfc41d7c3ec8014f317023854bfbf393" name="acfc41d7c3ec8014f317023854bfbf393"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Mutate</b> (MatrixXd *NP2, vector&lt; int &gt; &amp;indexGrid, unsigned int Mutacion)</td></tr>
+<tr class="separator:acfc41d7c3ec8014f317023854bfbf393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af63dda46d83d8fb0983d20e98e17b113"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Genetics_8h.html#af63dda46d83d8fb0983d20e98e17b113">getReductRight</a> (MatrixXd data, vector&lt; char &gt; Tlabel, RowVectorXd &amp;Weights, unsigned int &amp;right, unsigned int &amp;reduct)</td></tr>
+<tr class="separator:af63dda46d83d8fb0983d20e98e17b113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0341300859aaa3644492de298190877d"><td class="memItemLeft" align="right" valign="top"><a id="a0341300859aaa3644492de298190877d" name="a0341300859aaa3644492de298190877d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>randomOnly</b> (MatrixXd data, vector&lt; char &gt; Tlabel, MatrixXd *P1, MatrixXd *NP2, MatrixXd &amp;GenData, int CrossType, unsigned int Cruzes, unsigned int Mutacion)</td></tr>
+<tr class="separator:a0341300859aaa3644492de298190877d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa91cd2c0c31aaa61c45e619967fd0f"><td class="memItemLeft" align="right" valign="top"><a id="aefa91cd2c0c31aaa61c45e619967fd0f" name="aefa91cd2c0c31aaa61c45e619967fd0f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>onlyBestCrossing</b> (MatrixXd data, vector&lt; char &gt; Tlabel, MatrixXd *P1, MatrixXd *NP2, MatrixXd &amp;GenData, int CrossType, unsigned int Cruzes, unsigned int Mutacion)</td></tr>
+<tr class="separator:aefa91cd2c0c31aaa61c45e619967fd0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9ed1d8bea6919101df80c2d73aa0c35"><td class="memItemLeft" align="right" valign="top"><a id="af9ed1d8bea6919101df80c2d73aa0c35" name="af9ed1d8bea6919101df80c2d73aa0c35"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>randomCrossKeepBest</b> (MatrixXd data, vector&lt; char &gt; Tlabel, MatrixXd *P1, MatrixXd *NP2, MatrixXd &amp;GenData, int CrossType, unsigned int Cruzes, unsigned int Mutacion)</td></tr>
+<tr class="separator:af9ed1d8bea6919101df80c2d73aa0c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3593e1ce84acf5a770639d6411c98c1e"><td class="memItemLeft" align="right" valign="top">RowVectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Genetics_8h.html#a3593e1ce84acf5a770639d6411c98c1e">getOnlyFit</a> (MatrixXd data, vector&lt; char &gt; Tlabel, MatrixXd &amp;Solutions, float alpha=0.5)</td></tr>
+<tr class="separator:a3593e1ce84acf5a770639d6411c98c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d9f261a5a4362062aa818e13008c788"><td class="memItemLeft" align="right" valign="top">RowVectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Genetics_8h.html#a3d9f261a5a4362062aa818e13008c788">getFit</a> (MatrixXd data, vector&lt; char &gt; Tlabel, MatrixXd &amp;Solutions, MatrixXd &amp;GenData, float alpha=0.5)</td></tr>
+<tr class="separator:a3d9f261a5a4362062aa818e13008c788"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6098a2f410e0c7254e0dce9566524fbb"><td class="memItemLeft" align="right" valign="top"><a id="a6098a2f410e0c7254e0dce9566524fbb" name="a6098a2f410e0c7254e0dce9566524fbb"></a>
+RowVectorXd&#160;</td><td class="memItemRight" valign="bottom"><b>get1Fit</b> (MatrixXd data, vector&lt; char &gt; Tlabel, RowVectorXd &amp;Weights, float alpha=0.5)</td></tr>
+<tr class="separator:a6098a2f410e0c7254e0dce9566524fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0dbfbb876e5f5a4c163b92614bce384"><td class="memItemLeft" align="right" valign="top">RowVectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Genetics_8h.html#af0dbfbb876e5f5a4c163b92614bce384">LocalSearch</a> (MatrixXd allData, vector&lt; char &gt; label, RowVectorXd Weights, unsigned int &amp;eval_num, unsigned int max_eval, unsigned int maxTilBetter, vector&lt; float &gt; &amp;fitness, float alpha=0.5, long int seed=1)</td></tr>
+<tr class="separator:af0dbfbb876e5f5a4c163b92614bce384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p >Should be used with the help of <a class="el" href="mytools_8h.html" title="Herramientas definidas para la práctica.">mytools.h</a>. </p>
+<dl class="section version"><dt>Versión</dt><dd>2.3 </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>09/04/2022 </dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Brian Sena Simons 3ºA-A2 <div class="fragment"><div class="line"><span class="keywordtype">int</span> main(){</div>
+<div class="line"> [...]</div>
+<div class="line"> Solutions = (MatrixXd::Random(Chromo,cols) + MatrixXd::Constant(Chromo,cols,1))/2.0;</div>
+<div class="line"> <span class="comment">// GET INITIAL FITNESS</span></div>
+<div class="line"> Fitness = <a class="code hl_function" href="Util__Genetics_8cpp.html#a382db52b2cdfce72ad797cd67cb37ee9">getFit</a>(allData,label, Solutions,0.5);</div>
+<div class="line"> [..]</div>
+<div class="line">}</div>
+<div class="ttc" id="aUtil__Genetics_8cpp_html_a382db52b2cdfce72ad797cd67cb37ee9"><div class="ttname"><a href="Util__Genetics_8cpp.html#a382db52b2cdfce72ad797cd67cb37ee9">getFit</a></div><div class="ttdeci">RowVectorXd getFit(MatrixXd data, vector&lt; char &gt; Tlabel, MatrixXd &amp;Solutions, MatrixXd &amp;GenData, float alpha)</div><div class="ttdef"><b>Definition:</b> Util_Genetics.cpp:134</div></div>
+</div><!-- fragment --> </dd></dl>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a id="a3d9f261a5a4362062aa818e13008c788" name="a3d9f261a5a4362062aa818e13008c788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9f261a5a4362062aa818e13008c788">&#9670;&nbsp;</a></span>getFit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RowVectorXd getFit </td>
+          <td>(</td>
+          <td class="paramtype">MatrixXd&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>Tlabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>Solutions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>GenData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>alpha</em> = <code>0.5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Truncamos los pesos a 0 y 1; Contamos las reducciones a 0.</p>
+
+</div>
+</div>
+<a id="a3593e1ce84acf5a770639d6411c98c1e" name="a3593e1ce84acf5a770639d6411c98c1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3593e1ce84acf5a770639d6411c98c1e">&#9670;&nbsp;</a></span>getOnlyFit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RowVectorXd getOnlyFit </td>
+          <td>(</td>
+          <td class="paramtype">MatrixXd&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>Tlabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>Solutions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>alpha</em> = <code>0.5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Truncamos los pesos a 0 y 1; Contamos las reducciones a 0.</p>
+
+</div>
+</div>
+<a id="af63dda46d83d8fb0983d20e98e17b113" name="af63dda46d83d8fb0983d20e98e17b113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af63dda46d83d8fb0983d20e98e17b113">&#9670;&nbsp;</a></span>getReductRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getReductRight </td>
+          <td>(</td>
+          <td class="paramtype">MatrixXd&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>Tlabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RowVectorXd &amp;&#160;</td>
+          <td class="paramname"><em>Weights</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>reduct</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Verificamos el porcentaje de acierto obtenido con la modificación.</p>
+
+</div>
+</div>
+<a id="af0dbfbb876e5f5a4c163b92614bce384" name="af0dbfbb876e5f5a4c163b92614bce384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0dbfbb876e5f5a4c163b92614bce384">&#9670;&nbsp;</a></span>LocalSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RowVectorXd LocalSearch </td>
+          <td>(</td>
+          <td class="paramtype">MatrixXd&#160;</td>
+          <td class="paramname"><em>allData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RowVectorXd&#160;</td>
+          <td class="paramname"><em>Weights</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>eval_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>max_eval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>maxTilBetter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; float &gt; &amp;&#160;</td>
+          <td class="paramname"><em>fitness</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>alpha</em> = <code>0.5</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long int&#160;</td>
+          <td class="paramname"><em>seed</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Modificamos el indice barajado correspondiente para modificar los pesos.</p>
+<p >Si hemos modificados volvemos a barajar.</p>
+<p >Evaluamos la función.</p>
+<p >Verificamos si hemos mejorado, actuamos acorde.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

@@ -1,0 +1,245 @@
+\hypertarget{Euclidean_8h}{}\doxysection{Referencia del Archivo tools/\+Euclidean.h}
+\label{Euclidean_8h}\index{tools/Euclidean.h@{tools/Euclidean.h}}
+{\ttfamily \#include \char`\"{}../inc/eigen-\/3.\+4.\+0/\+Eigen/\+Dense\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/random.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Euclidean_8h_a180f0653ebd0d5cdf633574b8c8512d3}\label{Euclidean_8h_a180f0653ebd0d5cdf633574b8c8512d3}} 
+using {\bfseries Random} = effolkronium\+::random\+\_\+static
+\end{DoxyCompactItemize}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{min\+Euclidean\+Distance}} (Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data, Eigen\+::\+Matrix\+Xd\+::\+Index \&max\+Row)
+\begin{DoxyCompactList}\small\item\em min\+Euclidean\+Distance utiliza la librería Eigen para calcular el menor vecino por fila desde una fila \char`\"{}fixed\char`\"{} NO contenida en data. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Euclidean_8h_a5d0dd7bbe04f5f18dc592a11c536bb6b}{min\+Euclidean\+Distance}} (Eigen\+::\+Row\+Vector\+Xd weigths, Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data, Eigen\+::\+Matrix\+Xd\+::\+Index \&max\+Row)
+\begin{DoxyCompactList}\small\item\em min\+Euclidean\+Distance utiliza la librería Eigen para calcular el menor vecino por fila desde una fila \char`\"{}fixed\char`\"{} NO contenida en data multiplicando las distancias por el vector de características que las pondera. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Euclidean_8h_a4f5825bcc562c6dabe6c136863aedeca}{Manual\+Euclidean\+Distance}} (Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data, unsigned int pos, unsigned int \&max\+Row)
+\begin{DoxyCompactList}\small\item\em Manual\+Euclidean\+Distance no-\/utiliza completamente la librería Eigen para calcular el menor vecino por fila, ya que ahora permitimos que fixed, esté contenido en data, y lo que hacemos es elegir el segundo mínimo manualmente. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Euclidean_8h_aa2fa99f7f091464475f3aa8c1a9f13b5}{Manual\+Euclidean\+Distance}} (Eigen\+::\+Row\+Vector\+Xd weigths, Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data, unsigned int pos, unsigned int \&max\+Row)
+\begin{DoxyCompactList}\small\item\em Manual\+Euclidean\+Distance no-\/utiliza completamente la librería Eigen para calcular el menor vecino por fila, ya que ahora permitimos que fixed, esté contenido en data, y lo que hacemos es elegir el segundo mínimo ponderado por el vector de características manualmente. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Euclidean_8h_acdf9d105d2e503df5b99f19eddcaca28}{Manual\+Euclidean\+Distance\+Type}} (Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data, vector$<$ char $>$label, char type, unsigned int pos, unsigned int \&max\+Row)
+\begin{DoxyCompactList}\small\item\em Manual\+Euclidean\+Distance\+Type no-\/utiliza completamente la librería Eigen para calcular el menor vecino por fila, ya que ahora permitimos que fixed, esté contenido en data, y lo que hacemos es elegir el segundo mínimo perteneciente a una clase específica manualmente. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Euclidean_8h_ac249d23e7dedd767338fd2733fe88c0c}{Manual\+Euclidean\+Distance\+Type}} (Eigen\+::\+Row\+Vector\+Xd weigths, Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data, vector$<$ char $>$label, char type, unsigned int pos, unsigned int \&max\+Row)
+\begin{DoxyCompactList}\small\item\em Manual\+Euclidean\+Distance\+Type no-\/utiliza completamente la librería Eigen para calcular el menor vecino por fila, ya que ahora permitimos que fixed, esté contenido en data, y lo que hacemos es elegir el segundo mínimo ponderado por el vector de características y perteneciente a una clase específica manualmente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyVersion}{Versión}
+2.\+5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+09/04/2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autor}
+Brian Sena Simons 3º\+A-\/\+A2 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main()\{}
+\DoxyCodeLine{ MatrixXd mat(3,2);}
+\DoxyCodeLine{ mat << 1, 1,}
+\DoxyCodeLine{        2, 2,}
+\DoxyCodeLine{        4, 4;}
+\DoxyCodeLine{}
+\DoxyCodeLine{ RowVectorXd fil = \mbox{\hyperlink{mytools_8cpp_a3176dc33dc79b493d699596ece0e1ef7}{removeRow}}(mat,2);}
+\DoxyCodeLine{ MatriXd::Index pos;}
+\DoxyCodeLine{ \textcolor{keywordtype}{double} min = \mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{minEuclideanDistance}}(fil,mat,pos);}
+\DoxyCodeLine{ cout << \textcolor{stringliteral}{"{}Mínimo vecino por fila en: "{}} << pos << \textcolor{stringliteral}{"{} con valor: "{}} << min << endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{Euclidean_8h_a4f5825bcc562c6dabe6c136863aedeca}\label{Euclidean_8h_a4f5825bcc562c6dabe6c136863aedeca}} 
+\index{Euclidean.h@{Euclidean.h}!ManualEuclideanDistance@{ManualEuclideanDistance}}
+\index{ManualEuclideanDistance@{ManualEuclideanDistance}!Euclidean.h@{Euclidean.h}}
+\doxysubsubsection{\texorpdfstring{ManualEuclideanDistance()}{ManualEuclideanDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Manual\+Euclidean\+Distance (\begin{DoxyParamCaption}\item[{Eigen\+::\+Row\+Vector\+Xd}]{fixed,  }\item[{Eigen\+::\+Matrix\+Xd}]{data,  }\item[{unsigned int}]{pos,  }\item[{unsigned int \&}]{max\+Row }\end{DoxyParamCaption})}
+
+
+
+Manual\+Euclidean\+Distance no-\/utiliza completamente la librería Eigen para calcular el menor vecino por fila, ya que ahora permitimos que fixed, esté contenido en data, y lo que hacemos es elegir el segundo mínimo manualmente. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em weights} & es el vector de pesos característicos a multiplicar \\
+\hline
+{\em fixed} & Fila a buscar contenida en data. \\
+\hline
+{\em data} & Matrix de datos a verificar vecinos. \\
+\hline
+{\em pos} & Fila de la que provee fixed. \\
+\hline
+{\em max\+Row} & es el ínidice de la fila más cercana encontrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+el valor mínimo. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Ver también}
+\mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{min\+Euclidean\+Distance(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,\+Eigen\+::\+Matrix\+Xd\+::\+Index \&max\+Row)}};
+\end{DoxySeeAlso}
+Hacemos el cálculo de la distancia euclidea al cuadrado utilizando la librería Eigen y ese resultado lo almacenamos en un vector resultante y iteramos sobre él en busca del segundo mínimo valor evitando que ese sea justo el de la posición especificada \char`\"{}pos\char`\"{}. \begin{DoxySeeAlso}{Ver también}
+\mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{min\+Euclidean\+Distance(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,\+Eigen\+::\+Matrix\+Xd\+::\+Index \&max\+Row)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{Euclidean_8h_aa2fa99f7f091464475f3aa8c1a9f13b5}\label{Euclidean_8h_aa2fa99f7f091464475f3aa8c1a9f13b5}} 
+\index{Euclidean.h@{Euclidean.h}!ManualEuclideanDistance@{ManualEuclideanDistance}}
+\index{ManualEuclideanDistance@{ManualEuclideanDistance}!Euclidean.h@{Euclidean.h}}
+\doxysubsubsection{\texorpdfstring{ManualEuclideanDistance()}{ManualEuclideanDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Manual\+Euclidean\+Distance (\begin{DoxyParamCaption}\item[{Eigen\+::\+Row\+Vector\+Xd}]{weights,  }\item[{Eigen\+::\+Row\+Vector\+Xd}]{fixed,  }\item[{Eigen\+::\+Matrix\+Xd}]{data,  }\item[{unsigned int}]{pos,  }\item[{unsigned int \&}]{max\+Row }\end{DoxyParamCaption})}
+
+
+
+Manual\+Euclidean\+Distance no-\/utiliza completamente la librería Eigen para calcular el menor vecino por fila, ya que ahora permitimos que fixed, esté contenido en data, y lo que hacemos es elegir el segundo mínimo ponderado por el vector de características manualmente. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em weights} & es el vector de pesos característicos a multiplicar \\
+\hline
+{\em fixed} & Fila a buscar contenida en data. \\
+\hline
+{\em data} & Matrix de datos a verificar vecinos. \\
+\hline
+{\em pos} & Fila de la que provee fixed. \\
+\hline
+{\em max\+Row} & es el ínidice de la fila más cercana encontrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+el valor mínimo. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Ver también}
+double \mbox{\hyperlink{Euclidean_8h_a4f5825bcc562c6dabe6c136863aedeca}{Manual\+Euclidean\+Distance(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,unsigned int pos,unsigned int \&max\+Row)}};
+\end{DoxySeeAlso}
+Hacemos el cálculo de la distancia euclidea al cuadrado utilizando la librería Eigen ponderado por los pesos característicos calculados y ese resultado lo almacenamos en un vector resultante y iteramos sobre él en busca del segundo mínimo valor evitando que ese sea justo el de la posición especificada \char`\"{}pos\char`\"{}. \begin{DoxySeeAlso}{Ver también}
+\mbox{\hyperlink{Euclidean_8h_a4f5825bcc562c6dabe6c136863aedeca}{Manual\+Euclidean\+Distance(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,unsigned int pos, unsigned int \&max\+Row)}}; 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{Euclidean_8h_acdf9d105d2e503df5b99f19eddcaca28}\label{Euclidean_8h_acdf9d105d2e503df5b99f19eddcaca28}} 
+\index{Euclidean.h@{Euclidean.h}!ManualEuclideanDistanceType@{ManualEuclideanDistanceType}}
+\index{ManualEuclideanDistanceType@{ManualEuclideanDistanceType}!Euclidean.h@{Euclidean.h}}
+\doxysubsubsection{\texorpdfstring{ManualEuclideanDistanceType()}{ManualEuclideanDistanceType()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Manual\+Euclidean\+Distance\+Type (\begin{DoxyParamCaption}\item[{Eigen\+::\+Row\+Vector\+Xd}]{fixed,  }\item[{Eigen\+::\+Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{label,  }\item[{char}]{type,  }\item[{unsigned int}]{pos,  }\item[{unsigned int \&}]{max\+Row }\end{DoxyParamCaption})}
+
+
+
+Manual\+Euclidean\+Distance\+Type no-\/utiliza completamente la librería Eigen para calcular el menor vecino por fila, ya que ahora permitimos que fixed, esté contenido en data, y lo que hacemos es elegir el segundo mínimo perteneciente a una clase específica manualmente. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em weights} & es el vector de pesos característicos a multiplicar \\
+\hline
+{\em fixed} & Fila a buscar contenida en data. \\
+\hline
+{\em data} & Matrix de datos a verificar vecinos. \\
+\hline
+{\em label} & Vector de etiquetas. \\
+\hline
+{\em type} & Clase a buscar. \\
+\hline
+{\em pos} & Fila de la que provee fixed. \\
+\hline
+{\em max\+Row} & es el ínidice de la fila más cercana encontrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+el valor mínimo. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Ver también}
+double \mbox{\hyperlink{Euclidean_8h_a4f5825bcc562c6dabe6c136863aedeca}{Manual\+Euclidean\+Distance(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,unsigned int pos,unsigned int \&max\+Row)}};
+\end{DoxySeeAlso}
+Hacemos el cálculo de la distancia euclidea al cuadrado utilizando la librería Eigen y ese resultado lo almacenamos en un vector resultante y iteramos sobre él en busca del segundo mínimo valor evitando que ese sea justo el de la posición especificada \char`\"{}pos\char`\"{} y verificando que sea de tipo \char`\"{}type\char`\"{} con ayuda del vector de etiquetas \char`\"{}label\char`\"{} \begin{DoxySeeAlso}{Ver también}
+\mbox{\hyperlink{Euclidean_8h_a4f5825bcc562c6dabe6c136863aedeca}{Manual\+Euclidean\+Distance(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,unsigned int pos, unsigned int \&max\+Row)}}; 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{Euclidean_8h_ac249d23e7dedd767338fd2733fe88c0c}\label{Euclidean_8h_ac249d23e7dedd767338fd2733fe88c0c}} 
+\index{Euclidean.h@{Euclidean.h}!ManualEuclideanDistanceType@{ManualEuclideanDistanceType}}
+\index{ManualEuclideanDistanceType@{ManualEuclideanDistanceType}!Euclidean.h@{Euclidean.h}}
+\doxysubsubsection{\texorpdfstring{ManualEuclideanDistanceType()}{ManualEuclideanDistanceType()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Manual\+Euclidean\+Distance\+Type (\begin{DoxyParamCaption}\item[{Eigen\+::\+Row\+Vector\+Xd}]{weights,  }\item[{Eigen\+::\+Row\+Vector\+Xd}]{fixed,  }\item[{Eigen\+::\+Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{label,  }\item[{char}]{type,  }\item[{unsigned int}]{pos,  }\item[{unsigned int \&}]{max\+Row }\end{DoxyParamCaption})}
+
+
+
+Manual\+Euclidean\+Distance\+Type no-\/utiliza completamente la librería Eigen para calcular el menor vecino por fila, ya que ahora permitimos que fixed, esté contenido en data, y lo que hacemos es elegir el segundo mínimo ponderado por el vector de características y perteneciente a una clase específica manualmente. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em weights} & es el vector de pesos característicos a multiplicar \\
+\hline
+{\em fixed} & Fila a buscar contenida en data. \\
+\hline
+{\em data} & Matrix de datos a verificar vecinos. \\
+\hline
+{\em label} & Vector de etiquetas. \\
+\hline
+{\em type} & Clase a buscar. \\
+\hline
+{\em pos} & Fila de la que provee fixed. \\
+\hline
+{\em max\+Row} & es el ínidice de la fila más cercana encontrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+el valor mínimo. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Ver también}
+double \mbox{\hyperlink{Euclidean_8h_acdf9d105d2e503df5b99f19eddcaca28}{Manual\+Euclidean\+Distance\+Type(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,vector$<$char$>$label, char type, unsigned int pos, unsigned int \&max\+Row)}};
+\end{DoxySeeAlso}
+Hacemos el cálculo de la distancia euclidea al cuadrado utilizando la librería Eigen multiplicado por el vector de características calculado, y ese resultado lo almacenamos en un vector resultante y iteramos sobre él en busca del segundo mínimo valor evitando que ese sea justo el de la posición especificada \char`\"{}pos\char`\"{} y verificando que sea de tipo \char`\"{}type\char`\"{} con ayuda del vector de etiquetas \char`\"{}label\char`\"{} \begin{DoxySeeAlso}{Ver también}
+double \mbox{\hyperlink{Euclidean_8h_acdf9d105d2e503df5b99f19eddcaca28}{Manual\+Euclidean\+Distance\+Type(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,      vector$<$char$>$ label, char type,unsigned int pos, unsigned int \&max\+Row)}}; 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}\label{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}} 
+\index{Euclidean.h@{Euclidean.h}!minEuclideanDistance@{minEuclideanDistance}}
+\index{minEuclideanDistance@{minEuclideanDistance}!Euclidean.h@{Euclidean.h}}
+\doxysubsubsection{\texorpdfstring{minEuclideanDistance()}{minEuclideanDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double min\+Euclidean\+Distance (\begin{DoxyParamCaption}\item[{Eigen\+::\+Row\+Vector\+Xd}]{fixed,  }\item[{Eigen\+::\+Matrix\+Xd}]{data,  }\item[{Eigen\+::\+Matrix\+Xd\+::\+Index \&}]{max\+Row }\end{DoxyParamCaption})}
+
+
+
+min\+Euclidean\+Distance utiliza la librería Eigen para calcular el menor vecino por fila desde una fila \char`\"{}fixed\char`\"{} NO contenida en data. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em fixed} & Fila a buscar NO contenida en data. \\
+\hline
+{\em data} & Matrix de datos a verificar vecinos. \\
+\hline
+{\em max\+Row} & es el ínidice de la fila más cercana encontrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+el valor mínimo.
+\end{DoxyReturn}
+Usando la librería Eigen sabemos que podemos restarle a una fila un vector de tipe Row\+Vector\+Xd si activamos el calculo por filas con .rowwise() y además ese resultado podemos concatenarlo en vez de almacenarlo y llamar ahora a .squared\+Norm() que calcula la distancia euclidea al cuadrado. Sin embargo, también hemos de decir que la queremos por filas y no por columnas. Luego a continuación hacemos una llamada a min\+Coeff() que busca el valor mínimo resultante de las operaciones realizadas. \mbox{\Hypertarget{Euclidean_8h_a5d0dd7bbe04f5f18dc592a11c536bb6b}\label{Euclidean_8h_a5d0dd7bbe04f5f18dc592a11c536bb6b}} 
+\index{Euclidean.h@{Euclidean.h}!minEuclideanDistance@{minEuclideanDistance}}
+\index{minEuclideanDistance@{minEuclideanDistance}!Euclidean.h@{Euclidean.h}}
+\doxysubsubsection{\texorpdfstring{minEuclideanDistance()}{minEuclideanDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double min\+Euclidean\+Distance (\begin{DoxyParamCaption}\item[{Eigen\+::\+Row\+Vector\+Xd}]{weights,  }\item[{Eigen\+::\+Row\+Vector\+Xd}]{fixed,  }\item[{Eigen\+::\+Matrix\+Xd}]{data,  }\item[{Eigen\+::\+Matrix\+Xd\+::\+Index \&}]{max\+Row }\end{DoxyParamCaption})}
+
+
+
+min\+Euclidean\+Distance utiliza la librería Eigen para calcular el menor vecino por fila desde una fila \char`\"{}fixed\char`\"{} NO contenida en data multiplicando las distancias por el vector de características que las pondera. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em weights} & es el vector de pesos característicos a multiplicar \\
+\hline
+{\em fixed} & Fila a buscar NO contenida en data. \\
+\hline
+{\em data} & Matrix de datos a verificar vecinos. \\
+\hline
+{\em max\+Row} & es el ínidice de la fila más cercana encontrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+el valor mínimo. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Ver también}
+\mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{min\+Euclidean\+Distance(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,\+Eigen\+::\+Matrix\+Xd\+::\+Index \&max\+Row)}};
+\end{DoxySeeAlso}
+Hacemos el calculo de la distancia euclidea al cuadrado pero ahora multiplicamos cada parámetro por su respectivo peso que pondera sus características. \begin{DoxySeeAlso}{Ver también}
+\mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{min\+Euclidean\+Distance(\+Eigen\+::\+Row\+Vector\+Xd fixed, Eigen\+::\+Matrix\+Xd data,\+Eigen\+::\+Matrix\+Xd\+::\+Index \&max\+Row)}} 
+\end{DoxySeeAlso}

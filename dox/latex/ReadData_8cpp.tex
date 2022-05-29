@@ -1,0 +1,112 @@
+\hypertarget{ReadData_8cpp}{}\doxysection{Referencia del Archivo src/\+Read\+Data.cpp}
+\label{ReadData_8cpp}\index{src/ReadData.cpp@{src/ReadData.cpp}}
+
+
+Funciones necesarias para la lectura y manejo de los datos y etiquetas. Es mejor utilizada con los demás includes como \mbox{\hyperlink{mytools_8h}{mytools.\+h}}.  
+
+
+{\ttfamily \#include \char`\"{}../tools/\+Read\+Data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/eigen-\/3.\+4.\+0/\+Eigen/\+Dense\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/random.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ReadData_8cpp_a180f0653ebd0d5cdf633574b8c8512d3}\label{ReadData_8cpp_a180f0653ebd0d5cdf633574b8c8512d3}} 
+using {\bfseries Random} = effolkronium\+::random\+\_\+static
+\end{DoxyCompactItemize}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{ReadData_8cpp_abdfd60b2dabf33b1de7720bceaea78dc}{get\+Class}} (Eigen\+::\+Matrix\+Xd data, vector$<$ char $>$ Label, char type)
+\begin{DoxyCompactList}\small\item\em get\+Class lo que nos devuelve es una matrix con los datos pertenecientes a una clase específica. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ReadData_8cpp_a18d1ea164d65b34e0971e329b23fc3f0}\label{ReadData_8cpp_a18d1ea164d65b34e0971e329b23fc3f0}} 
+Eigen\+::\+Matrix\+Xd {\bfseries get\+Class\+Labelled} (Eigen\+::\+Matrix\+Xd data, vector$<$ char $>$ Label, vector$<$ char $>$ \&new\+Label, char type)
+\item 
+void \mbox{\hyperlink{ReadData_8cpp_ac7830bddd694d4aeb550f74ffc23528d}{get\+Fold}} (Eigen\+::\+Matrix\+Xd data, vector$<$ char $>$ Label, Eigen\+::\+Matrix\+Xd \&training, vector$<$ char $>$ \&TLabel, Eigen\+::\+Matrix\+Xd \&test, vector$<$ char $>$ \&Tt\+Label, unsigned int num)
+\begin{DoxyCompactList}\small\item\em get\+Fold divide la matrix de datos \char`\"{}data\char`\"{} en dos matrices \char`\"{}tranning\char`\"{} y \char`\"{}test\char`\"{} con los datos pertenecientes a uno de los 5-\/folds que tenemos de desplazar un 20\% al grupo de test sobre el conjunto total \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ReadData_8cpp_a74e85088fcdeddd5575177adddcd564f}{get\+Foldby\+Loop}} (Eigen\+::\+Matrix\+Xd data, vector$<$ char $>$ Label, Eigen\+::\+Matrix\+Xd \&training, vector$<$ char $>$ \&TLabel, Eigen\+::\+Matrix\+Xd \&test, vector$<$ char $>$ \&Tt\+Label, unsigned int num)
+\begin{DoxyCompactList}\small\item\em get\+Foldby\+Loop divide la matrix de datos \char`\"{}data\char`\"{} en dos matrices \char`\"{}tranning\char`\"{} y \char`\"{}test\char`\"{} con los datos pertenecientes a uno de los 5-\/folds que tenemos de desplazar un 20\% al grupo de test sobre el conjunto total. A diferencia de \mbox{\hyperlink{ReadData_8h_a84ae2c8440383fed7b4006741e91cff3}{get\+Fold()}} intenta utilizar el \char`\"{}for-\/loop\char`\"{} de las etiquetas para asignar las filas. Sin embargo posee peor rendimiento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ReadData_8cpp_a996e2cf1dca6d6f6b2e5004fd6c8f789}{get\+Balanced\+Fold}} (Eigen\+::\+Matrix\+Xd group1, vector$<$ char $>$ label1, Eigen\+::\+Matrix\+Xd group2, vector$<$ char $>$ label2, Eigen\+::\+Matrix\+Xd \&training, vector$<$ char $>$ \&TLabel, Eigen\+::\+Matrix\+Xd \&test, vector$<$ char $>$ \&Tt\+Label, unsigned int num, long int seed)
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{ReadData_8cpp_aef11c31862b1e9d5623ad9611548fd14}{read\+Values}} (string filename, vector$<$ char $>$ \&label)
+\begin{DoxyCompactList}\small\item\em read\+Values es la función utilizada para leer los archivos \char`\"{}.\+arrf\char`\"{} de la práctia en una Matrix de la libreria \char`\"{}\+Eigen\char`\"{} y un vector de etiquetas \char`\"{}\+Label\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Funciones necesarias para la lectura y manejo de los datos y etiquetas. Es mejor utilizada con los demás includes como \mbox{\hyperlink{mytools_8h}{mytools.\+h}}. 
+
+\begin{DoxyVersion}{Versión}
+2.\+5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+09/05/2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autor}
+Brian Sena Simons 3º\+A-\/\+A2 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ [...]}
+\DoxyCodeLine{  RowVectorXd Weights = VectorXd::Constant(mat.cols(),1);}
+\DoxyCodeLine{  min = \mbox{\hyperlink{Euclidean_8cpp_ad065fd64357444d7792b80876fcfa41f}{minEuclideanDistance}}(Weights,mat.row(0), mat.block(row,0,upper\_row -\/ row,mat.cols()),index);}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}Prueba de obtención de clase concreta"{}} << endl;}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}Obteniendo filas tipo g "{}} << endl;}
+\DoxyCodeLine{  MatrixXd typeG = \mbox{\hyperlink{ReadData_8cpp_abdfd60b2dabf33b1de7720bceaea78dc}{getClass}}(mat,label,\textcolor{charliteral}{'g'});}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}Filas: "{}} << typeG.rows() << \textcolor{stringliteral}{"{} columnas: "{}} << typeG.cols()  << endl;}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"{}} << endl;}
+\DoxyCodeLine{[...]}
+
+\end{DoxyCode}
+ 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{ReadData_8cpp_a996e2cf1dca6d6f6b2e5004fd6c8f789}\label{ReadData_8cpp_a996e2cf1dca6d6f6b2e5004fd6c8f789}} 
+\index{ReadData.cpp@{ReadData.cpp}!getBalancedFold@{getBalancedFold}}
+\index{getBalancedFold@{getBalancedFold}!ReadData.cpp@{ReadData.cpp}}
+\doxysubsubsection{\texorpdfstring{getBalancedFold()}{getBalancedFold()}}
+{\footnotesize\ttfamily void get\+Balanced\+Fold (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xd}]{group1,  }\item[{vector$<$ char $>$}]{label1,  }\item[{Eigen\+::\+Matrix\+Xd}]{group2,  }\item[{vector$<$ char $>$}]{label2,  }\item[{Eigen\+::\+Matrix\+Xd \&}]{training,  }\item[{vector$<$ char $>$ \&}]{TLabel,  }\item[{Eigen\+::\+Matrix\+Xd \&}]{test,  }\item[{vector$<$ char $>$ \&}]{Tt\+Label,  }\item[{unsigned int}]{num,  }\item[{long int}]{seed }\end{DoxyParamCaption})}
+
+Hace lo mismo que \mbox{\hyperlink{ReadData_8cpp_ac7830bddd694d4aeb550f74ffc23528d}{get\+Fold()}} pero con un equilibrado de clase de por medio; Se utiliza \mbox{\hyperlink{ReadData_8cpp_abdfd60b2dabf33b1de7720bceaea78dc}{get\+Class()}} para obtener matrices correspondente a cada clase, se pasa a este método y lo para cada conjunto utiliza \mbox{\hyperlink{ReadData_8cpp_ac7830bddd694d4aeb550f74ffc23528d}{get\+Fold()}} para obtener su correspondente 80/20 y luego lo añade todo secuencialmente en el conjunto de entreno y testeo que luego a final son barajados. \mbox{\Hypertarget{ReadData_8cpp_abdfd60b2dabf33b1de7720bceaea78dc}\label{ReadData_8cpp_abdfd60b2dabf33b1de7720bceaea78dc}} 
+\index{ReadData.cpp@{ReadData.cpp}!getClass@{getClass}}
+\index{getClass@{getClass}!ReadData.cpp@{ReadData.cpp}}
+\doxysubsubsection{\texorpdfstring{getClass()}{getClass()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd get\+Class (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{Label,  }\item[{char}]{type }\end{DoxyParamCaption})}
+
+
+
+get\+Class lo que nos devuelve es una matrix con los datos pertenecientes a una clase específica. 
+
+La idea es iterar sobre el vector de etiquetas y cuando su valor coincida con el especificado por \char`\"{}type\char`\"{} introducimos en la matrix \char`\"{}res\char`\"{} la fila correspondiente para así calcular la matrix con apenas un tipo de clase. \mbox{\Hypertarget{ReadData_8cpp_ac7830bddd694d4aeb550f74ffc23528d}\label{ReadData_8cpp_ac7830bddd694d4aeb550f74ffc23528d}} 
+\index{ReadData.cpp@{ReadData.cpp}!getFold@{getFold}}
+\index{getFold@{getFold}!ReadData.cpp@{ReadData.cpp}}
+\doxysubsubsection{\texorpdfstring{getFold()}{getFold()}}
+{\footnotesize\ttfamily void get\+Fold (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{Label,  }\item[{Eigen\+::\+Matrix\+Xd \&}]{training,  }\item[{vector$<$ char $>$ \&}]{TLabel,  }\item[{Eigen\+::\+Matrix\+Xd \&}]{test,  }\item[{vector$<$ char $>$ \&}]{Tt\+Label,  }\item[{unsigned int}]{num }\end{DoxyParamCaption})}
+
+
+
+get\+Fold divide la matrix de datos \char`\"{}data\char`\"{} en dos matrices \char`\"{}tranning\char`\"{} y \char`\"{}test\char`\"{} con los datos pertenecientes a uno de los 5-\/folds que tenemos de desplazar un 20\% al grupo de test sobre el conjunto total 
+
+La idea es calcular el 20\% de la Matrix total y luego con ese valor ir estableciendo el \char`\"{}boundary\char`\"{} superior a copiar para la primera (o toda la parte del dataset de entreno cuando num=0, boundary = 80\%) y luego copiar lo que sigue a boundary hasta un 20\% más (boundary + size) en test y luego copiar devuelta lo que queda en tranning. Utilizamos la librería de Eigen para un mejor rendimiento. \mbox{\Hypertarget{ReadData_8cpp_a74e85088fcdeddd5575177adddcd564f}\label{ReadData_8cpp_a74e85088fcdeddd5575177adddcd564f}} 
+\index{ReadData.cpp@{ReadData.cpp}!getFoldbyLoop@{getFoldbyLoop}}
+\index{getFoldbyLoop@{getFoldbyLoop}!ReadData.cpp@{ReadData.cpp}}
+\doxysubsubsection{\texorpdfstring{getFoldbyLoop()}{getFoldbyLoop()}}
+{\footnotesize\ttfamily void get\+Foldby\+Loop (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{Label,  }\item[{Eigen\+::\+Matrix\+Xd \&}]{training,  }\item[{vector$<$ char $>$ \&}]{TLabel,  }\item[{Eigen\+::\+Matrix\+Xd \&}]{test,  }\item[{vector$<$ char $>$ \&}]{Tt\+Label,  }\item[{unsigned int}]{num }\end{DoxyParamCaption})}
+
+
+
+get\+Foldby\+Loop divide la matrix de datos \char`\"{}data\char`\"{} en dos matrices \char`\"{}tranning\char`\"{} y \char`\"{}test\char`\"{} con los datos pertenecientes a uno de los 5-\/folds que tenemos de desplazar un 20\% al grupo de test sobre el conjunto total. A diferencia de \mbox{\hyperlink{ReadData_8h_a84ae2c8440383fed7b4006741e91cff3}{get\+Fold()}} intenta utilizar el \char`\"{}for-\/loop\char`\"{} de las etiquetas para asignar las filas. Sin embargo posee peor rendimiento. 
+
+La idea es calcular el 20\% de la Matrix total y luego con ese valor ir estableciendo el \char`\"{}boundary\char`\"{} superior a copiar para la primera (o toda la parte del dataset de entreno cuando num=0, boundary = 80\%) y luego copiar lo que sigue a boundary hasta un 20\% más (boundary + size) en test y luego copiar devuelta lo que queda en tranning. Pero en este caso no utilizamos las facilidades de la librería Eigen si no que apenas calculamos el tamaño total de las matrices a rellenar y vamos iterando a la vez que creamos las etiquetas adecuadas. \mbox{\Hypertarget{ReadData_8cpp_aef11c31862b1e9d5623ad9611548fd14}\label{ReadData_8cpp_aef11c31862b1e9d5623ad9611548fd14}} 
+\index{ReadData.cpp@{ReadData.cpp}!readValues@{readValues}}
+\index{readValues@{readValues}!ReadData.cpp@{ReadData.cpp}}
+\doxysubsubsection{\texorpdfstring{readValues()}{readValues()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd read\+Values (\begin{DoxyParamCaption}\item[{string}]{filename,  }\item[{vector$<$ char $>$ \&}]{label }\end{DoxyParamCaption})}
+
+
+
+read\+Values es la función utilizada para leer los archivos \char`\"{}.\+arrf\char`\"{} de la práctia en una Matrix de la libreria \char`\"{}\+Eigen\char`\"{} y un vector de etiquetas \char`\"{}\+Label\char`\"{}. 
+
+Leemos y utilizamos los \char`\"{}@attribute\char`\"{} del archivo para calcular el tamaño de las columnas de la matrix a rellenar. Luego al leer \char`\"{}@data\char`\"{} lo que haremos es empezar el bucle de rellenado. Dónde en este lo que hacemos es leer un número y una coma, insertar el número en un vector hasta que se alcanze la cantidad de valores calculadas. Luego lo insertamos en la última fila de la matrix y la incrementamos de tamaño para la siguiente iteración. Así hasta que terminemos de leer el archivo. 

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Práctica de Metaheurística: ** &lt;em&gt;Brian Sena Simons 3ºA - A2&lt;/em&gt; **</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Práctica de Metaheurística<span id="projectnumber">&#160;1</span>
+   </div>
+   <div id="projectbrief">APC Clasification Problem, Greedy vs LocalSearch</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">** <em>Brian Sena Simons 3ºA - A2</em> ** </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p ><a class="anchor" id="md_README"></a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Práctica 2 - MetaHeurística</h1>
+<h3><a class="anchor" id="autotoc_md2"></a>
+- Utilize el "cmake CMakeLists.txt &amp;&amp; make" para compilar;</h3>
+<h3><a class="anchor" id="autotoc_md3"></a>
+- Los algoritmos pueden ser ejecutados utilizando los scripts en ./scripts {Ej. runAll.sh}</h3>
+<ul>
+<li>Para los scripts varian:<ul>
+<li>EST -&gt; Es necesario una semilla, si barajamos los datos(0-2)[ARG6] y el tipo de cruce(0-1)[ARG7]</li>
+<li>GEN -&gt; Es necesario una semilla, si barajamos los datos(0-2)[ARG6] y el tipo de cruce(0-1)[ARG7] y selección(0-2)[ARG9].</li>
+</ul>
+</li>
+<li>Si se quiere ejecutar con búsqueda local es necesario añadir cada cuantas generaciones, el porcentage de población de 0.0 al 1.0 y si es 0=aleatorio 1=LosMejores. (ARG11-13).</li>
+<li>Ejecutar un ./runAGEST-all.sh o el otro tarda alrededor de 4 minutos. -Ejemplo estacionario sin barajar con cruce artimético: ./runAGEST-all.sh 150421 0 1 -Ejemplo generacional sin barajar con cruce artimético de los mejores padres: ./runAGGEN-all.sh 150421 0 1 2 -Ejemplo estacionario sin barajar con cruce artimético memético: ./runAGEST-ls-all.sh 150421 0 1 10 0.1 0 -Ejemplo generacional sin barajar con cruce artimético de los mejores padres memético: ./runAGGEN-ls-all.sh 150421 0 1 2 10 0.1 0</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md4"></a>
+- Los resultados se guardan en ./results;</h3>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Ejecución individual:</h2>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Algoritmo Generacional:</h3>
+<ul>
+<li>./AGGEN (filename) (label1)[char] (label2)[char] (0=Print/1=WriteFile/2=Write+Plot_data) (seed)[-∞,∞] (0=No/1=Shuffle/2=Balanced) (0=BLX/1=ARITHMETIC) (POP.SIZE)[0,∞] (0=RandomOnly,1=RandomKeepBestCross/1=TopKeepBestCross) (0=No/1=LocalSearch) {LOCALSEARCH OPTIONAL: (HowOften)[0,inf] (POP.Percentage)[0.0,1.0] (0=RandomSearch/1=OnlyBestSearch)};<ul>
+<li>Arg1 = filename -&gt; nombre del archivo de datos.</li>
+<li>Arg2 = label1 -&gt; etiqueta del primer grupo del conjunto de datos de tipo char.</li>
+<li>Arg3 = label2 -&gt; etiqueta del segundo grupo del conjunto de datos de tipo char.</li>
+<li>Arg4 = Bus -&gt; 0 es imprimir por pantalla, 1 es escribir a ./results y 2 es escribir también a ./resutls/plots.</li>
+<li>Arg5 = seed -&gt; semilla para el generador aleatorio.</li>
+<li>Arg6 = Preprocesar los datos -&gt; 0 es Normal, 1 es Barajado y 2 es equilibrio de clase.</li>
+<li>Arg7 = Cruce -&gt; 0 es el cruce BLX-alpha y 1 es el cruce Aritmético</li>
+<li>Arg8 = Pop. Size -&gt; Tamaño de la población.</li>
+<li>Arg9 = Quiénes cruzan -&gt; 0 cruzamos aleatoriamente y lo que falte por llenar de la población será los que no cruzaron, 1 cruzamos aleatoriamente y nos quedamos también con el mejor padre, 1 cruzamos apenas lo mejores padres. (TODOS MANTIENEN EL ELITISMO).</li>
+<li>Arg10 = Búsqueda Local -&gt; 0 es sin búsqueda y 1 es con búsqueda.</li>
+<li>Argumentos opcionales:<ul>
+<li>Arg11 = HowOften -&gt; Cada cuántas generaciones hacemos la búsqueda, Arg10 tiene que ser 1.</li>
+<li>Arg12 = Pop.Percentage -&gt; A qué porcentaje de la población le aplico la búsqueda.</li>
+<li>Arg13 = A quiénes -&gt; 0 es búsqueda a los seleccionados aleatoriamente y 1 a los mejores.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>./AGEST (filename) (label1)[char] (label2)[char] (0=Print/1=WriteFile/2=Write+Plot_data) (seed)[-∞,∞] (0=No/1=Shuffle/2=Balanced) (0=BLX/1=ARITHMETIC) (POP.SIZE)[0,∞] (0=No/1=LocalSearch) {LOCALSEARCH OPTIONAL: (HowOften)[0,inf] (POP.Percentage)[0.0,1.0] (0=RandomSearch/1=OnlyBestSearch)};<ul>
+<li>Es lo mismo pero sin el ARG9, ya que se elige dos padres al azar y se cruzan directamente;</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Descripción breve del Problema</h2>
+<p >La idea es comparar distintos tipos de algoritmos para clasificar datos pertenecientes a una base de datos públicas que nos provee el profesorado. Partiremos primero de la implementación del típico algoritmo de clasficación K-NN dónde K representa el número de vecinos a mirar y la idea conceptual es buscar los K vecinos más cercanos para realizar una predicción sobre que clase pertenece el objeto a predecir.</p>
+<p >Una vez implementado el algoritmo 1NN intentaremos mejorar el porcentaje de aciertos utilizando técnicas de ponderación de características mediante un vector de pesos. El grueso de la práctica está en el cálculo de esos pesos. En esta parte de la práctica compararemos los algoritmos empleados anteriormente (1NN, Greedy, búsqueda local) con unas variaciones genéticas y meméticas.</p>
+<p >La primera de ella consiste en generar toda una nueva población de datos a partir de soluciones aleatorias utilizando operadores de cruces como lo es el BLX-alpha, que calcula un intervalo de valores a generar para explorar el vecindario, y el cruce aritmético que es una media ponderada de la característica a calcular (Columna o gen en concreto al que se aplica). Luego aplicaremos una mutación con una Probabilidad de 0.1 a uno o varios genes de una solución.</p>
+<p >La segunda implemetación consiste en generar dos nuevas soluciones a partir de dos padres aleatorios, mutarlas y que compitan para entrar de vuelta a la población original, es decir, deben de tener mejor valor de función.</p>
+<p >La última implementación, la versión memética, consiste en submeter esos algoritmos a la búsqueda local cada cierto número de generación y observar el comportamiento. Una vez desarrollado toda la práctica y obtengamos todos los datos podemos proceder a realizar un análisis profundo de las diferencias. </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

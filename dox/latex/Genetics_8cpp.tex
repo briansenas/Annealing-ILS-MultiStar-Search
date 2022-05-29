@@ -1,0 +1,80 @@
+\hypertarget{Genetics_8cpp}{}\doxysection{Referencia del Archivo src/\+Genetics.cpp}
+\label{Genetics_8cpp}\index{src/Genetics.cpp@{src/Genetics.cpp}}
+
+
+Funciones diferentes que pueda necesitar para el desarrollo de los algoritmos geneticos.  
+
+
+{\ttfamily \#include \char`\"{}../tools/\+Genetics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/eigen-\/3.\+4.\+0/\+Eigen/\+Dense\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/random.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Genetics_8cpp_a180f0653ebd0d5cdf633574b8c8512d3}\label{Genetics_8cpp_a180f0653ebd0d5cdf633574b8c8512d3}} 
+using {\bfseries Random} = effolkronium\+::random\+\_\+static
+\end{DoxyCompactItemize}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Genetics_8cpp_a90314ca1d107b193d87b5b17bb3381b0}\label{Genetics_8cpp_a90314ca1d107b193d87b5b17bb3381b0}} 
+void {\bfseries Arithmetic\+Cross} (Row\+Vector\+Xd parent1, Row\+Vector\+Xd parent2, Row\+Vector\+Xd \&res1, Row\+Vector\+Xd \&res2, long int seed)
+\item 
+\mbox{\Hypertarget{Genetics_8cpp_ad0805e68d9bd02f7aeb020168b3134f9}\label{Genetics_8cpp_ad0805e68d9bd02f7aeb020168b3134f9}} 
+void {\bfseries BLXCross} (Row\+Vector\+Xd parent1, Row\+Vector\+Xd parent2, Row\+Vector\+Xd \&res1, Row\+Vector\+Xd \&res2, float alpha, long int seed)
+\item 
+Row\+Vector\+Xd \mbox{\hyperlink{Genetics_8cpp_a6ed6a2762d3c5aace68adb2df0df648f}{get\+Fit}} (Matrix\+Xd data, vector$<$ char $>$ Tlabel, Matrix\+Xd \&Solutions, float alpha)
+\item 
+Row\+Vector\+Xd \mbox{\hyperlink{Genetics_8cpp_a382db52b2cdfce72ad797cd67cb37ee9}{get\+Fit}} (Matrix\+Xd data, vector$<$ char $>$ Tlabel, Matrix\+Xd \&Solutions, Matrix\+Xd \&Gen\+Data, float alpha)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Funciones diferentes que pueda necesitar para el desarrollo de los algoritmos geneticos. 
+
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+09/05/2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autor}
+Brian Sena Simons 3º\+A-\/\+A2 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ [...]}
+\DoxyCodeLine{  \textcolor{keywordflow}{for}(i=0,size=Cruzes;i<size;++i)\{}
+\DoxyCodeLine{      BLXCross(Solutions.row(pair),Solutions.row(pair + 1),Cross1,Cross2);}
+\DoxyCodeLine{      NewPoblation.row(nuevos) = Cross1;}
+\DoxyCodeLine{      NewPoblation.row(nuevos+1) = Cross2;}
+\DoxyCodeLine{      NewPoblation.row(nuevos+2) = (Fitness(pair)>Fitness(pair+1))? Solutions.row(pair) : Solutions.row(pair+1);}
+\DoxyCodeLine{      pair+=2;}
+\DoxyCodeLine{      nuevos+=3;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{[...]}
+
+\end{DoxyCode}
+ 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{Genetics_8cpp_a6ed6a2762d3c5aace68adb2df0df648f}\label{Genetics_8cpp_a6ed6a2762d3c5aace68adb2df0df648f}} 
+\index{Genetics.cpp@{Genetics.cpp}!getFit@{getFit}}
+\index{getFit@{getFit}!Genetics.cpp@{Genetics.cpp}}
+\doxysubsubsection{\texorpdfstring{getFit()}{getFit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Row\+Vector\+Xd get\+Fit (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{Tlabel,  }\item[{Matrix\+Xd \&}]{Solutions,  }\item[{float}]{alpha }\end{DoxyParamCaption})}
+
+Truncamos los pesos a 0 y 1; Contamos las reducciones a 0.
+
+Verificamos el porcentaje de acierto obtenido con la modificación.\mbox{\Hypertarget{Genetics_8cpp_a382db52b2cdfce72ad797cd67cb37ee9}\label{Genetics_8cpp_a382db52b2cdfce72ad797cd67cb37ee9}} 
+\index{Genetics.cpp@{Genetics.cpp}!getFit@{getFit}}
+\index{getFit@{getFit}!Genetics.cpp@{Genetics.cpp}}
+\doxysubsubsection{\texorpdfstring{getFit()}{getFit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Row\+Vector\+Xd get\+Fit (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{Tlabel,  }\item[{Matrix\+Xd \&}]{Solutions,  }\item[{Matrix\+Xd \&}]{Gen\+Data,  }\item[{float}]{alpha }\end{DoxyParamCaption})}
+
+Truncamos los pesos a 0 y 1; Contamos las reducciones a 0.
+
+Verificamos el porcentaje de acierto obtenido con la modificación.

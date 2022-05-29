@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wall -Wextra -O3 CMakeFiles/BMB.dir/src/BMB.cpp.o CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o CMakeFiles/BMB.dir/src/Util_mytools.cpp.o CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o -o bin/BMB 

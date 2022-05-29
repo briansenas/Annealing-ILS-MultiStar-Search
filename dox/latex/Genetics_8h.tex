@@ -1,0 +1,110 @@
+\hypertarget{Genetics_8h}{}\doxysection{Referencia del Archivo tools/\+Genetics.h}
+\label{Genetics_8h}\index{tools/Genetics.h@{tools/Genetics.h}}
+
+
+Should be used with the help of \mbox{\hyperlink{mytools_8h}{mytools.\+h}}.  
+
+
+{\ttfamily \#include \char`\"{}../inc/eigen-\/3.\+4.\+0/\+Eigen/\+Dense\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Euclidean.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mytools.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/random.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Genetics_8h_a180f0653ebd0d5cdf633574b8c8512d3}\label{Genetics_8h_a180f0653ebd0d5cdf633574b8c8512d3}} 
+using {\bfseries Random} = effolkronium\+::random\+\_\+static
+\end{DoxyCompactItemize}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Genetics_8h_acaa3c9401b41a0fc5d08b54d478ecdb2}\label{Genetics_8h_acaa3c9401b41a0fc5d08b54d478ecdb2}} 
+void {\bfseries Arithmetic\+Cross} (Row\+Vector\+Xd parent1, Row\+Vector\+Xd parent2, Row\+Vector\+Xd \&res1, Row\+Vector\+Xd \&res2, long int seed=-\/1)
+\item 
+\mbox{\Hypertarget{Genetics_8h_aa1cc5e06b8ba244b6c092e3292c95d4c}\label{Genetics_8h_aa1cc5e06b8ba244b6c092e3292c95d4c}} 
+void {\bfseries BLXCross} (Row\+Vector\+Xd parent1, Row\+Vector\+Xd parent2, Row\+Vector\+Xd \&res1, Row\+Vector\+Xd \&res2, float alpha=0.\+3, long int seed=-\/1)
+\item 
+\mbox{\Hypertarget{Genetics_8h_acfc41d7c3ec8014f317023854bfbf393}\label{Genetics_8h_acfc41d7c3ec8014f317023854bfbf393}} 
+void {\bfseries Mutate} (Matrix\+Xd $\ast$NP2, vector$<$ int $>$ \&index\+Grid, unsigned int Mutacion)
+\item 
+void \mbox{\hyperlink{Genetics_8h_af63dda46d83d8fb0983d20e98e17b113}{get\+Reduct\+Right}} (Matrix\+Xd data, vector$<$ char $>$ Tlabel, Row\+Vector\+Xd \&Weights, unsigned int \&right, unsigned int \&reduct)
+\item 
+\mbox{\Hypertarget{Genetics_8h_a0341300859aaa3644492de298190877d}\label{Genetics_8h_a0341300859aaa3644492de298190877d}} 
+int {\bfseries random\+Only} (Matrix\+Xd data, vector$<$ char $>$ Tlabel, Matrix\+Xd $\ast$P1, Matrix\+Xd $\ast$NP2, Matrix\+Xd \&Gen\+Data, int Cross\+Type, unsigned int Cruzes, unsigned int Mutacion)
+\item 
+\mbox{\Hypertarget{Genetics_8h_aefa91cd2c0c31aaa61c45e619967fd0f}\label{Genetics_8h_aefa91cd2c0c31aaa61c45e619967fd0f}} 
+int {\bfseries only\+Best\+Crossing} (Matrix\+Xd data, vector$<$ char $>$ Tlabel, Matrix\+Xd $\ast$P1, Matrix\+Xd $\ast$NP2, Matrix\+Xd \&Gen\+Data, int Cross\+Type, unsigned int Cruzes, unsigned int Mutacion)
+\item 
+\mbox{\Hypertarget{Genetics_8h_af9ed1d8bea6919101df80c2d73aa0c35}\label{Genetics_8h_af9ed1d8bea6919101df80c2d73aa0c35}} 
+int {\bfseries random\+Cross\+Keep\+Best} (Matrix\+Xd data, vector$<$ char $>$ Tlabel, Matrix\+Xd $\ast$P1, Matrix\+Xd $\ast$NP2, Matrix\+Xd \&Gen\+Data, int Cross\+Type, unsigned int Cruzes, unsigned int Mutacion)
+\item 
+Row\+Vector\+Xd \mbox{\hyperlink{Genetics_8h_a3593e1ce84acf5a770639d6411c98c1e}{get\+Only\+Fit}} (Matrix\+Xd data, vector$<$ char $>$ Tlabel, Matrix\+Xd \&Solutions, float alpha=0.\+5)
+\item 
+Row\+Vector\+Xd \mbox{\hyperlink{Genetics_8h_a3d9f261a5a4362062aa818e13008c788}{get\+Fit}} (Matrix\+Xd data, vector$<$ char $>$ Tlabel, Matrix\+Xd \&Solutions, Matrix\+Xd \&Gen\+Data, float alpha=0.\+5)
+\item 
+\mbox{\Hypertarget{Genetics_8h_a6098a2f410e0c7254e0dce9566524fbb}\label{Genetics_8h_a6098a2f410e0c7254e0dce9566524fbb}} 
+Row\+Vector\+Xd {\bfseries get1\+Fit} (Matrix\+Xd data, vector$<$ char $>$ Tlabel, Row\+Vector\+Xd \&Weights, float alpha=0.\+5)
+\item 
+Row\+Vector\+Xd \mbox{\hyperlink{Genetics_8h_af0dbfbb876e5f5a4c163b92614bce384}{Local\+Search}} (Matrix\+Xd all\+Data, vector$<$ char $>$ label, Row\+Vector\+Xd Weights, unsigned int \&eval\+\_\+num, unsigned int max\+\_\+eval, unsigned int max\+Til\+Better, vector$<$ float $>$ \&fitness, float alpha=0.\+5, long int seed=1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Should be used with the help of \mbox{\hyperlink{mytools_8h}{mytools.\+h}}. 
+
+\begin{DoxyVersion}{Versión}
+2.\+3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+09/04/2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autor}
+Brian Sena Simons 3º\+A-\/\+A2 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main()\{}
+\DoxyCodeLine{ [...]}
+\DoxyCodeLine{ Solutions = (MatrixXd::Random(Chromo,cols) + MatrixXd::Constant(Chromo,cols,1))/2.0;}
+\DoxyCodeLine{ \textcolor{comment}{// GET INITIAL FITNESS}}
+\DoxyCodeLine{ Fitness = \mbox{\hyperlink{Util__Genetics_8cpp_a382db52b2cdfce72ad797cd67cb37ee9}{getFit}}(allData,label, Solutions,0.5);}
+\DoxyCodeLine{ [..]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{Genetics_8h_a3d9f261a5a4362062aa818e13008c788}\label{Genetics_8h_a3d9f261a5a4362062aa818e13008c788}} 
+\index{Genetics.h@{Genetics.h}!getFit@{getFit}}
+\index{getFit@{getFit}!Genetics.h@{Genetics.h}}
+\doxysubsubsection{\texorpdfstring{getFit()}{getFit()}}
+{\footnotesize\ttfamily Row\+Vector\+Xd get\+Fit (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{Tlabel,  }\item[{Matrix\+Xd \&}]{Solutions,  }\item[{Matrix\+Xd \&}]{Gen\+Data,  }\item[{float}]{alpha = {\ttfamily 0.5} }\end{DoxyParamCaption})}
+
+Truncamos los pesos a 0 y 1; Contamos las reducciones a 0.\mbox{\Hypertarget{Genetics_8h_a3593e1ce84acf5a770639d6411c98c1e}\label{Genetics_8h_a3593e1ce84acf5a770639d6411c98c1e}} 
+\index{Genetics.h@{Genetics.h}!getOnlyFit@{getOnlyFit}}
+\index{getOnlyFit@{getOnlyFit}!Genetics.h@{Genetics.h}}
+\doxysubsubsection{\texorpdfstring{getOnlyFit()}{getOnlyFit()}}
+{\footnotesize\ttfamily Row\+Vector\+Xd get\+Only\+Fit (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{Tlabel,  }\item[{Matrix\+Xd \&}]{Solutions,  }\item[{float}]{alpha = {\ttfamily 0.5} }\end{DoxyParamCaption})}
+
+Truncamos los pesos a 0 y 1; Contamos las reducciones a 0.\mbox{\Hypertarget{Genetics_8h_af63dda46d83d8fb0983d20e98e17b113}\label{Genetics_8h_af63dda46d83d8fb0983d20e98e17b113}} 
+\index{Genetics.h@{Genetics.h}!getReductRight@{getReductRight}}
+\index{getReductRight@{getReductRight}!Genetics.h@{Genetics.h}}
+\doxysubsubsection{\texorpdfstring{getReductRight()}{getReductRight()}}
+{\footnotesize\ttfamily void get\+Reduct\+Right (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{data,  }\item[{vector$<$ char $>$}]{Tlabel,  }\item[{Row\+Vector\+Xd \&}]{Weights,  }\item[{unsigned int \&}]{right,  }\item[{unsigned int \&}]{reduct }\end{DoxyParamCaption})}
+
+Verificamos el porcentaje de acierto obtenido con la modificación.\mbox{\Hypertarget{Genetics_8h_af0dbfbb876e5f5a4c163b92614bce384}\label{Genetics_8h_af0dbfbb876e5f5a4c163b92614bce384}} 
+\index{Genetics.h@{Genetics.h}!LocalSearch@{LocalSearch}}
+\index{LocalSearch@{LocalSearch}!Genetics.h@{Genetics.h}}
+\doxysubsubsection{\texorpdfstring{LocalSearch()}{LocalSearch()}}
+{\footnotesize\ttfamily Row\+Vector\+Xd Local\+Search (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{all\+Data,  }\item[{vector$<$ char $>$}]{label,  }\item[{Row\+Vector\+Xd}]{Weights,  }\item[{unsigned int \&}]{eval\+\_\+num,  }\item[{unsigned int}]{max\+\_\+eval,  }\item[{unsigned int}]{max\+Til\+Better,  }\item[{vector$<$ float $>$ \&}]{fitness,  }\item[{float}]{alpha = {\ttfamily 0.5},  }\item[{long int}]{seed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Modificamos el indice barajado correspondiente para modificar los pesos.
+
+Si hemos modificados volvemos a barajar.
+
+Evaluamos la función.
+
+Verificamos si hemos mejorado, actuamos acorde.

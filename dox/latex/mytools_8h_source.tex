@@ -1,0 +1,69 @@
+\hypertarget{mytools_8h_source}{}\doxysection{mytools.\+h}
+\label{mytools_8h_source}\index{tools/mytools.h@{tools/mytools.h}}
+\mbox{\hyperlink{mytools_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef MYTOOLS\_H}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define MYTOOLS\_H}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../inc/eigen-\/3.4.0/Eigen/Dense"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}../inc/random.hpp"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{30 \textcolor{keyword}{using namespace }Eigen;}
+\DoxyCodeLine{31 \textcolor{keyword}{using namespace }std::chrono;}
+\DoxyCodeLine{32 \textcolor{keyword}{using} Random = effolkronium::random\_static;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{39 \textcolor{keywordtype}{void} \mbox{\hyperlink{mytools_8h_ad81243b382bfc2358283ab0091c972c3}{fillRange}}(vector<int>\& toFill,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} upperlimit);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{50 \textcolor{keywordtype}{void} \mbox{\hyperlink{mytools_8h_a29d852399058fecfd4506ac5173a8c2f}{shuffleData}}(MatrixXd\& mat,vector<char>\& label,\textcolor{keywordtype}{long} \textcolor{keywordtype}{int} seed);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{comment}{/*}}
+\DoxyCodeLine{53 \textcolor{comment}{ * @brief shuffleFit utiliza el archivo "{}random.hpp"{} y la librería Eigen para}}
+\DoxyCodeLine{54 \textcolor{comment}{ * barajar tanto la matriz "{}mat"{} como el vector "{}fitness"{} de la misma forma}}
+\DoxyCodeLine{55 \textcolor{comment}{ * manteniendo las relaciones entre los índices de cada.}}
+\DoxyCodeLine{56 \textcolor{comment}{ * @param mat Matrix a permutar filas}}
+\DoxyCodeLine{57 \textcolor{comment}{ * @param fitness Vector de puntación a permutar columnas}}
+\DoxyCodeLine{58 \textcolor{comment}{ * @param seed Semilla a utilizar para la función Random}}
+\DoxyCodeLine{59 \textcolor{comment}{ */}}
+\DoxyCodeLine{60 \textcolor{keywordtype}{void} shuffleFit(MatrixXd\& mat,RowVectorXd\& fitness, \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} seed);}
+\DoxyCodeLine{61 \textcolor{keywordtype}{void} shuffleFit(MatrixXd\& mat, MatrixXd\& GenData, \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} seed);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{comment}{/*}}
+\DoxyCodeLine{64 \textcolor{comment}{ * @brief Es la función más trivial de las que tenemos de barajar,}}
+\DoxyCodeLine{65 \textcolor{comment}{ * dónde el objetivo es apenas permutar las filas de la matriz sin tener}}
+\DoxyCodeLine{66 \textcolor{comment}{ * nada en cuenta;}}
+\DoxyCodeLine{67 \textcolor{comment}{ * @param mat Matriz a permutar las filas}}
+\DoxyCodeLine{68 \textcolor{comment}{ * @param seed Semilla para la función Random}}
+\DoxyCodeLine{69 \textcolor{comment}{ */}}
+\DoxyCodeLine{70 \textcolor{keywordtype}{void} shuffleOnly(MatrixXd\& mat, \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} seed);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{79 Eigen::MatrixXd \mbox{\hyperlink{mytools_8h_a3176dc33dc79b493d699596ece0e1ef7}{removeRow}}(Eigen::MatrixXd matrix, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} rowToRemove);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{88 Eigen::MatrixXd \mbox{\hyperlink{mytools_8h_ab11c0c6f48347a29e1906bf38cb41131}{removeCol}}(Eigen::MatrixXd matrix, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} colToRemove);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{comment}{/*}}
+\DoxyCodeLine{91 \textcolor{comment}{ * @brief Iteramos sobre el vector de puntuación y devolvemos un vector de}}
+\DoxyCodeLine{92 \textcolor{comment}{ * tamaño size con los índices de los "{}size"{} primeros mejores valores.}}
+\DoxyCodeLine{93 \textcolor{comment}{ * @param Fitness Vector a iterar.}}
+\DoxyCodeLine{94 \textcolor{comment}{ * @param indexGrid Índices resultantes.}}
+\DoxyCodeLine{95 \textcolor{comment}{ * @param size Número de posiciones a computar.}}
+\DoxyCodeLine{96 \textcolor{comment}{ */}}
+\DoxyCodeLine{97 \textcolor{keywordtype}{void} getBest(RowVectorXd Fitness,vector<int>\& indexGrid,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{98 \textcolor{keywordtype}{void} getBest(MatrixXd GenData,vector<int>\& indexGrid,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{comment}{/*}}
+\DoxyCodeLine{101 \textcolor{comment}{ * @brief Calcula el path del ejecutable para poder obtener la dirección de la}}
+\DoxyCodeLine{102 \textcolor{comment}{ * carpeta results.}}
+\DoxyCodeLine{103 \textcolor{comment}{ */}}
+\DoxyCodeLine{104 \textcolor{keywordtype}{string} get\_selfpath();}
+\DoxyCodeLine{105 \textcolor{comment}{/*}}
+\DoxyCodeLine{106 \textcolor{comment}{ * @brief Simplesmente dibuja la barra de progreso del código.}}
+\DoxyCodeLine{107 \textcolor{comment}{ */}}
+\DoxyCodeLine{108 \textcolor{keywordtype}{void} progress\_bar(\textcolor{keywordtype}{float} progress);}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

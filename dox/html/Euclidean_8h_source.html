@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Práctica de Metaheurística: Fichero Fuente tools/Euclidean.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Práctica de Metaheurística<span id="projectnumber">&#160;1</span>
+   </div>
+   <div id="projectbrief">APC Clasification Problem, Greedy vs LocalSearch</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4eeb864c4eec08c7d6b9d3b0352cfdde.html">tools</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Euclidean.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Euclidean_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifndef EUCLIDEAN_H</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define EUCLIDEAN_H</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;../inc/eigen-3.4.0/Eigen/Dense&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;../inc/random.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">using namespace </span>Eigen;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">using namespace </span>std::chrono;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">using</span> Random = effolkronium::random_static;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">double</span> <a class="code hl_function" href="Euclidean_8h.html#ad065fd64357444d7792b80876fcfa41f">minEuclideanDistance</a>(Eigen::RowVectorXd fixed, Eigen::MatrixXd data,Eigen::MatrixXd::Index &amp;maxRow);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">double</span> <a class="code hl_function" href="Euclidean_8h.html#ad065fd64357444d7792b80876fcfa41f">minEuclideanDistance</a>(Eigen::RowVectorXd weigths,Eigen::RowVectorXd fixed, Eigen::MatrixXd data,Eigen::MatrixXd::Index &amp;maxRow);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">double</span> <a class="code hl_function" href="Euclidean_8h.html#a4f5825bcc562c6dabe6c136863aedeca">ManualEuclideanDistance</a>(Eigen::RowVectorXd fixed, Eigen::MatrixXd data,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pos,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;maxRow);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">double</span> <a class="code hl_function" href="Euclidean_8h.html#a4f5825bcc562c6dabe6c136863aedeca">ManualEuclideanDistance</a>(Eigen::RowVectorXd weigths,Eigen::RowVectorXd fixed, Eigen::MatrixXd data,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pos, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;maxRow);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">double</span> <a class="code hl_function" href="Euclidean_8h.html#acdf9d105d2e503df5b99f19eddcaca28">ManualEuclideanDistanceType</a>(Eigen::RowVectorXd fixed, Eigen::MatrixXd data,vector&lt;char&gt;label, <span class="keywordtype">char</span> type, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pos, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;maxRow);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keywordtype">double</span> <a class="code hl_function" href="Euclidean_8h.html#acdf9d105d2e503df5b99f19eddcaca28">ManualEuclideanDistanceType</a>(Eigen::RowVectorXd weigths,Eigen::RowVectorXd fixed, Eigen::MatrixXd data,vector&lt;char&gt;label,<span class="keywordtype">char</span> type,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pos, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;maxRow);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aEuclidean_8h_html_a4f5825bcc562c6dabe6c136863aedeca"><div class="ttname"><a href="Euclidean_8h.html#a4f5825bcc562c6dabe6c136863aedeca">ManualEuclideanDistance</a></div><div class="ttdeci">double ManualEuclideanDistance(Eigen::RowVectorXd fixed, Eigen::MatrixXd data, unsigned int pos, unsigned int &amp;maxRow)</div><div class="ttdoc">ManualEuclideanDistance no-utiliza completamente la librería Eigen para calcular el menor vecino por ...</div><div class="ttdef"><b>Definition:</b> Util_Euclidean.cpp:62</div></div>
+<div class="ttc" id="aEuclidean_8h_html_acdf9d105d2e503df5b99f19eddcaca28"><div class="ttname"><a href="Euclidean_8h.html#acdf9d105d2e503df5b99f19eddcaca28">ManualEuclideanDistanceType</a></div><div class="ttdeci">double ManualEuclideanDistanceType(Eigen::RowVectorXd fixed, Eigen::MatrixXd data, vector&lt; char &gt;label, char type, unsigned int pos, unsigned int &amp;maxRow)</div><div class="ttdoc">ManualEuclideanDistanceType no-utiliza completamente la librería Eigen para calcular el menor vecino ...</div><div class="ttdef"><b>Definition:</b> Util_Euclidean.cpp:103</div></div>
+<div class="ttc" id="aEuclidean_8h_html_ad065fd64357444d7792b80876fcfa41f"><div class="ttname"><a href="Euclidean_8h.html#ad065fd64357444d7792b80876fcfa41f">minEuclideanDistance</a></div><div class="ttdeci">double minEuclideanDistance(Eigen::RowVectorXd fixed, Eigen::MatrixXd data, Eigen::MatrixXd::Index &amp;maxRow)</div><div class="ttdoc">minEuclideanDistance utiliza la librería Eigen para calcular el menor vecino por fila desde una fila ...</div><div class="ttdef"><b>Definition:</b> Util_Euclidean.cpp:41</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

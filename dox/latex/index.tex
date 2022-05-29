@@ -1,0 +1,52 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+\hypertarget{index_autotoc_md1}{}\doxysection{Práctica 2 -\/ Meta\+Heurística}\label{index_autotoc_md1}
+\hypertarget{index_autotoc_md2}{}\doxysubsubsection{-\/ Utilize el \char`\"{}cmake CMake\+Lists.\+txt \&\& make\char`\"{} para compilar;}\label{index_autotoc_md2}
+\hypertarget{index_autotoc_md3}{}\doxysubsubsection{-\/ Los algoritmos pueden ser ejecutados utilizando los scripts en ./scripts \{\+Ej. run\+All.\+sh\}}\label{index_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Para los scripts varian\+:
+\begin{DoxyItemize}
+\item EST -\/\texorpdfstring{$>$}{>} Es necesario una semilla, si barajamos los datos(0-\/2)\mbox{[}ARG6\mbox{]} y el tipo de cruce(0-\/1)\mbox{[}ARG7\mbox{]}
+\item GEN -\/\texorpdfstring{$>$}{>} Es necesario una semilla, si barajamos los datos(0-\/2)\mbox{[}ARG6\mbox{]} y el tipo de cruce(0-\/1)\mbox{[}ARG7\mbox{]} y selección(0-\/2)\mbox{[}ARG9\mbox{]}.
+\end{DoxyItemize}
+\item Si se quiere ejecutar con búsqueda local es necesario añadir cada cuantas generaciones, el porcentage de población de 0.\+0 al 1.\+0 y si es 0=aleatorio 1=Los\+Mejores. (ARG11-\/13).
+\item Ejecutar un ./run\+AGEST-\/all.sh o el otro tarda alrededor de 4 minutos. -\/Ejemplo estacionario sin barajar con cruce artimético\+: ./run\+AGEST-\/all.sh 150421 0 1 -\/Ejemplo generacional sin barajar con cruce artimético de los mejores padres\+: ./run\+AGGEN-\/all.sh 150421 0 1 2 -\/Ejemplo estacionario sin barajar con cruce artimético memético\+: ./run\+AGEST-\/ls-\/all.sh 150421 0 1 10 0.\+1 0 -\/Ejemplo generacional sin barajar con cruce artimético de los mejores padres memético\+: ./run\+AGGEN-\/ls-\/all.sh 150421 0 1 2 10 0.\+1 0
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsubsection{-\/ Los resultados se guardan en ./results;}\label{index_autotoc_md4}
+\hypertarget{index_autotoc_md5}{}\doxysubsection{Ejecución individual\+:}\label{index_autotoc_md5}
+\hypertarget{index_autotoc_md6}{}\doxysubsubsection{Algoritmo Generacional\+:}\label{index_autotoc_md6}
+
+\begin{DoxyItemize}
+\item ./\+AGGEN (filename) (label1)\mbox{[}char\mbox{]} (label2)\mbox{[}char\mbox{]} (0=Print/1=Write\+File/2=Write+\+Plot\+\_\+data) (seed)\mbox{[}-\/∞,∞\mbox{]} (0=No/1=Shuffle/2=Balanced) (0=BLX/1=ARITHMETIC) (POP.\+SIZE)\mbox{[}0,∞\mbox{]} (0=Random\+Only,1=Random\+Keep\+Best\+Cross/1=Top\+Keep\+Best\+Cross) (0=No/1=Local\+Search) \{LOCALSEARCH OPTIONAL\+: (How\+Often)\mbox{[}0,inf\mbox{]} (POP.\+Percentage)\mbox{[}0.\+0,1.\+0\mbox{]} (0=Random\+Search/1=Only\+Best\+Search)\};
+\begin{DoxyItemize}
+\item Arg1 = filename -\/\texorpdfstring{$>$}{>} nombre del archivo de datos.
+\item Arg2 = label1 -\/\texorpdfstring{$>$}{>} etiqueta del primer grupo del conjunto de datos de tipo char.
+\item Arg3 = label2 -\/\texorpdfstring{$>$}{>} etiqueta del segundo grupo del conjunto de datos de tipo char.
+\item Arg4 = Bus -\/\texorpdfstring{$>$}{>} 0 es imprimir por pantalla, 1 es escribir a ./results y 2 es escribir también a ./resutls/plots.
+\item Arg5 = seed -\/\texorpdfstring{$>$}{>} semilla para el generador aleatorio.
+\item Arg6 = Preprocesar los datos -\/\texorpdfstring{$>$}{>} 0 es Normal, 1 es Barajado y 2 es equilibrio de clase.
+\item Arg7 = Cruce -\/\texorpdfstring{$>$}{>} 0 es el cruce BLX-\/alpha y 1 es el cruce Aritmético
+\item Arg8 = Pop. Size -\/\texorpdfstring{$>$}{>} Tamaño de la población.
+\item Arg9 = Quiénes cruzan -\/\texorpdfstring{$>$}{>} 0 cruzamos aleatoriamente y lo que falte por llenar de la población será los que no cruzaron, 1 cruzamos aleatoriamente y nos quedamos también con el mejor padre, 1 cruzamos apenas lo mejores padres. (TODOS MANTIENEN EL ELITISMO).
+\item Arg10 = Búsqueda Local -\/\texorpdfstring{$>$}{>} 0 es sin búsqueda y 1 es con búsqueda.
+\item Argumentos opcionales\+:
+\begin{DoxyItemize}
+\item Arg11 = How\+Often -\/\texorpdfstring{$>$}{>} Cada cuántas generaciones hacemos la búsqueda, Arg10 tiene que ser 1.
+\item Arg12 = Pop.\+Percentage -\/\texorpdfstring{$>$}{>} A qué porcentaje de la población le aplico la búsqueda.
+\item Arg13 = A quiénes -\/\texorpdfstring{$>$}{>} 0 es búsqueda a los seleccionados aleatoriamente y 1 a los mejores.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item ./\+AGEST (filename) (label1)\mbox{[}char\mbox{]} (label2)\mbox{[}char\mbox{]} (0=Print/1=Write\+File/2=Write+\+Plot\+\_\+data) (seed)\mbox{[}-\/∞,∞\mbox{]} (0=No/1=Shuffle/2=Balanced) (0=BLX/1=ARITHMETIC) (POP.\+SIZE)\mbox{[}0,∞\mbox{]} (0=No/1=Local\+Search) \{LOCALSEARCH OPTIONAL\+: (How\+Often)\mbox{[}0,inf\mbox{]} (POP.\+Percentage)\mbox{[}0.\+0,1.\+0\mbox{]} (0=Random\+Search/1=Only\+Best\+Search)\};
+\begin{DoxyItemize}
+\item Es lo mismo pero sin el ARG9, ya que se elige dos padres al azar y se cruzan directamente;
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysubsection{Descripción breve del Problema}\label{index_autotoc_md7}
+La idea es comparar distintos tipos de algoritmos para clasificar datos pertenecientes a una base de datos públicas que nos provee el profesorado. Partiremos primero de la implementación del típico algoritmo de clasficación K-\/\+NN dónde K representa el número de vecinos a mirar y la idea conceptual es buscar los K vecinos más cercanos para realizar una predicción sobre que clase pertenece el objeto a predecir.
+
+Una vez implementado el algoritmo 1NN intentaremos mejorar el porcentaje de aciertos utilizando técnicas de ponderación de características mediante un vector de pesos. El grueso de la práctica está en el cálculo de esos pesos. En esta parte de la práctica compararemos los algoritmos empleados anteriormente (1NN, Greedy, búsqueda local) con unas variaciones genéticas y meméticas.
+
+La primera de ella consiste en generar toda una nueva población de datos a partir de soluciones aleatorias utilizando operadores de cruces como lo es el BLX-\/alpha, que calcula un intervalo de valores a generar para explorar el vecindario, y el cruce aritmético que es una media ponderada de la característica a calcular (Columna o gen en concreto al que se aplica). Luego aplicaremos una mutación con una Probabilidad de 0.\+1 a uno o varios genes de una solución.
+
+La segunda implemetación consiste en generar dos nuevas soluciones a partir de dos padres aleatorios, mutarlas y que compitan para entrar de vuelta a la población original, es decir, deben de tener mejor valor de función.
+
+La última implementación, la versión memética, consiste en submeter esos algoritmos a la búsqueda local cada cierto número de generación y observar el comportamiento. Una vez desarrollado toda la práctica y obtengamos todos los datos podemos proceder a realizar un análisis profundo de las diferencias. 

@@ -1,0 +1,42 @@
+\hypertarget{structeffolkronium_1_1details_1_1is__iterator}{}\doxysection{Referencia de la plantilla de la Estructura effolkronium\+::details\+::is\+\_\+iterator\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}}
+\label{structeffolkronium_1_1details_1_1is__iterator}\index{effolkronium::details::is\_iterator$<$ T $>$@{effolkronium::details::is\_iterator$<$ T $>$}}
+
+
+True if type T is iterator.  
+
+
+
+
+{\ttfamily \#include $<$random.\+hpp$>$}
+
+\doxysubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__iterator_a1fc43e8d147d445faab9d9c3c0dc7fa8}{value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$typename T$>$\newline
+struct effolkronium\+::details\+::is\+\_\+iterator$<$ T $>$}
+True if type T is iterator. 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{structeffolkronium_1_1details_1_1is__iterator_a1fc43e8d147d445faab9d9c3c0dc7fa8}\label{structeffolkronium_1_1details_1_1is__iterator_a1fc43e8d147d445faab9d9c3c0dc7fa8}} 
+\index{effolkronium::details::is\_iterator$<$ T $>$@{effolkronium::details::is\_iterator$<$ T $>$}!value@{value}}
+\index{value@{value}!effolkronium::details::is\_iterator$<$ T $>$@{effolkronium::details::is\_iterator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__iterator}{effolkronium\+::details\+::is\+\_\+iterator}}$<$ T $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= std::is\_same<}
+\DoxyCodeLine{                \textcolor{keyword}{decltype}( test( std::declval<T>( ) ) ), \textcolor{keywordtype}{long}>::value}
+
+\end{DoxyCode}
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+tools/random.\+hpp\end{DoxyCompactItemize}

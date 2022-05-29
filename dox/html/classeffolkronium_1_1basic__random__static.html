@@ -1,0 +1,1498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Práctica de Metaheurística: Referencia de la plantilla de la Clase effolkronium::basic_random_static&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Práctica de Metaheurística<span id="projectnumber">&#160;1</span>
+   </div>
+   <div id="projectbrief">APC Clasification Problem, Greedy vs LocalSearch</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>effolkronium</b></li><li class="navelem"><a class="el" href="classeffolkronium_1_1basic__random__static.html">basic_random_static</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Tipos públicos</a> &#124;
+<a href="#pub-static-methods">Métodos públicos estáticos</a> &#124;
+<a href="#pro-static-methods">Métodos protegidos estáticos</a> &#124;
+<a href="classeffolkronium_1_1basic__random__static-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la plantilla de la Clase effolkronium::basic_random_static&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Base template class for random with static API and static internal member storage.  
+ <a href="classeffolkronium_1_1basic__random__static.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="random_8hpp_source.html">random.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Tipos públicos</h2></td></tr>
+<tr class="memitem:aa02aeed3121850972f5d2e5c51f92219"><td class="memItemLeft" align="right" valign="top"><a id="aa02aeed3121850972f5d2e5c51f92219" name="aa02aeed3121850972f5d2e5c51f92219"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>engine_type</b> = Engine</td></tr>
+<tr class="memdesc:aa02aeed3121850972f5d2e5c51f92219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of used random number engine. <br /></td></tr>
+<tr class="separator:aa02aeed3121850972f5d2e5c51f92219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa21ab20da546a509e9aba1afeca712d7"><td class="memItemLeft" align="right" valign="top"><a id="aa21ab20da546a509e9aba1afeca712d7" name="aa21ab20da546a509e9aba1afeca712d7"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>seeder_type</b> = Seeder</td></tr>
+<tr class="memdesc:aa21ab20da546a509e9aba1afeca712d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of used random number seeder. <br /></td></tr>
+<tr class="separator:aa21ab20da546a509e9aba1afeca712d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44f3be225050a57c267a01531ba3965"><td class="memTemplParams" colspan="2"><a id="ad44f3be225050a57c267a01531ba3965" name="ad44f3be225050a57c267a01531ba3965"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad44f3be225050a57c267a01531ba3965"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>integer_dist_t</b> = IntegerDist&lt; T &gt;</td></tr>
+<tr class="memdesc:ad44f3be225050a57c267a01531ba3965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of used integer distribution. <br /></td></tr>
+<tr class="separator:ad44f3be225050a57c267a01531ba3965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6022a6a5a66cc5244130541d440ea6a"><td class="memTemplParams" colspan="2"><a id="ad6022a6a5a66cc5244130541d440ea6a" name="ad6022a6a5a66cc5244130541d440ea6a"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad6022a6a5a66cc5244130541d440ea6a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>real_dist_t</b> = RealDist&lt; T &gt;</td></tr>
+<tr class="memdesc:ad6022a6a5a66cc5244130541d440ea6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of used real distribution. <br /></td></tr>
+<tr class="separator:ad6022a6a5a66cc5244130541d440ea6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4fcd1837dfb96c6e05441c59dd364e5"><td class="memItemLeft" align="right" valign="top"><a id="ae4fcd1837dfb96c6e05441c59dd364e5" name="ae4fcd1837dfb96c6e05441c59dd364e5"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>bool_dist_t</b> = BoolDist</td></tr>
+<tr class="memdesc:ae4fcd1837dfb96c6e05441c59dd364e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of used bool distribution. <br /></td></tr>
+<tr class="separator:ae4fcd1837dfb96c6e05441c59dd364e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac033cf44523d592ef7ab19e0edf67f14"><td class="memItemLeft" align="right" valign="top"><a id="ac033cf44523d592ef7ab19e0edf67f14" name="ac033cf44523d592ef7ab19e0edf67f14"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>common</b> = <a class="el" href="structeffolkronium_1_1details_1_1common.html">details::common</a></td></tr>
+<tr class="memdesc:ac033cf44523d592ef7ab19e0edf67f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key type for getting common type numbers or objects. <br /></td></tr>
+<tr class="separator:ac033cf44523d592ef7ab19e0edf67f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Métodos públicos estáticos</h2></td></tr>
+<tr class="memitem:a1d0d7db4e8b9af1a8c39210e14a3a7e9"><td class="memItemLeft" align="right" valign="top">static constexpr Engine::result_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">min</a> ()</td></tr>
+<tr class="separator:a1d0d7db4e8b9af1a8c39210e14a3a7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef4b26050e763110d9a872debd1a9b1d"><td class="memItemLeft" align="right" valign="top">static constexpr Engine::result_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">max</a> ()</td></tr>
+<tr class="separator:aef4b26050e763110d9a872debd1a9b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de6451b6bff703a6425fe07107609c4"><td class="memItemLeft" align="right" valign="top"><a id="a2de6451b6bff703a6425fe07107609c4" name="a2de6451b6bff703a6425fe07107609c4"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>discard</b> (const unsigned long long z)</td></tr>
+<tr class="memdesc:a2de6451b6bff703a6425fe07107609c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the internal state by z times. <br /></td></tr>
+<tr class="separator:a2de6451b6bff703a6425fe07107609c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998aa3e3282eab1082ed2c22373efe37"><td class="memItemLeft" align="right" valign="top"><a id="a998aa3e3282eab1082ed2c22373efe37" name="a998aa3e3282eab1082ed2c22373efe37"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>reseed</b> ()</td></tr>
+<tr class="memdesc:a998aa3e3282eab1082ed2c22373efe37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reseed by Seeder. <br /></td></tr>
+<tr class="separator:a998aa3e3282eab1082ed2c22373efe37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40670aaaa27fff71fdc24dbc13a130d0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a40670aaaa27fff71fdc24dbc13a130d0">seed</a> (const typename Engine::result_type value=Engine::default_seed)</td></tr>
+<tr class="memdesc:a40670aaaa27fff71fdc24dbc13a130d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinitializes the internal state of the random-number engine using new seed value.  <a href="classeffolkronium_1_1basic__random__static.html#a40670aaaa27fff71fdc24dbc13a130d0">Más...</a><br /></td></tr>
+<tr class="separator:a40670aaaa27fff71fdc24dbc13a130d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61bb0f1ff7cc99d84f206296ba7dac68"><td class="memTemplParams" colspan="2">template&lt;typename Sseq &gt; </td></tr>
+<tr class="memitem:a61bb0f1ff7cc99d84f206296ba7dac68"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a61bb0f1ff7cc99d84f206296ba7dac68">seed</a> (Sseq &amp;seq)</td></tr>
+<tr class="memdesc:a61bb0f1ff7cc99d84f206296ba7dac68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinitializes the internal state of the random-number engine using new seed value.  <a href="classeffolkronium_1_1basic__random__static.html#a61bb0f1ff7cc99d84f206296ba7dac68">Más...</a><br /></td></tr>
+<tr class="separator:a61bb0f1ff7cc99d84f206296ba7dac68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e9574f341db38f496141f6a05837e69"><td class="memItemLeft" align="right" valign="top"><a id="a7e9574f341db38f496141f6a05837e69" name="a7e9574f341db38f496141f6a05837e69"></a>
+static Engine::result_type&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> ()</td></tr>
+<tr class="memdesc:a7e9574f341db38f496141f6a05837e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">return random number from engine in [<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">min()</a>, <a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">max()</a>] range <br /></td></tr>
+<tr class="separator:a7e9574f341db38f496141f6a05837e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a633f45cae3663ee2cc7980c7881fb253"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a633f45cae3663ee2cc7980c7881fb253">is_equal</a> (const Engine &amp;other)</td></tr>
+<tr class="memdesc:a633f45cae3663ee2cc7980c7881fb253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares internal pseudo-random number engine with 'other' pseudo-random number engine. Two engines are equal, if their internal states are equivalent, that is, if they would generate equivalent values for any number of calls of operator()  <a href="classeffolkronium_1_1basic__random__static.html#a633f45cae3663ee2cc7980c7881fb253">Más...</a><br /></td></tr>
+<tr class="separator:a633f45cae3663ee2cc7980c7881fb253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92e7c1f016fffa55b9d6ac2cefe5c4b9"><td class="memTemplParams" colspan="2">template&lt;typename CharT , typename Traits &gt; </td></tr>
+<tr class="memitem:a92e7c1f016fffa55b9d6ac2cefe5c4b9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a92e7c1f016fffa55b9d6ac2cefe5c4b9">serialize</a> (std::basic_ostream&lt; CharT, Traits &gt; &amp;ost)</td></tr>
+<tr class="memdesc:a92e7c1f016fffa55b9d6ac2cefe5c4b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the internal state of the internal pseudo-random number engine as a sequence of decimal numbers separated by one or more spaces, and inserts it to the stream ost. The fill character and the formatting flags of the stream are ignored and unaffected.  <a href="classeffolkronium_1_1basic__random__static.html#a92e7c1f016fffa55b9d6ac2cefe5c4b9">Más...</a><br /></td></tr>
+<tr class="separator:a92e7c1f016fffa55b9d6ac2cefe5c4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3475f147f762e748984f2fb2f3fd577"><td class="memTemplParams" colspan="2">template&lt;typename CharT , typename Traits &gt; </td></tr>
+<tr class="memitem:aa3475f147f762e748984f2fb2f3fd577"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#aa3475f147f762e748984f2fb2f3fd577">deserialize</a> (std::basic_istream&lt; CharT, Traits &gt; &amp;ist)</td></tr>
+<tr class="memdesc:aa3475f147f762e748984f2fb2f3fd577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the internal state of the internal pseudo-random number engine from the serialized representation, which was created by an earlier call to 'serialize' using a stream with the same imbued locale and the same CharT and Traits. If the input cannot be deserialized, internal engine is left unchanged and failbit is raised on ist.  <a href="classeffolkronium_1_1basic__random__static.html#aa3475f147f762e748984f2fb2f3fd577">Más...</a><br /></td></tr>
+<tr class="separator:aa3475f147f762e748984f2fb2f3fd577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a623a2343ce0c6189560998281d504103"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a623a2343ce0c6189560998281d504103"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__uniform__int.html">details::is_uniform_int</a>&lt; T &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a623a2343ce0c6189560998281d504103">get</a> (T from=std::numeric_limits&lt; T &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>(), T to=std::numeric_limits&lt; T &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>())</td></tr>
+<tr class="memdesc:a623a2343ce0c6189560998281d504103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random integer number in a [from; to] range by std::uniform_int_distribution.  <a href="classeffolkronium_1_1basic__random__static.html#a623a2343ce0c6189560998281d504103">Más...</a><br /></td></tr>
+<tr class="separator:a623a2343ce0c6189560998281d504103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97d472c8866d94aea3241f98984e031f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a97d472c8866d94aea3241f98984e031f"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__uniform__real.html">details::is_uniform_real</a>&lt; T &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a97d472c8866d94aea3241f98984e031f">get</a> (T from=std::numeric_limits&lt; T &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>(), T to=std::numeric_limits&lt; T &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>())</td></tr>
+<tr class="memdesc:a97d472c8866d94aea3241f98984e031f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random real number in a [from; to] range by std::uniform_real_distribution.  <a href="classeffolkronium_1_1basic__random__static.html#a97d472c8866d94aea3241f98984e031f">Más...</a><br /></td></tr>
+<tr class="separator:a97d472c8866d94aea3241f98984e031f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7586ba93ac71c442fb49e49c6bf1b3ef"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7586ba93ac71c442fb49e49c6bf1b3ef"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__byte.html">details::is_byte</a>&lt; T &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a7586ba93ac71c442fb49e49c6bf1b3ef">get</a> (T from=std::numeric_limits&lt; T &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>(), T to=std::numeric_limits&lt; T &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>())</td></tr>
+<tr class="memdesc:a7586ba93ac71c442fb49e49c6bf1b3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random byte number in a [from; to] range.  <a href="classeffolkronium_1_1basic__random__static.html#a7586ba93ac71c442fb49e49c6bf1b3ef">Más...</a><br /></td></tr>
+<tr class="separator:a7586ba93ac71c442fb49e49c6bf1b3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab65bcb3d23a86d7519ef9bc8a6acf1cd"><td class="memTemplParams" colspan="2">template&lt;typename Key , typename A , typename B , typename C  = typename std::common_type&lt;A, B&gt;::type&gt; </td></tr>
+<tr class="memitem:ab65bcb3d23a86d7519ef9bc8a6acf1cd"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; std::is_same&lt; Key, <a class="el" href="classeffolkronium_1_1basic__random__static.html#ac033cf44523d592ef7ab19e0edf67f14">common</a> &gt;::value &amp;&amp;<a class="el" href="structeffolkronium_1_1details_1_1is__supported__number.html">details::is_supported_number</a>&lt; A &gt;::value &amp;&amp;<a class="el" href="structeffolkronium_1_1details_1_1is__supported__number.html">details::is_supported_number</a>&lt; B &gt;::value &amp;&amp;std::is_signed&lt; A &gt;::value!=std::is_unsigned&lt; B &gt;::value, C &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#ab65bcb3d23a86d7519ef9bc8a6acf1cd">get</a> (A from=std::numeric_limits&lt; A &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>(), B to=std::numeric_limits&lt; B &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>())</td></tr>
+<tr class="memdesc:ab65bcb3d23a86d7519ef9bc8a6acf1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random common_type number in a [from; to] range.  <a href="classeffolkronium_1_1basic__random__static.html#ab65bcb3d23a86d7519ef9bc8a6acf1cd">Más...</a><br /></td></tr>
+<tr class="separator:ab65bcb3d23a86d7519ef9bc8a6acf1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bcce7f675b7faf83a3dcb5bb6d5592a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3bcce7f675b7faf83a3dcb5bb6d5592a"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__supported__character.html">details::is_supported_character</a>&lt; T &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a3bcce7f675b7faf83a3dcb5bb6d5592a">get</a> (T from=std::numeric_limits&lt; T &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>(), T to=std::numeric_limits&lt; T &gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>())</td></tr>
+<tr class="memdesc:a3bcce7f675b7faf83a3dcb5bb6d5592a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random character in a [from; to] range by std::uniform_int_distribution.  <a href="classeffolkronium_1_1basic__random__static.html#a3bcce7f675b7faf83a3dcb5bb6d5592a">Más...</a><br /></td></tr>
+<tr class="separator:a3bcce7f675b7faf83a3dcb5bb6d5592a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc161415ce7234b6fdd62fbb12aae19"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:adfc161415ce7234b6fdd62fbb12aae19"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; std::is_same&lt; T, bool &gt;::value, bool &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#adfc161415ce7234b6fdd62fbb12aae19">get</a> (const double probability=0.5)</td></tr>
+<tr class="memdesc:adfc161415ce7234b6fdd62fbb12aae19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a bool value with specific probability by std::bernoulli_distribution.  <a href="classeffolkronium_1_1basic__random__static.html#adfc161415ce7234b6fdd62fbb12aae19">Más...</a><br /></td></tr>
+<tr class="separator:adfc161415ce7234b6fdd62fbb12aae19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6810cb4d47112878804af9b70501a0fa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6810cb4d47112878804af9b70501a0fa"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a6810cb4d47112878804af9b70501a0fa">get</a> (std::initializer_list&lt; T &gt; init_list)</td></tr>
+<tr class="memdesc:a6810cb4d47112878804af9b70501a0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return random value from initilizer_list.  <a href="classeffolkronium_1_1basic__random__static.html#a6810cb4d47112878804af9b70501a0fa">Más...</a><br /></td></tr>
+<tr class="separator:a6810cb4d47112878804af9b70501a0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f3f964038031301905f484570aa255b"><td class="memTemplParams" colspan="2">template&lt;typename InputIt &gt; </td></tr>
+<tr class="memitem:a1f3f964038031301905f484570aa255b"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__iterator.html">details::is_iterator</a>&lt; InputIt &gt;::value, InputIt &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a1f3f964038031301905f484570aa255b">get</a> (InputIt first, InputIt last)</td></tr>
+<tr class="memdesc:a1f3f964038031301905f484570aa255b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return random iterator from iterator range.  <a href="classeffolkronium_1_1basic__random__static.html#a1f3f964038031301905f484570aa255b">Más...</a><br /></td></tr>
+<tr class="separator:a1f3f964038031301905f484570aa255b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a728489c51605f77662053ca75b783133"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
+<tr class="memitem:a728489c51605f77662053ca75b783133"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a728489c51605f77662053ca75b783133">get</a> (Container &amp;container) -&gt; typename std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__iterator.html">details::is_iterator</a>&lt; decltype(std::begin(container))&gt;::value, decltype(std::begin(container)) &gt;::type</td></tr>
+<tr class="memdesc:a728489c51605f77662053ca75b783133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return random iterator from Container.  <a href="classeffolkronium_1_1basic__random__static.html#a728489c51605f77662053ca75b783133">Más...</a><br /></td></tr>
+<tr class="separator:a728489c51605f77662053ca75b783133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8974b513591972c59c56c09fb51c8da4"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; class Container, typename A &gt; </td></tr>
+<tr class="memitem:a8974b513591972c59c56c09fb51c8da4"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; <a class="el" href="classeffolkronium_1_1details_1_1has__reserve.html">details::has_reserve</a>&lt; Container&lt; A &gt; &gt;::value, Container&lt; A &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a8974b513591972c59c56c09fb51c8da4">get</a> (A from, A to, std::size_t size)</td></tr>
+<tr class="memdesc:a8974b513591972c59c56c09fb51c8da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return container filled with random values.  <a href="classeffolkronium_1_1basic__random__static.html#a8974b513591972c59c56c09fb51c8da4">Más...</a><br /></td></tr>
+<tr class="separator:a8974b513591972c59c56c09fb51c8da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadff4f7acc8bf4959901992432d1b03c"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; class Container, typename Key , typename A , typename B , typename C  = typename std::common_type&lt;A, B&gt;::type&gt; </td></tr>
+<tr class="memitem:aadff4f7acc8bf4959901992432d1b03c"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; std::is_same&lt; Key, <a class="el" href="classeffolkronium_1_1basic__random__static.html#ac033cf44523d592ef7ab19e0edf67f14">common</a> &gt;::value &amp;&amp;<a class="el" href="classeffolkronium_1_1details_1_1has__reserve.html">details::has_reserve</a>&lt; Container&lt; A &gt; &gt;::value, Container&lt; C &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#aadff4f7acc8bf4959901992432d1b03c">get</a> (A start, B end, std::size_t size)</td></tr>
+<tr class="memdesc:aadff4f7acc8bf4959901992432d1b03c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return container filled with random common_type values.  <a href="classeffolkronium_1_1basic__random__static.html#aadff4f7acc8bf4959901992432d1b03c">Más...</a><br /></td></tr>
+<tr class="separator:aadff4f7acc8bf4959901992432d1b03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af166ab92690bad8e081743b5e992eccd"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; class Container, typename A &gt; </td></tr>
+<tr class="memitem:af166ab92690bad8e081743b5e992eccd"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt;!<a class="el" href="classeffolkronium_1_1details_1_1has__reserve.html">details::has_reserve</a>&lt; Container&lt; A &gt; &gt;::value, Container&lt; A &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#af166ab92690bad8e081743b5e992eccd">get</a> (A start, A end, std::size_t size)</td></tr>
+<tr class="memdesc:af166ab92690bad8e081743b5e992eccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return container filled with random values.  <a href="classeffolkronium_1_1basic__random__static.html#af166ab92690bad8e081743b5e992eccd">Más...</a><br /></td></tr>
+<tr class="separator:af166ab92690bad8e081743b5e992eccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acee7441bd311dd8212a1b83beb5471d7"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; class Container, typename Key , typename A , typename B , typename C  = typename std::common_type&lt;A, B&gt;::type&gt; </td></tr>
+<tr class="memitem:acee7441bd311dd8212a1b83beb5471d7"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; std::is_same&lt; Key, <a class="el" href="classeffolkronium_1_1basic__random__static.html#ac033cf44523d592ef7ab19e0edf67f14">common</a> &gt;::value &amp;&amp;!<a class="el" href="classeffolkronium_1_1details_1_1has__reserve.html">details::has_reserve</a>&lt; Container&lt; C &gt; &gt;::value, Container&lt; C &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#acee7441bd311dd8212a1b83beb5471d7">get</a> (A start, B end, std::size_t size)</td></tr>
+<tr class="memdesc:acee7441bd311dd8212a1b83beb5471d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return container filled with random common_type values.  <a href="classeffolkronium_1_1basic__random__static.html#acee7441bd311dd8212a1b83beb5471d7">Más...</a><br /></td></tr>
+<tr class="separator:acee7441bd311dd8212a1b83beb5471d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9a551c9bb01b7b36877724a470176ae"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename AA, std::size_t NN, typename... &gt; class Container, std::size_t N, typename A &gt; </td></tr>
+<tr class="memitem:af9a551c9bb01b7b36877724a470176ae"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt;!<a class="el" href="classeffolkronium_1_1details_1_1has__insert.html">details::has_insert</a>&lt; Container&lt; A, N &gt; &gt;::value, Container&lt; A, N &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#af9a551c9bb01b7b36877724a470176ae">get</a> (A start, A end)</td></tr>
+<tr class="memdesc:af9a551c9bb01b7b36877724a470176ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return array-like container filled with random values.  <a href="classeffolkronium_1_1basic__random__static.html#af9a551c9bb01b7b36877724a470176ae">Más...</a><br /></td></tr>
+<tr class="separator:af9a551c9bb01b7b36877724a470176ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad368fe171e9577970691cc312e4d4b1"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename AA, std::size_t NN, typename... &gt; class Container, std::size_t N, typename Key , typename A , typename B , typename C  = typename std::common_type&lt;A, B&gt;::type&gt; </td></tr>
+<tr class="memitem:aad368fe171e9577970691cc312e4d4b1"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt; std::is_same&lt; Key, <a class="el" href="classeffolkronium_1_1basic__random__static.html#ac033cf44523d592ef7ab19e0edf67f14">common</a> &gt;::value &amp;&amp;!<a class="el" href="classeffolkronium_1_1details_1_1has__insert.html">details::has_insert</a>&lt; Container&lt; C, N &gt; &gt;::value, Container&lt; C, N &gt; &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#aad368fe171e9577970691cc312e4d4b1">get</a> (A start, B end)</td></tr>
+<tr class="memdesc:aad368fe171e9577970691cc312e4d4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return array-like container filled with random common_type values.  <a href="classeffolkronium_1_1basic__random__static.html#aad368fe171e9577970691cc312e4d4b1">Más...</a><br /></td></tr>
+<tr class="separator:aad368fe171e9577970691cc312e4d4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb8db208b6f4aa7a08ab8470d05beb3"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:abbb8db208b6f4aa7a08ab8470d05beb3"><td class="memTemplItemLeft" align="right" valign="top">static T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#abbb8db208b6f4aa7a08ab8470d05beb3">get</a> (T(&amp;array)[N])</td></tr>
+<tr class="memdesc:abbb8db208b6f4aa7a08ab8470d05beb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return random pointer from built-in array.  <a href="classeffolkronium_1_1basic__random__static.html#abbb8db208b6f4aa7a08ab8470d05beb3">Más...</a><br /></td></tr>
+<tr class="separator:abbb8db208b6f4aa7a08ab8470d05beb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e3a8eebdfc900e8781d00d90cc2a50"><td class="memTemplParams" colspan="2">template&lt;typename Dist , typename... Args&gt; </td></tr>
+<tr class="memitem:a17e3a8eebdfc900e8781d00d90cc2a50"><td class="memTemplItemLeft" align="right" valign="top">static Dist::result_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a17e3a8eebdfc900e8781d00d90cc2a50">get</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a17e3a8eebdfc900e8781d00d90cc2a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return value from custom Dist distribution seeded by internal random engine.  <a href="classeffolkronium_1_1basic__random__static.html#a17e3a8eebdfc900e8781d00d90cc2a50">Más...</a><br /></td></tr>
+<tr class="separator:a17e3a8eebdfc900e8781d00d90cc2a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e3cbdb7f39a22ac0da4db84c0bd797c"><td class="memTemplParams" colspan="2">template&lt;typename Dist &gt; </td></tr>
+<tr class="memitem:a6e3cbdb7f39a22ac0da4db84c0bd797c"><td class="memTemplItemLeft" align="right" valign="top">static Dist::result_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a6e3cbdb7f39a22ac0da4db84c0bd797c">get</a> (Dist &amp;dist)</td></tr>
+<tr class="memdesc:a6e3cbdb7f39a22ac0da4db84c0bd797c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return value from custom 'dist' distribution seeded by internal random engine.  <a href="classeffolkronium_1_1basic__random__static.html#a6e3cbdb7f39a22ac0da4db84c0bd797c">Más...</a><br /></td></tr>
+<tr class="separator:a6e3cbdb7f39a22ac0da4db84c0bd797c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c18d14b91553d22e69e0ef02e5a18f0"><td class="memTemplParams" colspan="2">template&lt;typename RandomIt &gt; </td></tr>
+<tr class="memitem:a9c18d14b91553d22e69e0ef02e5a18f0"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a9c18d14b91553d22e69e0ef02e5a18f0">shuffle</a> (RandomIt first, RandomIt last)</td></tr>
+<tr class="memdesc:a9c18d14b91553d22e69e0ef02e5a18f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorders the elements in the given range [first, last) such that each possible permutation of those elements has equal probability of appearance.  <a href="classeffolkronium_1_1basic__random__static.html#a9c18d14b91553d22e69e0ef02e5a18f0">Más...</a><br /></td></tr>
+<tr class="separator:a9c18d14b91553d22e69e0ef02e5a18f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f9a8f667b3296df4aedfbafc76d417c"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
+<tr class="memitem:a8f9a8f667b3296df4aedfbafc76d417c"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classeffolkronium_1_1basic__random__static.html#a8f9a8f667b3296df4aedfbafc76d417c">shuffle</a> (Container &amp;container)</td></tr>
+<tr class="memdesc:a8f9a8f667b3296df4aedfbafc76d417c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorders the elements in the given container such that each possible permutation of those elements has equal probability of appearance.  <a href="classeffolkronium_1_1basic__random__static.html#a8f9a8f667b3296df4aedfbafc76d417c">Más...</a><br /></td></tr>
+<tr class="separator:a8f9a8f667b3296df4aedfbafc76d417c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7628e8a598be72e148736c1d887e290"><td class="memItemLeft" align="right" valign="top"><a id="ac7628e8a598be72e148736c1d887e290" name="ac7628e8a598be72e148736c1d887e290"></a>
+static Engine&#160;</td><td class="memItemRight" valign="bottom"><b>get_engine</b> ()</td></tr>
+<tr class="memdesc:ac7628e8a598be72e148736c1d887e290"><td class="mdescLeft">&#160;</td><td class="mdescRight">return internal engine by copy <br /></td></tr>
+<tr class="separator:ac7628e8a598be72e148736c1d887e290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8a3dc3f99532b4d0bb6ef9735c7eee3"><td class="memItemLeft" align="right" valign="top"><a id="aa8a3dc3f99532b4d0bb6ef9735c7eee3" name="aa8a3dc3f99532b4d0bb6ef9735c7eee3"></a>
+static Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b> ()</td></tr>
+<tr class="memdesc:aa8a3dc3f99532b4d0bb6ef9735c7eee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">return internal engine by ref <br /></td></tr>
+<tr class="separator:aa8a3dc3f99532b4d0bb6ef9735c7eee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Métodos protegidos estáticos</h2></td></tr>
+<tr class="memitem:af9167729d0089b271fdad13b5309d24b"><td class="memItemLeft" align="right" valign="top"><a id="af9167729d0089b271fdad13b5309d24b" name="af9167729d0089b271fdad13b5309d24b"></a>
+static Engine &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>engine_instance</b> ()</td></tr>
+<tr class="memdesc:af9167729d0089b271fdad13b5309d24b"><td class="mdescLeft">&#160;</td><td class="mdescRight">get reference to the static engine instance <br /></td></tr>
+<tr class="separator:af9167729d0089b271fdad13b5309d24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Engine, typename Seeder = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist = std::bernoulli_distribution&gt;<br />
+class effolkronium::basic_random_static&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;</div><p >Base template class for random with static API and static internal member storage. </p>
+<dl class="section note"><dt>Nota</dt><dd>it is NOT thread safe but more efficient then <a class="el" href="classeffolkronium_1_1basic__random__thread__local.html" title="Base template class for random with thread_local API and thread_local internal member storage.">basic_random_thread_local</a> </dd></dl>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Engine</td><td>A random engine with interface like in the std::mt19937 </td></tr>
+    <tr><td class="paramname">Seeder</td><td>A seeder type which return seed for internal engine through operator() </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Documentación de las funciones miembro</h2>
+<a id="aa3475f147f762e748984f2fb2f3fd577" name="aa3475f147f762e748984f2fb2f3fd577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3475f147f762e748984f2fb2f3fd577">&#9670;&nbsp;</a></span>deserialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename CharT , typename Traits &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::deserialize </td>
+          <td>(</td>
+          <td class="paramtype">std::basic_istream&lt; CharT, Traits &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ist</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Restores the internal state of the internal pseudo-random number engine from the serialized representation, which was created by an earlier call to 'serialize' using a stream with the same imbued locale and the same CharT and Traits. If the input cannot be deserialized, internal engine is left unchanged and failbit is raised on ist. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ost</td><td>The input stream to extract the data from </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8974b513591972c59c56c09fb51c8da4" name="a8974b513591972c59c56c09fb51c8da4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8974b513591972c59c56c09fb51c8da4">&#9670;&nbsp;</a></span>get() <span class="overload">[1/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;template&lt; typename... &gt; class Container, typename A &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; <a class="el" href="classeffolkronium_1_1details_1_1has__reserve.html">details::has_reserve</a>&lt; Container&lt; A &gt; &gt;::value, Container&lt; A &gt; &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return container filled with random values. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+    <tr><td class="paramname">size</td><td>The number of elements in resulting container </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Container filled with random values </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Container "reserve" method will be called before generation </dd></dl>
+
+</div>
+</div>
+<a id="ab65bcb3d23a86d7519ef9bc8a6acf1cd" name="ab65bcb3d23a86d7519ef9bc8a6acf1cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab65bcb3d23a86d7519ef9bc8a6acf1cd">&#9670;&nbsp;</a></span>get() <span class="overload">[2/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename Key , typename A , typename B , typename C  = typename std::common_type&lt;A, B&gt;::type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; std::is_same&lt; Key, <a class="el" href="classeffolkronium_1_1basic__random__static.html#ac033cf44523d592ef7ab19e0edf67f14">common</a> &gt;::value &amp;&amp;<a class="el" href="structeffolkronium_1_1details_1_1is__supported__number.html">details::is_supported_number</a>&lt; A &gt;::value &amp;&amp;<a class="el" href="structeffolkronium_1_1details_1_1is__supported__number.html">details::is_supported_number</a>&lt; B &gt;::value &amp;&amp;std::is_signed&lt; A &gt;::value!=std::is_unsigned&lt; B &gt;::value, C &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>from</em> = <code>std::numeric_limits&lt;A&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>(&#160;)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">B&#160;</td>
+          <td class="paramname"><em>to</em> = <code>std::numeric_limits&lt;B&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>(&#160;)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random common_type number in a [from; to] range. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Key</td><td>The Key type for this version of 'get' method Type should be '(THIS_TYPE)::common' struct </td></tr>
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>A random common_type number in a [from; to] range </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Allow both: 'from' &lt;= 'to' and 'from' &gt;= 'to' </dd>
+<dd>
+Allow implicit type conversion </dd>
+<dd>
+<p class="enddd">Prevent implicit type conversion from singed to unsigned types Why? std::common_type&lt;Unsigned, Signed&gt; chooses unsigned value, then Signed value will be converted to Unsigned value which gives us a wrong range for random values. <a href="https://stackoverflow.com/a/5416498/5734836">https://stackoverflow.com/a/5416498/5734836</a> </p>
+</dd></dl>
+
+</div>
+</div>
+<a id="af9a551c9bb01b7b36877724a470176ae" name="af9a551c9bb01b7b36877724a470176ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9a551c9bb01b7b36877724a470176ae">&#9670;&nbsp;</a></span>get() <span class="overload">[3/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;template&lt; typename AA, std::size_t NN, typename... &gt; class Container, std::size_t N, typename A &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt;!<a class="el" href="classeffolkronium_1_1details_1_1has__insert.html">details::has_insert</a>&lt; Container&lt; A, N &gt; &gt;::value, Container&lt; A, N &gt; &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return array-like container filled with random values. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+    <tr><td class="paramname">N</td><td>The number of elements in resulting container </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Container filled with random values </dd></dl>
+
+</div>
+</div>
+<a id="af166ab92690bad8e081743b5e992eccd" name="af166ab92690bad8e081743b5e992eccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af166ab92690bad8e081743b5e992eccd">&#9670;&nbsp;</a></span>get() <span class="overload">[4/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;template&lt; typename... &gt; class Container, typename A &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt;!<a class="el" href="classeffolkronium_1_1details_1_1has__reserve.html">details::has_reserve</a>&lt; Container&lt; A &gt; &gt;::value, Container&lt; A &gt; &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return container filled with random values. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+    <tr><td class="paramname">size</td><td>The number of elements in resulting container </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Container filled with random values </dd></dl>
+
+</div>
+</div>
+<a id="aad368fe171e9577970691cc312e4d4b1" name="aad368fe171e9577970691cc312e4d4b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad368fe171e9577970691cc312e4d4b1">&#9670;&nbsp;</a></span>get() <span class="overload">[5/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;template&lt; typename AA, std::size_t NN, typename... &gt; class Container, std::size_t N, typename Key , typename A , typename B , typename C  = typename std::common_type&lt;A, B&gt;::type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; std::is_same&lt; Key, <a class="el" href="classeffolkronium_1_1basic__random__static.html#ac033cf44523d592ef7ab19e0edf67f14">common</a> &gt;::value &amp;&amp;!<a class="el" href="classeffolkronium_1_1details_1_1has__insert.html">details::has_insert</a>&lt; Container&lt; C, N &gt; &gt;::value, Container&lt; C, N &gt; &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">B&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return array-like container filled with random common_type values. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Key</td><td>The Key type for this version of 'get' method Type should be '(THIS_TYPE)::common' struct </td></tr>
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+    <tr><td class="paramname">size</td><td>The number of elements in resulting container </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Container filled with random values </dd></dl>
+
+</div>
+</div>
+<a id="aadff4f7acc8bf4959901992432d1b03c" name="aadff4f7acc8bf4959901992432d1b03c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadff4f7acc8bf4959901992432d1b03c">&#9670;&nbsp;</a></span>get() <span class="overload">[6/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;template&lt; typename... &gt; class Container, typename Key , typename A , typename B , typename C  = typename std::common_type&lt;A, B&gt;::type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; std::is_same&lt; Key, <a class="el" href="classeffolkronium_1_1basic__random__static.html#ac033cf44523d592ef7ab19e0edf67f14">common</a> &gt;::value &amp;&amp;<a class="el" href="classeffolkronium_1_1details_1_1has__reserve.html">details::has_reserve</a>&lt; Container&lt; A &gt; &gt;::value, Container&lt; C &gt; &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">B&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return container filled with random common_type values. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Key</td><td>The Key type for this version of 'get' method Type should be '(THIS_TYPE)::common' struct </td></tr>
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+    <tr><td class="paramname">size</td><td>The number of elements in resulting container </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Container filled with random values </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Container "reserve" method will be called before generation </dd></dl>
+
+</div>
+</div>
+<a id="acee7441bd311dd8212a1b83beb5471d7" name="acee7441bd311dd8212a1b83beb5471d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acee7441bd311dd8212a1b83beb5471d7">&#9670;&nbsp;</a></span>get() <span class="overload">[7/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;template&lt; typename... &gt; class Container, typename Key , typename A , typename B , typename C  = typename std::common_type&lt;A, B&gt;::type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; std::is_same&lt; Key, <a class="el" href="classeffolkronium_1_1basic__random__static.html#ac033cf44523d592ef7ab19e0edf67f14">common</a> &gt;::value &amp;&amp;!<a class="el" href="classeffolkronium_1_1details_1_1has__reserve.html">details::has_reserve</a>&lt; Container&lt; C &gt; &gt;::value, Container&lt; C &gt; &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">A&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">B&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return container filled with random common_type values. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Key</td><td>The Key type for this version of 'get' method Type should be '(THIS_TYPE)::common' struct </td></tr>
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+    <tr><td class="paramname">size</td><td>The number of elements in resulting container </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Container filled with random values </dd></dl>
+
+</div>
+</div>
+<a id="a17e3a8eebdfc900e8781d00d90cc2a50" name="a17e3a8eebdfc900e8781d00d90cc2a50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e3a8eebdfc900e8781d00d90cc2a50">&#9670;&nbsp;</a></span>get() <span class="overload">[8/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename Dist , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Dist::result_type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return value from custom Dist distribution seeded by internal random engine. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dist</td><td>The type of custom distribution with next concept: <a href="http://en.cppreference.com/w/cpp/concept/RandomNumberDistribution">http://en.cppreference.com/w/cpp/concept/RandomNumberDistribution</a> </td></tr>
+    <tr><td class="paramname">args</td><td>The arguments which will be forwarded to Dist constructor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Value from custom distribution </dd></dl>
+
+</div>
+</div>
+<a id="adfc161415ce7234b6fdd62fbb12aae19" name="adfc161415ce7234b6fdd62fbb12aae19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc161415ce7234b6fdd62fbb12aae19">&#9670;&nbsp;</a></span>get() <span class="overload">[9/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; std::is_same&lt; T, bool &gt;::value, bool &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>probability</em> = <code>0.5</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a bool value with specific probability by std::bernoulli_distribution. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">probability</td><td>The probability of generating true in [0; 1] range 0 means always false, 1 means always true </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>'true' with 'probability' probability ('false' otherwise) </dd></dl>
+
+</div>
+</div>
+<a id="a728489c51605f77662053ca75b783133" name="a728489c51605f77662053ca75b783133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a728489c51605f77662053ca75b783133">&#9670;&nbsp;</a></span>get() <span class="overload">[10/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename Container &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">Container &amp;&#160;</td>
+          <td class="paramname"><em>container</em></td><td>)</td>
+          <td> -&gt; typename std::enable_if&lt;<a class="el" href="structeffolkronium_1_1details_1_1is__iterator.html">details::is_iterator</a>&lt;
+                decltype(std::begin(container))&gt;::value
+                , decltype(std::begin(container))
+            &gt;::type </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return random iterator from Container. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>The container with elements </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Random iterator from container </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>If container is empty return std::end( container ) iterator </dd></dl>
+
+</div>
+</div>
+<a id="a6e3cbdb7f39a22ac0da4db84c0bd797c" name="a6e3cbdb7f39a22ac0da4db84c0bd797c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e3cbdb7f39a22ac0da4db84c0bd797c">&#9670;&nbsp;</a></span>get() <span class="overload">[11/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename Dist &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Dist::result_type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">Dist &amp;&#160;</td>
+          <td class="paramname"><em>dist</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return value from custom 'dist' distribution seeded by internal random engine. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dist</td><td>The custom distribution with next concept: <a href="http://en.cppreference.com/w/cpp/concept/RandomNumberDistribution">http://en.cppreference.com/w/cpp/concept/RandomNumberDistribution</a> </td></tr>
+    <tr><td class="paramname">args</td><td>The arguments which will be forwarded to Dist constructor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Value from custom 'dist' distribution </dd></dl>
+
+</div>
+</div>
+<a id="a1f3f964038031301905f484570aa255b" name="a1f3f964038031301905f484570aa255b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f3f964038031301905f484570aa255b">&#9670;&nbsp;</a></span>get() <span class="overload">[12/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename InputIt &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__iterator.html">details::is_iterator</a>&lt; InputIt &gt;::value, InputIt &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">InputIt&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InputIt&#160;</td>
+          <td class="paramname"><em>last</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return random iterator from iterator range. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first,last</td><td>- the range of elements </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Random iterator from [first, last) range </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>If first == last, return last </dd></dl>
+
+</div>
+</div>
+<a id="a6810cb4d47112878804af9b70501a0fa" name="a6810cb4d47112878804af9b70501a0fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6810cb4d47112878804af9b70501a0fa">&#9670;&nbsp;</a></span>get() <span class="overload">[13/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>init_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return random value from initilizer_list. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">init_list</td><td>initilizer_list with values </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Random value from initilizer_list </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Should be 1 or more elements in initilizer_list </dd>
+<dd>
+<p class="enddd">Warning! Elements in initilizer_list can't be moved: <a href="https://stackoverflow.com/a/8193157/5734836">https://stackoverflow.com/a/8193157/5734836</a> </p>
+</dd></dl>
+
+</div>
+</div>
+<a id="a623a2343ce0c6189560998281d504103" name="a623a2343ce0c6189560998281d504103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a623a2343ce0c6189560998281d504103">&#9670;&nbsp;</a></span>get() <span class="overload">[14/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__uniform__int.html">details::is_uniform_int</a>&lt; T &gt;::value, T &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>from</em> = <code>std::numeric_limits&lt;T&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>(&#160;)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>to</em> = <code>std::numeric_limits&lt;T&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>(&#160;)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random integer number in a [from; to] range by std::uniform_int_distribution. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>A random integer number in a [from; to] range </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Allow both: 'from' &lt;= 'to' and 'from' &gt;= 'to' </dd>
+<dd>
+<p class="enddd">Prevent implicit type conversion </p>
+</dd></dl>
+
+</div>
+</div>
+<a id="a97d472c8866d94aea3241f98984e031f" name="a97d472c8866d94aea3241f98984e031f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97d472c8866d94aea3241f98984e031f">&#9670;&nbsp;</a></span>get() <span class="overload">[15/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__uniform__real.html">details::is_uniform_real</a>&lt; T &gt;::value, T &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>from</em> = <code>std::numeric_limits&lt;T&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>(&#160;)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>to</em> = <code>std::numeric_limits&lt;T&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>(&#160;)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random real number in a [from; to] range by std::uniform_real_distribution. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>A random real number in a [from; to] range </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Allow both: 'from' &lt;= 'to' and 'from' &gt;= 'to' </dd>
+<dd>
+<p class="enddd">Prevent implicit type conversion </p>
+</dd></dl>
+
+</div>
+</div>
+<a id="a7586ba93ac71c442fb49e49c6bf1b3ef" name="a7586ba93ac71c442fb49e49c6bf1b3ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7586ba93ac71c442fb49e49c6bf1b3ef">&#9670;&nbsp;</a></span>get() <span class="overload">[16/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__byte.html">details::is_byte</a>&lt; T &gt;::value, T &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>from</em> = <code>std::numeric_limits&lt;T&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>(&#160;)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>to</em> = <code>std::numeric_limits&lt;T&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>(&#160;)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random byte number in a [from; to] range. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>A random byte number in a [from; to] range </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Allow both: 'from' &lt;= 'to' and 'from' &gt;= 'to' </dd>
+<dd>
+<p class="enddd">Prevent implicit type conversion </p>
+</dd></dl>
+
+</div>
+</div>
+<a id="a3bcce7f675b7faf83a3dcb5bb6d5592a" name="a3bcce7f675b7faf83a3dcb5bb6d5592a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bcce7f675b7faf83a3dcb5bb6d5592a">&#9670;&nbsp;</a></span>get() <span class="overload">[17/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt; <a class="el" href="structeffolkronium_1_1details_1_1is__supported__character.html">details::is_supported_character</a>&lt; T &gt;::value, T &gt;::type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>from</em> = <code>std::numeric_limits&lt;T&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#a1d0d7db4e8b9af1a8c39210e14a3a7e9">::min</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>to</em> = <code>std::numeric_limits&lt;T&gt;<a class="el" href="classeffolkronium_1_1basic__random__static.html#aef4b26050e763110d9a872debd1a9b1d">::max</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate a random character in a [from; to] range by std::uniform_int_distribution. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>The first limit number of a random range </td></tr>
+    <tr><td class="paramname">to</td><td>The second limit number of a random range </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>A random character in a [from; to] range </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Allow both: 'from' &lt;= 'to' and 'from' &gt;= 'to' </dd>
+<dd>
+<p class="enddd">Prevent implicit type conversion </p>
+</dd></dl>
+
+</div>
+</div>
+<a id="abbb8db208b6f4aa7a08ab8470d05beb3" name="abbb8db208b6f4aa7a08ab8470d05beb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbb8db208b6f4aa7a08ab8470d05beb3">&#9670;&nbsp;</a></span>get() <span class="overload">[18/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T * <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">T(&amp;)&#160;</td>
+          <td class="paramname"><em>array</em>[N]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return random pointer from built-in array. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>The built-in array with elements </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Pointer to random element in array </dd></dl>
+
+</div>
+</div>
+<a id="a633f45cae3663ee2cc7980c7881fb253" name="a633f45cae3663ee2cc7980c7881fb253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a633f45cae3663ee2cc7980c7881fb253">&#9670;&nbsp;</a></span>is_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::is_equal </td>
+          <td>(</td>
+          <td class="paramtype">const Engine &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares internal pseudo-random number engine with 'other' pseudo-random number engine. Two engines are equal, if their internal states are equivalent, that is, if they would generate equivalent values for any number of calls of operator() </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The engine, with which the internal engine will be compared </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true, if other and internal engine are equal </dd></dl>
+
+</div>
+</div>
+<a id="aef4b26050e763110d9a872debd1a9b1d" name="aef4b26050e763110d9a872debd1a9b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef4b26050e763110d9a872debd1a9b1d">&#9670;&nbsp;</a></span>max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr Engine::result_type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::max </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Devuelve</dt><dd>The maximum value potentially generated by the random-number engine </dd></dl>
+
+</div>
+</div>
+<a id="a1d0d7db4e8b9af1a8c39210e14a3a7e9" name="a1d0d7db4e8b9af1a8c39210e14a3a7e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d0d7db4e8b9af1a8c39210e14a3a7e9">&#9670;&nbsp;</a></span>min()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr Engine::result_type <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::min </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Devuelve</dt><dd>The minimum value potentially generated by the random-number engine </dd></dl>
+
+</div>
+</div>
+<a id="a40670aaaa27fff71fdc24dbc13a130d0" name="a40670aaaa27fff71fdc24dbc13a130d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40670aaaa27fff71fdc24dbc13a130d0">&#9670;&nbsp;</a></span>seed() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::seed </td>
+          <td>(</td>
+          <td class="paramtype">const typename Engine::result_type&#160;</td>
+          <td class="paramname"><em>value</em> = <code>Engine::default_seed</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reinitializes the internal state of the random-number engine using new seed value. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The seed value to use in the initialization of the internal state </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a61bb0f1ff7cc99d84f206296ba7dac68" name="a61bb0f1ff7cc99d84f206296ba7dac68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61bb0f1ff7cc99d84f206296ba7dac68">&#9670;&nbsp;</a></span>seed() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename Sseq &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::seed </td>
+          <td>(</td>
+          <td class="paramtype">Sseq &amp;&#160;</td>
+          <td class="paramname"><em>seq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reinitializes the internal state of the random-number engine using new seed value. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seq</td><td>The seed sequence to use in the initialization of the internal state </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a92e7c1f016fffa55b9d6ac2cefe5c4b9" name="a92e7c1f016fffa55b9d6ac2cefe5c4b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92e7c1f016fffa55b9d6ac2cefe5c4b9">&#9670;&nbsp;</a></span>serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename CharT , typename Traits &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::serialize </td>
+          <td>(</td>
+          <td class="paramtype">std::basic_ostream&lt; CharT, Traits &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ost</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serializes the internal state of the internal pseudo-random number engine as a sequence of decimal numbers separated by one or more spaces, and inserts it to the stream ost. The fill character and the formatting flags of the stream are ignored and unaffected. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ost</td><td>The output stream to insert the data to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8f9a8f667b3296df4aedfbafc76d417c" name="a8f9a8f667b3296df4aedfbafc76d417c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f9a8f667b3296df4aedfbafc76d417c">&#9670;&nbsp;</a></span>shuffle() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename Container &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::shuffle </td>
+          <td>(</td>
+          <td class="paramtype">Container &amp;&#160;</td>
+          <td class="paramname"><em>container</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reorders the elements in the given container such that each possible permutation of those elements has equal probability of appearance. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>- the container with elements to shuffle randomly </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9c18d14b91553d22e69e0ef02e5a18f0" name="a9c18d14b91553d22e69e0ef02e5a18f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c18d14b91553d22e69e0ef02e5a18f0">&#9670;&nbsp;</a></span>shuffle() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Engine , typename Seeder  = seeder_default, template&lt; typename &gt; class IntegerDist = std::uniform_int_distribution, template&lt; typename &gt; class RealDist = std::uniform_real_distribution, typename BoolDist  = std::bernoulli_distribution&gt; </div>
+<div class="memtemplate">
+template&lt;typename RandomIt &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classeffolkronium_1_1basic__random__static.html">effolkronium::basic_random_static</a>&lt; Engine, Seeder, IntegerDist, RealDist, BoolDist &gt;::shuffle </td>
+          <td>(</td>
+          <td class="paramtype">RandomIt&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RandomIt&#160;</td>
+          <td class="paramname"><em>last</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reorders the elements in the given range [first, last) such that each possible permutation of those elements has equal probability of appearance. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first,last</td><td>- the range of elements to shuffle randomly <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
+<li>tools/<a class="el" href="random_8hpp_source.html">random.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

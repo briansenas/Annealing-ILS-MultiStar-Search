@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Práctica de Metaheurística: Referencia del Archivo tools/ReadData.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Práctica de Metaheurística<span id="projectnumber">&#160;1</span>
+   </div>
+   <div id="projectbrief">APC Clasification Problem, Greedy vs LocalSearch</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4eeb864c4eec08c7d6b9d3b0352cfdde.html">tools</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">typedefs</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del Archivo ReadData.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Lectura de datos definidas para la práctica.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &quot;../inc/eigen-3.4.0/Eigen/Dense&quot;</code><br />
+<code>#include &quot;<a class="el" href="mytools_8h_source.html">mytools.h</a>&quot;</code><br />
+<code>#include &quot;../inc/random.hpp&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div>
+<p><a href="ReadData_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+typedefs</h2></td></tr>
+<tr class="memitem:a180f0653ebd0d5cdf633574b8c8512d3"><td class="memItemLeft" align="right" valign="top"><a id="a180f0653ebd0d5cdf633574b8c8512d3" name="a180f0653ebd0d5cdf633574b8c8512d3"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Random</b> = effolkronium::random_static</td></tr>
+<tr class="separator:a180f0653ebd0d5cdf633574b8c8512d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a3c2da117b6d8079659b9d6ba6e15fed7"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ReadData_8h.html#a3c2da117b6d8079659b9d6ba6e15fed7">getClass</a> (Eigen::MatrixXd data, vector&lt; char &gt; label, char type)</td></tr>
+<tr class="memdesc:a3c2da117b6d8079659b9d6ba6e15fed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">getClass lo que nos devuelve es una matrix con los datos pertenecientes a una clase específica.  <a href="ReadData_8h.html#a3c2da117b6d8079659b9d6ba6e15fed7">Más...</a><br /></td></tr>
+<tr class="separator:a3c2da117b6d8079659b9d6ba6e15fed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d1ea164d65b34e0971e329b23fc3f0"><td class="memItemLeft" align="right" valign="top"><a id="a18d1ea164d65b34e0971e329b23fc3f0" name="a18d1ea164d65b34e0971e329b23fc3f0"></a>
+Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><b>getClassLabelled</b> (Eigen::MatrixXd data, vector&lt; char &gt; Label, vector&lt; char &gt; &amp;newLabel, char type)</td></tr>
+<tr class="separator:a18d1ea164d65b34e0971e329b23fc3f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ae2c8440383fed7b4006741e91cff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ReadData_8h.html#a84ae2c8440383fed7b4006741e91cff3">getFold</a> (Eigen::MatrixXd data, vector&lt; char &gt; Label, Eigen::MatrixXd &amp;training, vector&lt; char &gt; &amp;TLabel, Eigen::MatrixXd &amp;test, vector&lt; char &gt; &amp;TtLabel, unsigned int num=1)</td></tr>
+<tr class="memdesc:a84ae2c8440383fed7b4006741e91cff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">getFold divide la matrix de datos "data" en dos matrices "tranning" y "test" con los datos pertenecientes a uno de los 5-folds que tenemos de desplazar un 20% al grupo de test sobre el conjunto total  <a href="ReadData_8h.html#a84ae2c8440383fed7b4006741e91cff3">Más...</a><br /></td></tr>
+<tr class="separator:a84ae2c8440383fed7b4006741e91cff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74e85088fcdeddd5575177adddcd564f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ReadData_8h.html#a74e85088fcdeddd5575177adddcd564f">getFoldbyLoop</a> (Eigen::MatrixXd data, vector&lt; char &gt; Label, Eigen::MatrixXd &amp;training, vector&lt; char &gt; &amp;TLabel, Eigen::MatrixXd &amp;test, vector&lt; char &gt; &amp;TtLabel, unsigned int num)</td></tr>
+<tr class="memdesc:a74e85088fcdeddd5575177adddcd564f"><td class="mdescLeft">&#160;</td><td class="mdescRight">getFoldbyLoop divide la matrix de datos "data" en dos matrices "tranning" y "test" con los datos pertenecientes a uno de los 5-folds que tenemos de desplazar un 20% al grupo de test sobre el conjunto total. A diferencia de <a class="el" href="ReadData_8h.html#a84ae2c8440383fed7b4006741e91cff3" title="getFold divide la matrix de datos &quot;data&quot; en dos matrices &quot;tranning&quot; y &quot;test&quot; con los datos pertenecie...">getFold()</a> intenta utilizar el "for-loop" de las etiquetas para asignar las filas. Sin embargo posee peor rendimiento.  <a href="ReadData_8h.html#a74e85088fcdeddd5575177adddcd564f">Más...</a><br /></td></tr>
+<tr class="separator:a74e85088fcdeddd5575177adddcd564f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996e2cf1dca6d6f6b2e5004fd6c8f789"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ReadData_8h.html#a996e2cf1dca6d6f6b2e5004fd6c8f789">getBalancedFold</a> (Eigen::MatrixXd group1, vector&lt; char &gt; label1, Eigen::MatrixXd group2, vector&lt; char &gt; label2, Eigen::MatrixXd &amp;training, vector&lt; char &gt; &amp;TLabel, Eigen::MatrixXd &amp;test, vector&lt; char &gt; &amp;TtLabel, unsigned int num, long int seed)</td></tr>
+<tr class="separator:a996e2cf1dca6d6f6b2e5004fd6c8f789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef11c31862b1e9d5623ad9611548fd14"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ReadData_8h.html#aef11c31862b1e9d5623ad9611548fd14">readValues</a> (string filename, vector&lt; char &gt; &amp;label)</td></tr>
+<tr class="memdesc:aef11c31862b1e9d5623ad9611548fd14"><td class="mdescLeft">&#160;</td><td class="mdescRight">readValues es la función utilizada para leer los archivos ".arrf" de la práctia en una Matrix de la libreria "Eigen" y un vector de etiquetas "Label".  <a href="ReadData_8h.html#aef11c31862b1e9d5623ad9611548fd14">Más...</a><br /></td></tr>
+<tr class="separator:aef11c31862b1e9d5623ad9611548fd14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p >Lectura de datos definidas para la práctica. </p>
+<dl class="section version"><dt>Versión</dt><dd>2.3 </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>09/05/2022 </dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Brian Sena Simons 3ºA-A2 <div class="fragment"><div class="line"><span class="keywordtype">int</span> main(){</div>
+<div class="line"> MatrixXd mat(3,2);</div>
+<div class="line"> mat &lt;&lt; 1, 1,</div>
+<div class="line">        2, 2,</div>
+<div class="line">        4, 4;</div>
+<div class="line"> </div>
+<div class="line"> RowVectorXd fil = <a class="code hl_function" href="mytools_8cpp.html#a3176dc33dc79b493d699596ece0e1ef7">removeRow</a>(mat,2);</div>
+<div class="line"> MatriXd::Index pos;</div>
+<div class="line"> <span class="keywordtype">double</span> min = <a class="code hl_function" href="Euclidean_8h.html#ad065fd64357444d7792b80876fcfa41f">minEuclideanDistance</a>(fil,mat,pos);</div>
+<div class="line"> cout &lt;&lt; <span class="stringliteral">&quot;Mínimo vecino por fila en: &quot;</span> &lt;&lt; pos &lt;&lt; <span class="stringliteral">&quot; con valor: &quot;</span> &lt;&lt; min &lt;&lt; endl;</div>
+<div class="line">}</div>
+<div class="ttc" id="aEuclidean_8h_html_ad065fd64357444d7792b80876fcfa41f"><div class="ttname"><a href="Euclidean_8h.html#ad065fd64357444d7792b80876fcfa41f">minEuclideanDistance</a></div><div class="ttdeci">double minEuclideanDistance(Eigen::RowVectorXd fixed, Eigen::MatrixXd data, Eigen::MatrixXd::Index &amp;maxRow)</div><div class="ttdoc">minEuclideanDistance utiliza la librería Eigen para calcular el menor vecino por fila desde una fila ...</div><div class="ttdef"><b>Definition:</b> Util_Euclidean.cpp:41</div></div>
+<div class="ttc" id="amytools_8cpp_html_a3176dc33dc79b493d699596ece0e1ef7"><div class="ttname"><a href="mytools_8cpp.html#a3176dc33dc79b493d699596ece0e1ef7">removeRow</a></div><div class="ttdeci">Eigen::MatrixXd removeRow(Eigen::MatrixXd matrix, unsigned int rowToRemove)</div><div class="ttdoc">removeRow nos permite quitar una fila de una matrix de entrada (sin modificar la original) y devuelve...</div><div class="ttdef"><b>Definition:</b> mytools.cpp:126</div></div>
+</div><!-- fragment --> </dd></dl>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a id="a996e2cf1dca6d6f6b2e5004fd6c8f789" name="a996e2cf1dca6d6f6b2e5004fd6c8f789"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a996e2cf1dca6d6f6b2e5004fd6c8f789">&#9670;&nbsp;</a></span>getBalancedFold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getBalancedFold </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>group1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>label1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>group2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>label2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>training</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>TLabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>test</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>TtLabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long int&#160;</td>
+          <td class="paramname"><em>seed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Hace lo mismo que <a class="el" href="ReadData_8h.html#a84ae2c8440383fed7b4006741e91cff3" title="getFold divide la matrix de datos &quot;data&quot; en dos matrices &quot;tranning&quot; y &quot;test&quot; con los datos pertenecie...">getFold()</a> pero con un equilibrado de clase de por medio; Se utiliza <a class="el" href="ReadData_8h.html#a3c2da117b6d8079659b9d6ba6e15fed7" title="getClass lo que nos devuelve es una matrix con los datos pertenecientes a una clase específica.">getClass()</a> para obtener matrices correspondente a cada clase, se pasa a este método y lo para cada conjunto utiliza <a class="el" href="ReadData_8h.html#a84ae2c8440383fed7b4006741e91cff3" title="getFold divide la matrix de datos &quot;data&quot; en dos matrices &quot;tranning&quot; y &quot;test&quot; con los datos pertenecie...">getFold()</a> para obtener su correspondente 80/20 y luego lo añade todo secuencialmente en el conjunto de entreno y testeo que luego a final son barajados. </p>
+
+</div>
+</div>
+<a id="a3c2da117b6d8079659b9d6ba6e15fed7" name="a3c2da117b6d8079659b9d6ba6e15fed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c2da117b6d8079659b9d6ba6e15fed7">&#9670;&nbsp;</a></span>getClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd getClass </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>Label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getClass lo que nos devuelve es una matrix con los datos pertenecientes a una clase específica. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Matrix de datos completos. </td></tr>
+    <tr><td class="paramname">label</td><td>Vector de etiquetas. </td></tr>
+    <tr><td class="paramname">type</td><td>Clase específica a buscar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Matrix con los datos de esa clase</dd></dl>
+<p>La idea es iterar sobre el vector de etiquetas y cuando su valor coincida con el especificado por "type" introducimos en la matrix "res" la fila correspondiente para así calcular la matrix con apenas un tipo de clase. </p>
+
+</div>
+</div>
+<a id="a84ae2c8440383fed7b4006741e91cff3" name="a84ae2c8440383fed7b4006741e91cff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84ae2c8440383fed7b4006741e91cff3">&#9670;&nbsp;</a></span>getFold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getFold </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>Label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>training</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>TLabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>test</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>TtLabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getFold divide la matrix de datos "data" en dos matrices "tranning" y "test" con los datos pertenecientes a uno de los 5-folds que tenemos de desplazar un 20% al grupo de test sobre el conjunto total </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Matrix de datos completos. </td></tr>
+    <tr><td class="paramname">label</td><td>Vector de etiquetas. </td></tr>
+    <tr><td class="paramname">traning</td><td>Matrix con los datos para entrenar. </td></tr>
+    <tr><td class="paramname">Tlabel</td><td>Vector con las etiquetas de entreno. </td></tr>
+    <tr><td class="paramname">test</td><td>Matrix con los datos para el test. </td></tr>
+    <tr><td class="paramname">Ttlabel</td><td>Vector con las etiquetas de test. </td></tr>
+    <tr><td class="paramname">num</td><td>Fold a utilizar (0:(0-80%;80%-100%), 1:(0:60%+80%-100%;60%-80%)...)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>La idea es calcular el 20% de la Matrix total y luego con ese valor ir estableciendo el "boundary" superior a copiar para la primera (o toda la parte del dataset de entreno cuando num=0, boundary = 80%) y luego copiar lo que sigue a boundary hasta un 20% más (boundary + size) en test y luego copiar devuelta lo que queda en tranning. Utilizamos la librería de Eigen para un mejor rendimiento. </p>
+
+</div>
+</div>
+<a id="a74e85088fcdeddd5575177adddcd564f" name="a74e85088fcdeddd5575177adddcd564f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74e85088fcdeddd5575177adddcd564f">&#9670;&nbsp;</a></span>getFoldbyLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getFoldbyLoop </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>Label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>training</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>TLabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramname"><em>test</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>TtLabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getFoldbyLoop divide la matrix de datos "data" en dos matrices "tranning" y "test" con los datos pertenecientes a uno de los 5-folds que tenemos de desplazar un 20% al grupo de test sobre el conjunto total. A diferencia de <a class="el" href="ReadData_8h.html#a84ae2c8440383fed7b4006741e91cff3" title="getFold divide la matrix de datos &quot;data&quot; en dos matrices &quot;tranning&quot; y &quot;test&quot; con los datos pertenecie...">getFold()</a> intenta utilizar el "for-loop" de las etiquetas para asignar las filas. Sin embargo posee peor rendimiento. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Matrix de datos completos. </td></tr>
+    <tr><td class="paramname">label</td><td>Vector de etiquetas. </td></tr>
+    <tr><td class="paramname">traning</td><td>Matrix con los datos para entrenar. </td></tr>
+    <tr><td class="paramname">Tlabel</td><td>Vector con las etiquetas de entreno. </td></tr>
+    <tr><td class="paramname">test</td><td>Matrix con los datos para el test. </td></tr>
+    <tr><td class="paramname">Ttlabel</td><td>Vector con las etiquetas de test. </td></tr>
+    <tr><td class="paramname">num</td><td>Fold a utilizar (0:(0-80%;80%-100%), 1:(0:60%+80%-100%;60%-80%)...) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="ReadData_8h.html#a84ae2c8440383fed7b4006741e91cff3" title="getFold divide la matrix de datos &quot;data&quot; en dos matrices &quot;tranning&quot; y &quot;test&quot; con los datos pertenecie...">getFold()</a></dd></dl>
+<p>La idea es calcular el 20% de la Matrix total y luego con ese valor ir estableciendo el "boundary" superior a copiar para la primera (o toda la parte del dataset de entreno cuando num=0, boundary = 80%) y luego copiar lo que sigue a boundary hasta un 20% más (boundary + size) en test y luego copiar devuelta lo que queda en tranning. Pero en este caso no utilizamos las facilidades de la librería Eigen si no que apenas calculamos el tamaño total de las matrices a rellenar y vamos iterando a la vez que creamos las etiquetas adecuadas. </p>
+
+</div>
+</div>
+<a id="aef11c31862b1e9d5623ad9611548fd14" name="aef11c31862b1e9d5623ad9611548fd14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef11c31862b1e9d5623ad9611548fd14">&#9670;&nbsp;</a></span>readValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXd readValues </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>label</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>readValues es la función utilizada para leer los archivos ".arrf" de la práctia en una Matrix de la libreria "Eigen" y un vector de etiquetas "Label". </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Nombre del archivo que vamos a leer </td></tr>
+    <tr><td class="paramname">label</td><td>Vector de etiquetas a rellenar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Matrix con todos los valores.</dd></dl>
+<p>Leemos y utilizamos los "@attribute" del archivo para calcular el tamaño de las columnas de la matrix a rellenar. Luego al leer "@data" lo que haremos es empezar el bucle de rellenado. Dónde en este lo que hacemos es leer un número y una coma, insertar el número en un vector hasta que se alcanze la cantidad de valores calculadas. Luego lo insertamos en la última fila de la matrix y la incrementamos de tamaño para la siguiente iteración. Así hasta que terminemos de leer el archivo. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

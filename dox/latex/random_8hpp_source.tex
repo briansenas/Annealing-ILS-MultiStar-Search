@@ -1,0 +1,1035 @@
+\hypertarget{random_8hpp_source}{}\doxysection{random.\+hpp}
+\label{random_8hpp_source}\index{tools/random.hpp@{tools/random.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{\_\_\_\_\_\_  \_\_\_   \_   \_\_\_\_\_\_\_ \_\_\_\_\_\_\_\_  \_\_}}
+\DoxyCodeLine{3 \textcolor{comment}{| \_\_\_ \(\backslash\)/ \_ \(\backslash\) | \(\backslash\) | |  \_  \(\backslash\)  \_  |  \(\backslash\)/  | Random for modern C++}}
+\DoxyCodeLine{4 \textcolor{comment}{| |\_/ / /\_\(\backslash\) \(\backslash\)|  \(\backslash\)| | | | | | | | .  . |}}
+\DoxyCodeLine{5 \textcolor{comment}{|    /|  \_  || . ` | | | | | | | |\(\backslash\)/| | version 1.4.0}}
+\DoxyCodeLine{6 \textcolor{comment}{| |\(\backslash\) \(\backslash\)| | | || |\(\backslash\)  | |/ /\(\backslash\) \(\backslash\)\_/ / |  | |}}
+\DoxyCodeLine{7 \textcolor{comment}{\(\backslash\)\_| \(\backslash\)\_\(\backslash\)\_| |\_/\(\backslash\)\_| \(\backslash\)\_/\_\_\_/  \(\backslash\)\_\_\_/\(\backslash\)\_|  |\_/ https://github.com/effolkronium/random}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Licensed under the MIT License <http://opensource.org/licenses/MIT>.}}
+\DoxyCodeLine{10 \textcolor{comment}{Copyright (c) 2017-\/2022 effolkronium (Illia Polishchuk)}}
+\DoxyCodeLine{11 \textcolor{comment}{}}
+\DoxyCodeLine{12 \textcolor{comment}{Permission is hereby granted, free of charge, to any person obtaining a copy}}
+\DoxyCodeLine{13 \textcolor{comment}{of this software and associated documentation files( the "{}Software"{} ), to deal}}
+\DoxyCodeLine{14 \textcolor{comment}{in the Software without restriction, including without limitation the rights}}
+\DoxyCodeLine{15 \textcolor{comment}{to use, copy, modify, merge, publish, distribute, sublicense, and/or sell}}
+\DoxyCodeLine{16 \textcolor{comment}{copies of the Software, and to permit persons to whom the Software is}}
+\DoxyCodeLine{17 \textcolor{comment}{furnished to do so, subject to the following conditions :}}
+\DoxyCodeLine{18 \textcolor{comment}{}}
+\DoxyCodeLine{19 \textcolor{comment}{The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{20 \textcolor{comment}{copies or substantial portions of the Software.}}
+\DoxyCodeLine{21 \textcolor{comment}{}}
+\DoxyCodeLine{22 \textcolor{comment}{THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{23 \textcolor{comment}{IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,}}
+\DoxyCodeLine{24 \textcolor{comment}{FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE}}
+\DoxyCodeLine{25 \textcolor{comment}{AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER}}
+\DoxyCodeLine{26 \textcolor{comment}{LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,}}
+\DoxyCodeLine{27 \textcolor{comment}{OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE}}
+\DoxyCodeLine{28 \textcolor{comment}{SOFTWARE.}}
+\DoxyCodeLine{29 \textcolor{comment}{*/}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#ifndef EFFOLKRONIUM\_RANDOM\_HPP}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define EFFOLKRONIUM\_RANDOM\_HPP}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include <chrono>} \textcolor{comment}{// timed seed}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include <initializer\_list>}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include <utility>} \textcolor{comment}{// std::forward, std::declval}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include <algorithm>} \textcolor{comment}{// std::shuffle, std::next, std::distance}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include <iterator>} \textcolor{comment}{// std::begin, std::end, std::iterator\_traits}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include <limits>} \textcolor{comment}{// std::numeric\_limits}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include <ostream>}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include <istream>}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{namespace }effolkronium \{}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{namespace }details \{}
+\DoxyCodeLine{50         \textcolor{keyword}{struct }\mbox{\hyperlink{structeffolkronium_1_1details_1_1common}{common}}\{ \}; }
+\DoxyCodeLine{51 }
+\DoxyCodeLine{53         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{54         \textcolor{keyword}{struct }\mbox{\hyperlink{structeffolkronium_1_1details_1_1is__uniform__int}{is\_uniform\_int}} \{}
+\DoxyCodeLine{55             \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} value =}
+\DoxyCodeLine{56                    std::is\_same<T,              short>::value}
+\DoxyCodeLine{57                 || std::is\_same<T,                int>::value}
+\DoxyCodeLine{58                 || std::is\_same<T,               long>::value}
+\DoxyCodeLine{59                 || std::is\_same<T,          long long>::value}
+\DoxyCodeLine{60                 || std::is\_same<T,     unsigned short>::value}
+\DoxyCodeLine{61                 || std::is\_same<T,       unsigned int>::value}
+\DoxyCodeLine{62                 || std::is\_same<T,      unsigned long>::value}
+\DoxyCodeLine{63                 || std::is\_same<T, unsigned long long>::value;}
+\DoxyCodeLine{64         \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{67         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{68         \textcolor{keyword}{struct }\mbox{\hyperlink{structeffolkronium_1_1details_1_1is__uniform__real}{is\_uniform\_real}} \{}
+\DoxyCodeLine{69             \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} value =}
+\DoxyCodeLine{70                    std::is\_same<T,       float>::value}
+\DoxyCodeLine{71                 || std::is\_same<T,      double>::value}
+\DoxyCodeLine{72                 || std::is\_same<T, long double>::value;}
+\DoxyCodeLine{73         \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{76         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{77         \textcolor{keyword}{struct }\mbox{\hyperlink{structeffolkronium_1_1details_1_1is__byte}{is\_byte}} \{}
+\DoxyCodeLine{78             \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} value =}
+\DoxyCodeLine{79                    std::is\_same<T,   signed char>::value}
+\DoxyCodeLine{80                 || std::is\_same<T, unsigned char>::value;}
+\DoxyCodeLine{81         \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{84         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{85         \textcolor{keyword}{struct }\mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__number}{is\_supported\_number}} \{}
+\DoxyCodeLine{86             \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} value =}
+\DoxyCodeLine{87                    \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__byte}{is\_byte        <T>::value}}}
+\DoxyCodeLine{88                 || \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__uniform__real}{is\_uniform\_real<T>::value}}}
+\DoxyCodeLine{89                 || \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__uniform__int}{is\_uniform\_int <T>::value}};}
+\DoxyCodeLine{90         \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{93         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{94         \textcolor{keyword}{struct }\mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__character}{is\_supported\_character}} \{}
+\DoxyCodeLine{95             \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} value =}
+\DoxyCodeLine{96                    std::is\_same<T, char>::value}
+\DoxyCodeLine{97                 || std::is\_same<T, wchar\_t>::value}
+\DoxyCodeLine{98                 || std::is\_same<T, char16\_t>::value}
+\DoxyCodeLine{99                 || std::is\_same<T, char32\_t>::value;}
+\DoxyCodeLine{100         \};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{103         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{104         \textcolor{keyword}{struct }\mbox{\hyperlink{structeffolkronium_1_1details_1_1is__iterator}{is\_iterator}} \{}
+\DoxyCodeLine{105         \textcolor{keyword}{private}:}
+\DoxyCodeLine{106             \textcolor{keyword}{static} \textcolor{keywordtype}{char} test( ... );}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108             \textcolor{keyword}{template} <\textcolor{keyword}{typename} U,}
+\DoxyCodeLine{109                 \textcolor{keyword}{typename} = \textcolor{keyword}{typename} std::iterator\_traits<U>::difference\_type,}
+\DoxyCodeLine{110                 \textcolor{keyword}{typename} = \textcolor{keyword}{typename} std::iterator\_traits<U>::pointer,}
+\DoxyCodeLine{111                 \textcolor{keyword}{typename} = \textcolor{keyword}{typename} std::iterator\_traits<U>::reference,}
+\DoxyCodeLine{112                 \textcolor{keyword}{typename} = \textcolor{keyword}{typename} std::iterator\_traits<U>::value\_type,}
+\DoxyCodeLine{113                 \textcolor{keyword}{typename} = \textcolor{keyword}{typename} std::iterator\_traits<U>::iterator\_category}
+\DoxyCodeLine{114             > \textcolor{keyword}{static} \textcolor{keywordtype}{long} test( U\&\& );}
+\DoxyCodeLine{115         \textcolor{keyword}{public}:}
+\DoxyCodeLine{116             \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} value = std::is\_same<}
+\DoxyCodeLine{117                 \textcolor{keyword}{decltype}( test( std::declval<T>( ) ) ), \textcolor{keywordtype}{long}>::value;}
+\DoxyCodeLine{118         \};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{121         \textcolor{keyword}{class }\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{has\_reserve}}}
+\DoxyCodeLine{122         \{}
+\DoxyCodeLine{123         \textcolor{keyword}{private}:}
+\DoxyCodeLine{124             \textcolor{keyword}{template} <\textcolor{keyword}{typename} C>}
+\DoxyCodeLine{125             \textcolor{keyword}{static} \textcolor{keywordtype}{char} test(...);}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127             \textcolor{keyword}{template} <\textcolor{keyword}{typename} C>}
+\DoxyCodeLine{128             \textcolor{keyword}{static} \textcolor{keywordtype}{long} test(\textcolor{keyword}{decltype}(\&C::reserve));}
+\DoxyCodeLine{129         \textcolor{keyword}{public}:}
+\DoxyCodeLine{130             \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} value = std::is\_same<}
+\DoxyCodeLine{131                 \textcolor{keyword}{decltype}(test<T>(0)), \textcolor{keywordtype}{long}>::value;}
+\DoxyCodeLine{132         \};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{135         \textcolor{keyword}{class }\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__insert}{has\_insert}}}
+\DoxyCodeLine{136         \{}
+\DoxyCodeLine{137         \textcolor{keyword}{private}:}
+\DoxyCodeLine{138             \textcolor{keyword}{template} <\textcolor{keyword}{typename} C>}
+\DoxyCodeLine{139             \textcolor{keyword}{static} \textcolor{keywordtype}{char} test(...);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141             \textcolor{keyword}{template} <\textcolor{keyword}{typename} C>}
+\DoxyCodeLine{142             \textcolor{keyword}{static} \textcolor{keywordtype}{long} test(\textcolor{keyword}{decltype}(\&C::insert));}
+\DoxyCodeLine{143         \textcolor{keyword}{public}:}
+\DoxyCodeLine{144             \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} value = std::is\_same<}
+\DoxyCodeLine{145                 \textcolor{keyword}{decltype}(test<T>(0)), \textcolor{keywordtype}{long}>::value;}
+\DoxyCodeLine{146         \};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \} \textcolor{comment}{// namespace details}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{151     \textcolor{keyword}{struct }\mbox{\hyperlink{structeffolkronium_1_1seeder__default}{seeder\_default}} \{}
+\DoxyCodeLine{153         std::seed\_seq\& \mbox{\hyperlink{structeffolkronium_1_1seeder__default_aeeecc8e6a8450e4f4fd77ee512f1a554}{operator() }}( ) \{}
+\DoxyCodeLine{154             \textcolor{comment}{// MinGW issue, std::random\_device returns constant value}}
+\DoxyCodeLine{155             \textcolor{comment}{// Use std::seed\_seq with additional seed from C++ chrono}}
+\DoxyCodeLine{156             \textcolor{keywordflow}{return} seed\_seq;}
+\DoxyCodeLine{157         \}}
+\DoxyCodeLine{158     \textcolor{keyword}{private}:}
+\DoxyCodeLine{159         std::seed\_seq seed\_seq\{ \{}
+\DoxyCodeLine{160                 \textcolor{keyword}{static\_cast<}std::uintmax\_t\textcolor{keyword}{>}( std::random\_device\{ \}( ) ),}
+\DoxyCodeLine{161                 \textcolor{keyword}{static\_cast<}std::uintmax\_t\textcolor{keyword}{>}( std::chrono::steady\_clock::now( )}
+\DoxyCodeLine{162                                              .time\_since\_epoch( ).count( ) ),}
+\DoxyCodeLine{163         \} \};}
+\DoxyCodeLine{164     \};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{175     \textcolor{keyword}{template}<}
+\DoxyCodeLine{176         \textcolor{keyword}{typename} Engine,}
+\DoxyCodeLine{177         \textcolor{keyword}{typename} Seeder = seeder\_default,}
+\DoxyCodeLine{178         \textcolor{keyword}{template}<\textcolor{keyword}{typename}> \textcolor{keyword}{class }IntegerDist = std::uniform\_int\_distribution,}
+\DoxyCodeLine{179         \textcolor{keyword}{template}<\textcolor{keyword}{typename}> \textcolor{keyword}{class }RealDist = std::uniform\_real\_distribution,}
+\DoxyCodeLine{180         \textcolor{keyword}{typename} BoolDist = std::bernoulli\_distribution}
+\DoxyCodeLine{181     >}
+\DoxyCodeLine{182     \textcolor{keyword}{class }\mbox{\hyperlink{classeffolkronium_1_1basic__random__static}{basic\_random\_static}} \{}
+\DoxyCodeLine{183     \textcolor{keyword}{public}:}
+\DoxyCodeLine{184         \mbox{\hyperlink{classeffolkronium_1_1basic__random__static}{basic\_random\_static}}( ) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{187         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_aa02aeed3121850972f5d2e5c51f92219}{engine\_type}} = Engine;}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{190         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_aa21ab20da546a509e9aba1afeca712d7}{seeder\_type}} = Seeder;}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{193         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{194         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_ad44f3be225050a57c267a01531ba3965}{integer\_dist\_t}} = IntegerDist<T>;}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{197         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{198         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_ad6022a6a5a66cc5244130541d440ea6a}{real\_dist\_t}} = RealDist<T>;}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{201         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_ae4fcd1837dfb96c6e05441c59dd364e5}{bool\_dist\_t}} = BoolDist;}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{204         \textcolor{keyword}{using} \mbox{\hyperlink{structeffolkronium_1_1details_1_1common}{common}} = \mbox{\hyperlink{structeffolkronium_1_1details_1_1common}{details::common}};}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{210         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{typename} Engine::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a1d0d7db4e8b9af1a8c39210e14a3a7e9}{min}}( ) \{}
+\DoxyCodeLine{211             \textcolor{keywordflow}{return} Engine::min( );}
+\DoxyCodeLine{212         \}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{218         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{typename} Engine::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_aef4b26050e763110d9a872debd1a9b1d}{max}}( ) \{}
+\DoxyCodeLine{219             \textcolor{keywordflow}{return} Engine::max( );}
+\DoxyCodeLine{220         \}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{223         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a2de6451b6bff703a6425fe07107609c4}{discard}}( \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} z ) \{}
+\DoxyCodeLine{224             \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ).discard( z );}
+\DoxyCodeLine{225         \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{228         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a998aa3e3282eab1082ed2c22373efe37}{reseed}}( ) \{}
+\DoxyCodeLine{229             Seeder seeder;}
+\DoxyCodeLine{230             \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a40670aaaa27fff71fdc24dbc13a130d0}{seed}}( seeder( ) );}
+\DoxyCodeLine{231         \}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{239         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a40670aaaa27fff71fdc24dbc13a130d0}{seed}}( \textcolor{keyword}{const} \textcolor{keyword}{typename} Engine::result\_type value =}
+\DoxyCodeLine{240                           Engine::default\_seed ) \{}
+\DoxyCodeLine{241             \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ).seed( value );}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{250         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Sseq>}
+\DoxyCodeLine{251         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a61bb0f1ff7cc99d84f206296ba7dac68}{seed}}( Sseq\& seq ) \{}
+\DoxyCodeLine{252             \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ).seed( seq );}
+\DoxyCodeLine{253         \}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{256         \textcolor{keyword}{static} \textcolor{keyword}{typename} Engine::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a7e9574f341db38f496141f6a05837e69}{get}}( ) \{}
+\DoxyCodeLine{257             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( )( );}
+\DoxyCodeLine{258         \}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{269         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a633f45cae3663ee2cc7980c7881fb253}{is\_equal}}( \textcolor{keyword}{const} Engine\& other ) \{}
+\DoxyCodeLine{270             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) == other;}
+\DoxyCodeLine{271         \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{282         \textcolor{keyword}{template}<\textcolor{keyword}{typename} CharT, \textcolor{keyword}{typename} Traits>}
+\DoxyCodeLine{283         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a92e7c1f016fffa55b9d6ac2cefe5c4b9}{serialize}}( std::basic\_ostream<CharT, Traits>\& ost ) \{}
+\DoxyCodeLine{284             ost << \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( );}
+\DoxyCodeLine{285         \}}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{298         \textcolor{keyword}{template}<\textcolor{keyword}{typename} CharT, \textcolor{keyword}{typename} Traits>}
+\DoxyCodeLine{299         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_aa3475f147f762e748984f2fb2f3fd577}{deserialize}}( std::basic\_istream<CharT, Traits>\& ist ) \{}
+\DoxyCodeLine{300             ist >> \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( );}
+\DoxyCodeLine{301         \}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{312         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{313         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_uniform\_int<T>::value}
+\DoxyCodeLine{314             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a623a2343ce0c6189560998281d504103}{get}}( T from = std::numeric\_limits<T>::min( ),}
+\DoxyCodeLine{315                             T to = std::numeric\_limits<T>::max( ) ) \{}
+\DoxyCodeLine{316             \textcolor{keywordflow}{if}( from < to ) \textcolor{comment}{// Allow range from higher to lower}}
+\DoxyCodeLine{317                 \textcolor{keywordflow}{return} IntegerDist<T>\{ from, to \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) );}
+\DoxyCodeLine{318             \textcolor{keywordflow}{return} IntegerDist<T>\{ to, from \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) );}
+\DoxyCodeLine{319         \}}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{330         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{331         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_uniform\_real<T>::value}
+\DoxyCodeLine{332             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a97d472c8866d94aea3241f98984e031f}{get}}( T from = std::numeric\_limits<T>::min( ),}
+\DoxyCodeLine{333                             T to = std::numeric\_limits<T>::max( ) ) \{}
+\DoxyCodeLine{334             \textcolor{keywordflow}{if}( from < to ) \textcolor{comment}{// Allow range from higher to lower}}
+\DoxyCodeLine{335                 \textcolor{keywordflow}{return} RealDist<T>\{ from, to \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) );}
+\DoxyCodeLine{336             \textcolor{keywordflow}{return} RealDist<T>\{ to, from \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) );}
+\DoxyCodeLine{337         \}}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{347         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{348         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_byte<T>::value}
+\DoxyCodeLine{349             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a7586ba93ac71c442fb49e49c6bf1b3ef}{get}}( T from = std::numeric\_limits<T>::min( ),}
+\DoxyCodeLine{350                             T to = std::numeric\_limits<T>::max( ) ) \{}
+\DoxyCodeLine{351             \textcolor{comment}{// Choose between short and unsigned short for byte conversion}}
+\DoxyCodeLine{352             \textcolor{keyword}{using} short\_t = \textcolor{keyword}{typename} std::conditional<std::is\_signed<T>::value,}
+\DoxyCodeLine{353                 short, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short}>::type;}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}( get<short\_t>( from, to ) );}
+\DoxyCodeLine{356         \}}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{373         \textcolor{keyword}{template}<}
+\DoxyCodeLine{374             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{375             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{376             \textcolor{keyword}{typename} B, }
+\DoxyCodeLine{377             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type}
+\DoxyCodeLine{378         >}
+\DoxyCodeLine{379         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{380                std::is\_same<Key, common>::value}
+\DoxyCodeLine{381             \&\& \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__number}{details::is\_supported\_number<A>::value}}}
+\DoxyCodeLine{382             \&\& \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__number}{details::is\_supported\_number<B>::value}}}
+\DoxyCodeLine{383             \textcolor{comment}{// Prevent implicit type conversion from singed to unsigned types}}
+\DoxyCodeLine{384             \&\& std::is\_signed<A>::value != std::is\_unsigned<B>::value}
+\DoxyCodeLine{385             , C>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_ab65bcb3d23a86d7519ef9bc8a6acf1cd}{get}}( A from = std::numeric\_limits<A>::min( ),}
+\DoxyCodeLine{386                             B to = std::numeric\_limits<B>::max( ) ) \{}
+\DoxyCodeLine{387             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a7e9574f341db38f496141f6a05837e69}{get}}( \textcolor{keyword}{static\_cast<}C\textcolor{keyword}{>}( from ), \textcolor{keyword}{static\_cast<}C\textcolor{keyword}{>}( to ) );}
+\DoxyCodeLine{388         \}}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{399         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{400         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_supported\_character<T>::value}
+\DoxyCodeLine{401             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a3bcce7f675b7faf83a3dcb5bb6d5592a}{get}}(T from = std::numeric\_limits<T>::min(),}
+\DoxyCodeLine{402                 T to = std::numeric\_limits<T>::max()) \{}
+\DoxyCodeLine{403             \textcolor{keywordflow}{if} (from < to) \textcolor{comment}{// Allow range from higher to lower}}
+\DoxyCodeLine{404                 \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(IntegerDist<std::int64\_t>\{ \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(from), \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(to) \}(\mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}()));}
+\DoxyCodeLine{405             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(IntegerDist<std::int64\_t>\{ \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(to), \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(from) \}(\mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}()));}
+\DoxyCodeLine{406         \}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{415         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{416         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<std::is\_same<T, bool>::value}
+\DoxyCodeLine{417             , \textcolor{keywordtype}{bool}>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_adfc161415ce7234b6fdd62fbb12aae19}{get}}( \textcolor{keyword}{const} \textcolor{keywordtype}{double} probability = 0.5 ) \{}
+\DoxyCodeLine{418             assert( 0 <= probability \&\& 1 >= probability ); \textcolor{comment}{// out of [0; 1] range}}
+\DoxyCodeLine{419             \textcolor{keywordflow}{return} BoolDist\{ probability \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) );}
+\DoxyCodeLine{420         \}}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{430         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{431         \textcolor{keyword}{static} T \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a6810cb4d47112878804af9b70501a0fa}{get}}( std::initializer\_list<T> init\_list ) \{}
+\DoxyCodeLine{432             assert( 0u != init\_list.size( ) );}
+\DoxyCodeLine{433             \textcolor{keywordflow}{return} *\mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a7e9574f341db38f496141f6a05837e69}{get}}( init\_list.begin( ), init\_list.end( ) );}
+\DoxyCodeLine{434         \}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{442         \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIt>}
+\DoxyCodeLine{443         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_iterator<InputIt>::value}
+\DoxyCodeLine{444             , InputIt>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a1f3f964038031301905f484570aa255b}{get}}( InputIt first, InputIt last ) \{}
+\DoxyCodeLine{445             \textcolor{keyword}{const} \textcolor{keyword}{auto} size = std::distance( first, last );}
+\DoxyCodeLine{446             \textcolor{keywordflow}{if}( 0 == size ) \textcolor{keywordflow}{return} last;}
+\DoxyCodeLine{447             \textcolor{keyword}{using} diff\_t = \textcolor{keyword}{typename} std::iterator\_traits<InputIt>::difference\_type;}
+\DoxyCodeLine{448             \textcolor{keywordflow}{return} std::next( first, get<diff\_t>( 0, size -\/ 1 ) );}
+\DoxyCodeLine{449         \}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{457         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Container>}
+\DoxyCodeLine{458         \textcolor{keyword}{static} \textcolor{keyword}{auto} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a728489c51605f77662053ca75b783133}{get}}( Container\& container ) -\/> }
+\DoxyCodeLine{459             \textcolor{keyword}{typename} std::enable\_if<\mbox{\hyperlink{structeffolkronium_1_1details_1_1is__iterator}{details::is\_iterator}}<}
+\DoxyCodeLine{460                 \textcolor{keyword}{decltype}(std::begin(container))>::value}
+\DoxyCodeLine{461                 , \textcolor{keyword}{decltype}(std::begin(container))}
+\DoxyCodeLine{462             >::type \{}
+\DoxyCodeLine{463             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a7e9574f341db38f496141f6a05837e69}{get}}( std::begin( container ), std::end( container ) );}
+\DoxyCodeLine{464         \}}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{474         \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container, \textcolor{keyword}{typename} A>}
+\DoxyCodeLine{475         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{476                 \mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<A>}}>::value}
+\DoxyCodeLine{477             , Container<A>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a8974b513591972c59c56c09fb51c8da4}{get}}(A from, A to, std::size\_t size) \{}
+\DoxyCodeLine{478             Container<A> container;}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{480             container.reserve(size);}
+\DoxyCodeLine{481             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{482                 container.insert(std::end(container), \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a7e9574f341db38f496141f6a05837e69}{get}}(from, to));}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{484             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{485         \}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{497         \textcolor{keyword}{template}<}
+\DoxyCodeLine{498             \textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container,}
+\DoxyCodeLine{499             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{500             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{501             \textcolor{keyword}{typename} B,}
+\DoxyCodeLine{502             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type>}
+\DoxyCodeLine{503         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{504                    std::is\_same<Key, common>::value}
+\DoxyCodeLine{505                 \&\& \mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<A>}}>::value}
+\DoxyCodeLine{506             , Container<C>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_aadff4f7acc8bf4959901992432d1b03c}{get}}(A start, B end, std::size\_t size) \{}
+\DoxyCodeLine{507             Container<C> container;}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{509             container.reserve(size);}
+\DoxyCodeLine{510             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{511                 container.insert(std::end(container), get<common>(start, end));}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{514         \}}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{523         \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container, \textcolor{keyword}{typename} A>}
+\DoxyCodeLine{524         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{525               !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<A>}}>::value}
+\DoxyCodeLine{526             , Container<A>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af166ab92690bad8e081743b5e992eccd}{get}}(A start, A end, std::size\_t size) \{}
+\DoxyCodeLine{527             Container<A> container;}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{529             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{530                 container.insert(std::end(container), \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a7e9574f341db38f496141f6a05837e69}{get}}(start, end));}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{532             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{533         \}}
+\DoxyCodeLine{534 }
+\DoxyCodeLine{544         \textcolor{keyword}{template}<}
+\DoxyCodeLine{545             \textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container,}
+\DoxyCodeLine{546             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{547             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{548             \textcolor{keyword}{typename} B,}
+\DoxyCodeLine{549             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type>}
+\DoxyCodeLine{550         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{551                  std::is\_same<Key, common>::value}
+\DoxyCodeLine{552               \&\& !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<C>}}>::value}
+\DoxyCodeLine{553             , Container<C>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_acee7441bd311dd8212a1b83beb5471d7}{get}}(A start, B end, std::size\_t size) \{}
+\DoxyCodeLine{554             Container<C> container;}
+\DoxyCodeLine{555 }
+\DoxyCodeLine{556             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{557                 container.insert(std::end(container), get<common>(start, end));}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{560         \}}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{569         \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{typename} AA, std::size\_t NN, \textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container, std::size\_t N, \textcolor{keyword}{typename} A>}
+\DoxyCodeLine{570         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{571                !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__insert}{details::has\_insert<Container<A, N>}}>::value}
+\DoxyCodeLine{572             , Container<A, N>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9a551c9bb01b7b36877724a470176ae}{get}}(A start, A end) \{}
+\DoxyCodeLine{573             Container<A, N> container = \{\{ 0 \}\};}
+\DoxyCodeLine{574 }
+\DoxyCodeLine{575             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < N; ++i)}
+\DoxyCodeLine{576                 container[i] = \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a7e9574f341db38f496141f6a05837e69}{get}}(start, end);}
+\DoxyCodeLine{577 }
+\DoxyCodeLine{578             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{579         \}}
+\DoxyCodeLine{580 }
+\DoxyCodeLine{590         \textcolor{keyword}{template}<}
+\DoxyCodeLine{591             \textcolor{keyword}{template}<\textcolor{keyword}{typename} AA, std::size\_t NN, \textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container,}
+\DoxyCodeLine{592             std::size\_t N,}
+\DoxyCodeLine{593             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{594             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{595             \textcolor{keyword}{typename} B,}
+\DoxyCodeLine{596             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type>}
+\DoxyCodeLine{597         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{598                   std::is\_same<Key, common>::value}
+\DoxyCodeLine{599                \&\& !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__insert}{details::has\_insert<Container<C, N>}}>::value}
+\DoxyCodeLine{600             , Container<C, N>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_aad368fe171e9577970691cc312e4d4b1}{get}}(A start, B end) \{}
+\DoxyCodeLine{601             Container<C, N> container = \{\{ 0 \}\};}
+\DoxyCodeLine{602 }
+\DoxyCodeLine{603             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < N; ++i)}
+\DoxyCodeLine{604                 container[i] = get<common>(start, end);}
+\DoxyCodeLine{605 }
+\DoxyCodeLine{606             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{607         \}}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{614         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, std::\textcolor{keywordtype}{size\_t} N>}
+\DoxyCodeLine{615         \textcolor{keyword}{static} T* \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_abbb8db208b6f4aa7a08ab8470d05beb3}{get}}( T( \&array )[ N ] ) \{}
+\DoxyCodeLine{616             \textcolor{keywordflow}{return} std::addressof( array[ get<std::size\_t>( 0, N -\/ 1 ) ] );}
+\DoxyCodeLine{617         \}}
+\DoxyCodeLine{618 }
+\DoxyCodeLine{627         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Dist, \textcolor{keyword}{typename}... Args>}
+\DoxyCodeLine{628         \textcolor{keyword}{static} \textcolor{keyword}{typename} Dist::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a17e3a8eebdfc900e8781d00d90cc2a50}{get}}( Args\&\&... args ) \{}
+\DoxyCodeLine{629             \textcolor{keywordflow}{return} Dist\{ std::forward<Args>( args )... \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) );}
+\DoxyCodeLine{630         \}}
+\DoxyCodeLine{631 }
+\DoxyCodeLine{640         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Dist>}
+\DoxyCodeLine{641         \textcolor{keyword}{static} \textcolor{keyword}{typename} Dist::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a6e3cbdb7f39a22ac0da4db84c0bd797c}{get}}( Dist\& dist ) \{}
+\DoxyCodeLine{642             \textcolor{keywordflow}{return} dist( \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) );}
+\DoxyCodeLine{643         \}}
+\DoxyCodeLine{644 }
+\DoxyCodeLine{651         \textcolor{keyword}{template}<\textcolor{keyword}{typename} RandomIt>}
+\DoxyCodeLine{652         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a9c18d14b91553d22e69e0ef02e5a18f0}{shuffle}}( RandomIt first, RandomIt last ) \{}
+\DoxyCodeLine{653             std::shuffle( first, last, \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) );}
+\DoxyCodeLine{654         \}}
+\DoxyCodeLine{655 }
+\DoxyCodeLine{662         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Container>}
+\DoxyCodeLine{663         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a8f9a8f667b3296df4aedfbafc76d417c}{shuffle}}( Container\& container ) \{}
+\DoxyCodeLine{664             \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_a9c18d14b91553d22e69e0ef02e5a18f0}{shuffle}}( std::begin( container ), std::end( container ) );}
+\DoxyCodeLine{665         \}}
+\DoxyCodeLine{666 }
+\DoxyCodeLine{668         \textcolor{keyword}{static} Engine \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_ac7628e8a598be72e148736c1d887e290}{get\_engine}}( ) \{}
+\DoxyCodeLine{669             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( );}
+\DoxyCodeLine{670         \}}
+\DoxyCodeLine{671 }
+\DoxyCodeLine{673         \textcolor{keyword}{static} Engine\& \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_aa8a3dc3f99532b4d0bb6ef9735c7eee3}{engine}}() \{}
+\DoxyCodeLine{674             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}();}
+\DoxyCodeLine{675         \}}
+\DoxyCodeLine{676     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{678         \textcolor{keyword}{static} Engine\& \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_af9167729d0089b271fdad13b5309d24b}{engine\_instance}}( ) \{}
+\DoxyCodeLine{679             \textcolor{keyword}{static} Engine \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_aa8a3dc3f99532b4d0bb6ef9735c7eee3}{engine}}\{ Seeder\{ \}( ) \};}
+\DoxyCodeLine{680             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__static_aa8a3dc3f99532b4d0bb6ef9735c7eee3}{engine}};}
+\DoxyCodeLine{681         \}}
+\DoxyCodeLine{682     \};}
+\DoxyCodeLine{683 }
+\DoxyCodeLine{693     \textcolor{keyword}{template}<}
+\DoxyCodeLine{694         \textcolor{keyword}{typename} Engine,}
+\DoxyCodeLine{695         \textcolor{keyword}{typename} Seeder = seeder\_default,}
+\DoxyCodeLine{696         \textcolor{keyword}{template}<\textcolor{keyword}{typename}> \textcolor{keyword}{class }IntegerDist = std::uniform\_int\_distribution,}
+\DoxyCodeLine{697         \textcolor{keyword}{template}<\textcolor{keyword}{typename}> \textcolor{keyword}{class }RealDist = std::uniform\_real\_distribution,}
+\DoxyCodeLine{698         \textcolor{keyword}{typename} BoolDist = std::bernoulli\_distribution}
+\DoxyCodeLine{699     >}
+\DoxyCodeLine{700     \textcolor{keyword}{class }\mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local}{basic\_random\_thread\_local}} \{}
+\DoxyCodeLine{701     \textcolor{keyword}{public}:}
+\DoxyCodeLine{702         \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local}{basic\_random\_thread\_local}}( ) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{703 }
+\DoxyCodeLine{705         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a41df87f60ce8376a3c41523f51a0f978}{engine\_type}} = Engine;}
+\DoxyCodeLine{706 }
+\DoxyCodeLine{708         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a14b2112d29f2ed4ac80a06e585b0ef10}{seeder\_type}} = Seeder;}
+\DoxyCodeLine{709 }
+\DoxyCodeLine{711         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{712         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a259472685e6c24b4285bdb58e491cb37}{integer\_dist\_t}} = IntegerDist<T>;}
+\DoxyCodeLine{713 }
+\DoxyCodeLine{715         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{716         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a1f28372ace900cfeb58af202bce4f0b9}{real\_dist\_t}} = RealDist<T>;}
+\DoxyCodeLine{717 }
+\DoxyCodeLine{719         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_aea806070b2f78017d0013ba230589bd9}{bool\_dist\_t}} = BoolDist;}
+\DoxyCodeLine{720 }
+\DoxyCodeLine{722         \textcolor{keyword}{using} \mbox{\hyperlink{structeffolkronium_1_1details_1_1common}{common}} = \mbox{\hyperlink{structeffolkronium_1_1details_1_1common}{details::common}};}
+\DoxyCodeLine{723 }
+\DoxyCodeLine{728         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{typename} Engine::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a7596e2a03a5260b05d8c5819a7c30d46}{min}}( ) \{}
+\DoxyCodeLine{729             \textcolor{keywordflow}{return} Engine::min( );}
+\DoxyCodeLine{730         \}}
+\DoxyCodeLine{731 }
+\DoxyCodeLine{736         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{typename} Engine::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a903e79a74ad2081fccfef71077419428}{max}}( ) \{}
+\DoxyCodeLine{737             \textcolor{keywordflow}{return} Engine::max( );}
+\DoxyCodeLine{738         \}}
+\DoxyCodeLine{739 }
+\DoxyCodeLine{741         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_ad77935f5bbd9bb17ef4140289add1e83}{discard}}( \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} z ) \{}
+\DoxyCodeLine{742             \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ).discard( z );}
+\DoxyCodeLine{743         \}}
+\DoxyCodeLine{744 }
+\DoxyCodeLine{746         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_add4259d43f173ce3471a5136eec00862}{reseed}}( ) \{}
+\DoxyCodeLine{747             Seeder seeder;}
+\DoxyCodeLine{748             \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_aa6c032530ce4d5b0cc244e8450fc0257}{seed}}( seeder( ) );}
+\DoxyCodeLine{749         \}}
+\DoxyCodeLine{750 }
+\DoxyCodeLine{757         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_aa6c032530ce4d5b0cc244e8450fc0257}{seed}}( \textcolor{keyword}{const} \textcolor{keyword}{typename} Engine::result\_type value =}
+\DoxyCodeLine{758                           Engine::default\_seed ) \{}
+\DoxyCodeLine{759             \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ).seed( value );}
+\DoxyCodeLine{760         \}}
+\DoxyCodeLine{761 }
+\DoxyCodeLine{768         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Sseq>}
+\DoxyCodeLine{769         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_ab72a87fdcc2dad54badb657524c4ee02}{seed}}( Sseq\& seq ) \{}
+\DoxyCodeLine{770             \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ).seed( seq );}
+\DoxyCodeLine{771         \}}
+\DoxyCodeLine{772 }
+\DoxyCodeLine{774         \textcolor{keyword}{static} \textcolor{keyword}{typename} Engine::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a180839510b3c7c66a437b41c8b6ff3e2}{get}}( ) \{}
+\DoxyCodeLine{775             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( )( );}
+\DoxyCodeLine{776         \}}
+\DoxyCodeLine{777 }
+\DoxyCodeLine{787         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a4a8c7dc59c219bdf7b0113e47636c022}{is\_equal}}( \textcolor{keyword}{const} Engine\& other ) \{}
+\DoxyCodeLine{788             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) == other;}
+\DoxyCodeLine{789         \}}
+\DoxyCodeLine{790 }
+\DoxyCodeLine{800         \textcolor{keyword}{template}<\textcolor{keyword}{typename} CharT, \textcolor{keyword}{typename} Traits>}
+\DoxyCodeLine{801         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a5dc89c2e3f8ee09eba34e2ec70f4475f}{serialize}}( std::basic\_ostream<CharT, Traits>\& ost ) \{}
+\DoxyCodeLine{802             ost << \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( );}
+\DoxyCodeLine{803         \}}
+\DoxyCodeLine{804 }
+\DoxyCodeLine{816         \textcolor{keyword}{template}<\textcolor{keyword}{typename} CharT, \textcolor{keyword}{typename} Traits>}
+\DoxyCodeLine{817         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_aa770ee881e42c6ade1b96997c341777c}{deserialize}}( std::basic\_istream<CharT, Traits>\& ist ) \{}
+\DoxyCodeLine{818             ist >> \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( );}
+\DoxyCodeLine{819         \}}
+\DoxyCodeLine{820 }
+\DoxyCodeLine{830         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{831         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_uniform\_int<T>::value}
+\DoxyCodeLine{832             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a311143af47b5228a8d580b2e5fed906f}{get}}( T from = std::numeric\_limits<T>::min( ),}
+\DoxyCodeLine{833                             T to = std::numeric\_limits<T>::max( ) ) \{}
+\DoxyCodeLine{834             \textcolor{keywordflow}{if}( from < to ) \textcolor{comment}{// Allow range from higher to lower}}
+\DoxyCodeLine{835                 \textcolor{keywordflow}{return} IntegerDist<T>\{ from, to \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) );}
+\DoxyCodeLine{836             \textcolor{keywordflow}{return} IntegerDist<T>\{ to, from \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) );}
+\DoxyCodeLine{837         \}}
+\DoxyCodeLine{838 }
+\DoxyCodeLine{848         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{849         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_uniform\_real<T>::value}
+\DoxyCodeLine{850             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a20ebc0e0025bff6a1b60fe56712773a2}{get}}( T from = std::numeric\_limits<T>::min( ),}
+\DoxyCodeLine{851                             T to = std::numeric\_limits<T>::max( ) ) \{}
+\DoxyCodeLine{852             \textcolor{keywordflow}{if}( from < to ) \textcolor{comment}{// Allow range from higher to lower}}
+\DoxyCodeLine{853                 \textcolor{keywordflow}{return} RealDist<T>\{ from, to \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) );}
+\DoxyCodeLine{854             \textcolor{keywordflow}{return} RealDist<T>\{ to, from \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) );}
+\DoxyCodeLine{855         \}}
+\DoxyCodeLine{856 }
+\DoxyCodeLine{865         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{866         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_byte<T>::value}
+\DoxyCodeLine{867             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_ab299392514441ae8ca71e38ced36c8e6}{get}}( T from = std::numeric\_limits<T>::min( ),}
+\DoxyCodeLine{868                             T to = std::numeric\_limits<T>::max( ) ) \{}
+\DoxyCodeLine{869             \textcolor{comment}{// Choose between short and unsigned short for byte conversion}}
+\DoxyCodeLine{870             \textcolor{keyword}{using} short\_t = \textcolor{keyword}{typename} std::conditional<std::is\_signed<T>::value,}
+\DoxyCodeLine{871                 short, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short}>::type;}
+\DoxyCodeLine{872 }
+\DoxyCodeLine{873             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}( get<short\_t>( from, to ) );}
+\DoxyCodeLine{874         \}}
+\DoxyCodeLine{875 }
+\DoxyCodeLine{891         \textcolor{keyword}{template}<}
+\DoxyCodeLine{892             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{893             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{894             \textcolor{keyword}{typename} B, }
+\DoxyCodeLine{895             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type}
+\DoxyCodeLine{896         >}
+\DoxyCodeLine{897         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{898                std::is\_same<Key, common>::value}
+\DoxyCodeLine{899             \&\& \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__number}{details::is\_supported\_number<A>::value}}}
+\DoxyCodeLine{900             \&\& \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__number}{details::is\_supported\_number<B>::value}}}
+\DoxyCodeLine{901             \textcolor{comment}{// Prevent implicit type conversion from singed to unsigned types}}
+\DoxyCodeLine{902             \&\& std::is\_signed<A>::value != std::is\_unsigned<B>::value}
+\DoxyCodeLine{903             , C>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_af93c1560de4d1ede47d3673d3a4d229f}{get}}( A from = std::numeric\_limits<A>::min( ),}
+\DoxyCodeLine{904                             B to = std::numeric\_limits<B>::max( ) ) \{}
+\DoxyCodeLine{905             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a180839510b3c7c66a437b41c8b6ff3e2}{get}}( \textcolor{keyword}{static\_cast<}C\textcolor{keyword}{>}( from ), \textcolor{keyword}{static\_cast<}C\textcolor{keyword}{>}( to ) );}
+\DoxyCodeLine{906         \}}
+\DoxyCodeLine{907 }
+\DoxyCodeLine{917         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{918         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_supported\_character<T>::value}
+\DoxyCodeLine{919             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_ae25cd4264935a80bc350edda6dd5b100}{get}}(T from = std::numeric\_limits<T>::min(),}
+\DoxyCodeLine{920                 T to = std::numeric\_limits<T>::max()) \{}
+\DoxyCodeLine{921             \textcolor{keywordflow}{if} (from < to) \textcolor{comment}{// Allow range from higher to lower}}
+\DoxyCodeLine{922                 \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(IntegerDist<std::int64\_t>\{ \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(from), \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(to) \}(\mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}()));}
+\DoxyCodeLine{923             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(IntegerDist<std::int64\_t>\{ \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(to), \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(from) \}(\mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}()));}
+\DoxyCodeLine{924         \}}
+\DoxyCodeLine{925 }
+\DoxyCodeLine{933         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{934         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<std::is\_same<T, bool>::value}
+\DoxyCodeLine{935             , \textcolor{keywordtype}{bool}>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a58b73ffea474dcc30382efb90b8a24ba}{get}}( \textcolor{keyword}{const} \textcolor{keywordtype}{double} probability = 0.5 ) \{}
+\DoxyCodeLine{936             assert( 0 <= probability \&\& 1 >= probability ); \textcolor{comment}{// out of [0; 1] range}}
+\DoxyCodeLine{937             \textcolor{keywordflow}{return} BoolDist\{ probability \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) );}
+\DoxyCodeLine{938         \}}
+\DoxyCodeLine{939 }
+\DoxyCodeLine{948         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{949         \textcolor{keyword}{static} T \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_ad138d3c90d659493f5f0f6aff85b5113}{get}}( std::initializer\_list<T> init\_list ) \{}
+\DoxyCodeLine{950             assert( 0u != init\_list.size( ) );}
+\DoxyCodeLine{951             \textcolor{keywordflow}{return} *\mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a180839510b3c7c66a437b41c8b6ff3e2}{get}}( init\_list.begin( ), init\_list.end( ) );}
+\DoxyCodeLine{952         \}}
+\DoxyCodeLine{953 }
+\DoxyCodeLine{960         \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIt>}
+\DoxyCodeLine{961         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<details::is\_iterator<InputIt>::value}
+\DoxyCodeLine{962             , InputIt>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_ab9e98dafeeae389994ca123314809ca5}{get}}( InputIt first, InputIt last ) \{}
+\DoxyCodeLine{963             \textcolor{keyword}{const} \textcolor{keyword}{auto} size = std::distance( first, last );}
+\DoxyCodeLine{964             \textcolor{keywordflow}{if}( 0 == size ) \textcolor{keywordflow}{return} last;}
+\DoxyCodeLine{965             \textcolor{keyword}{using} diff\_t = \textcolor{keyword}{typename} std::iterator\_traits<InputIt>::difference\_type;}
+\DoxyCodeLine{966             \textcolor{keywordflow}{return} std::next( first, get<diff\_t>( 0, size -\/ 1 ) );}
+\DoxyCodeLine{967         \}}
+\DoxyCodeLine{968 }
+\DoxyCodeLine{975         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Container>}
+\DoxyCodeLine{976         \textcolor{keyword}{static} \textcolor{keyword}{auto} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a66b4435adddd3d79bd25ce35dc0dce3d}{get}}( Container\& container ) -\/> }
+\DoxyCodeLine{977             \textcolor{keyword}{typename} std::enable\_if<\mbox{\hyperlink{structeffolkronium_1_1details_1_1is__iterator}{details::is\_iterator}}<}
+\DoxyCodeLine{978                 \textcolor{keyword}{decltype}(std::begin(container))>::value}
+\DoxyCodeLine{979                 , \textcolor{keyword}{decltype}(std::begin(container))}
+\DoxyCodeLine{980             >::type \{}
+\DoxyCodeLine{981             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a180839510b3c7c66a437b41c8b6ff3e2}{get}}( std::begin( container ), std::end( container ) );}
+\DoxyCodeLine{982         \}}
+\DoxyCodeLine{983 }
+\DoxyCodeLine{992         \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container, \textcolor{keyword}{typename} A>}
+\DoxyCodeLine{993         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{994                 \mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<A>}}>::value}
+\DoxyCodeLine{995             , Container<A>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_ad4324b2acf02d54ee613f3ae540c614c}{get}}(A from, A to, std::size\_t size) \{}
+\DoxyCodeLine{996             Container<A> container;}
+\DoxyCodeLine{997 }
+\DoxyCodeLine{998             container.reserve(size);}
+\DoxyCodeLine{999             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{1000                 container.insert(std::end(container), \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a180839510b3c7c66a437b41c8b6ff3e2}{get}}(from, to));}
+\DoxyCodeLine{1001 }
+\DoxyCodeLine{1002             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1003         \}}
+\DoxyCodeLine{1004 }
+\DoxyCodeLine{1015         \textcolor{keyword}{template}<}
+\DoxyCodeLine{1016             \textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container,}
+\DoxyCodeLine{1017             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{1018             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{1019             \textcolor{keyword}{typename} B,}
+\DoxyCodeLine{1020             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type>}
+\DoxyCodeLine{1021         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1022                    std::is\_same<Key, common>::value}
+\DoxyCodeLine{1023                 \&\& \mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<A>}}>::value}
+\DoxyCodeLine{1024             , Container<C>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a8f57ddddfab53b9eb91b0a3683e9a0a4}{get}}(A start, B end, std::size\_t size) \{}
+\DoxyCodeLine{1025             Container<C> container;}
+\DoxyCodeLine{1026 }
+\DoxyCodeLine{1027             container.reserve(size);}
+\DoxyCodeLine{1028             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{1029                 container.insert(std::end(container), get<common>(start, end));}
+\DoxyCodeLine{1030 }
+\DoxyCodeLine{1031             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1032         \}}
+\DoxyCodeLine{1033 }
+\DoxyCodeLine{1041         \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container, \textcolor{keyword}{typename} A>}
+\DoxyCodeLine{1042         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1043               !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<A>}}>::value}
+\DoxyCodeLine{1044             , Container<A>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a72bc3ec0a7a77b01c5c695eb94f5f820}{get}}(A start, A end, std::size\_t size) \{}
+\DoxyCodeLine{1045             Container<A> container;}
+\DoxyCodeLine{1046 }
+\DoxyCodeLine{1047             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{1048                 container.insert(std::end(container), \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a180839510b3c7c66a437b41c8b6ff3e2}{get}}(start, end));}
+\DoxyCodeLine{1049 }
+\DoxyCodeLine{1050             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1051         \}}
+\DoxyCodeLine{1052 }
+\DoxyCodeLine{1062         \textcolor{keyword}{template}<}
+\DoxyCodeLine{1063             \textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container,}
+\DoxyCodeLine{1064             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{1065             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{1066             \textcolor{keyword}{typename} B,}
+\DoxyCodeLine{1067             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type>}
+\DoxyCodeLine{1068         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1069                  std::is\_same<Key, common>::value}
+\DoxyCodeLine{1070               \&\& !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<C>}}>::value}
+\DoxyCodeLine{1071             , Container<C>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a436bf38ab65aec17b9703669f35a65d1}{get}}(A start, B end, std::size\_t size) \{}
+\DoxyCodeLine{1072             Container<C> container;}
+\DoxyCodeLine{1073 }
+\DoxyCodeLine{1074             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{1075                 container.insert(std::end(container), get<common>(start, end));}
+\DoxyCodeLine{1076 }
+\DoxyCodeLine{1077             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1078         \}}
+\DoxyCodeLine{1079 }
+\DoxyCodeLine{1087         \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{typename} AA, std::size\_t NN, \textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container, std::size\_t N, \textcolor{keyword}{typename} A>}
+\DoxyCodeLine{1088         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1089                !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__insert}{details::has\_insert<Container<A, N>}}>::value}
+\DoxyCodeLine{1090             , Container<A, N>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a576fdaf4493d45119501a50aa7446438}{get}}(A start, A end) \{}
+\DoxyCodeLine{1091             Container<A, N> container = \{\{ 0 \}\};}
+\DoxyCodeLine{1092 }
+\DoxyCodeLine{1093             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < N; ++i)}
+\DoxyCodeLine{1094                 container[i] = \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a180839510b3c7c66a437b41c8b6ff3e2}{get}}(start, end);}
+\DoxyCodeLine{1095 }
+\DoxyCodeLine{1096             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1097         \}}
+\DoxyCodeLine{1098 }
+\DoxyCodeLine{1108         \textcolor{keyword}{template}<}
+\DoxyCodeLine{1109             \textcolor{keyword}{template}<\textcolor{keyword}{typename} AA, std::size\_t NN, \textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container,}
+\DoxyCodeLine{1110             std::size\_t N,}
+\DoxyCodeLine{1111             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{1112             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{1113             \textcolor{keyword}{typename} B,}
+\DoxyCodeLine{1114             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type>}
+\DoxyCodeLine{1115         \textcolor{keyword}{static} \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1116                   std::is\_same<Key, common>::value}
+\DoxyCodeLine{1117                \&\& !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__insert}{details::has\_insert<Container<C, N>}}>::value}
+\DoxyCodeLine{1118             , Container<C, N>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a9e8ce876d4521f62cb9adcd43cd4c6f4}{get}}(A start, B end) \{}
+\DoxyCodeLine{1119             Container<C, N> container = \{\{ 0 \}\};}
+\DoxyCodeLine{1120 }
+\DoxyCodeLine{1121             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < N; ++i)}
+\DoxyCodeLine{1122                 container[i] = get<common>(start, end);}
+\DoxyCodeLine{1123 }
+\DoxyCodeLine{1124             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1125         \}}
+\DoxyCodeLine{1126 }
+\DoxyCodeLine{1132         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, std::\textcolor{keywordtype}{size\_t} N>}
+\DoxyCodeLine{1133         \textcolor{keyword}{static} T* \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_ada6b51295edfc515cf0a99eb81656add}{get}}( T( \&array )[ N ] ) \{}
+\DoxyCodeLine{1134             \textcolor{keywordflow}{return} std::addressof( array[ get<std::size\_t>( 0, N -\/ 1 ) ] );}
+\DoxyCodeLine{1135         \}}
+\DoxyCodeLine{1136 }
+\DoxyCodeLine{1145         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Dist, \textcolor{keyword}{typename}... Args>}
+\DoxyCodeLine{1146         \textcolor{keyword}{static} \textcolor{keyword}{typename} Dist::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a7e672d81727a2e1a7e1473fa412fb962}{get}}( Args\&\&... args ) \{}
+\DoxyCodeLine{1147             \textcolor{keywordflow}{return} Dist\{ std::forward<Args>( args )... \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) );}
+\DoxyCodeLine{1148         \}}
+\DoxyCodeLine{1149 }
+\DoxyCodeLine{1158         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Dist>}
+\DoxyCodeLine{1159         \textcolor{keyword}{static} \textcolor{keyword}{typename} Dist::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_ac782d04004f8b557acd4dcf74200a357}{get}}( Dist\& dist ) \{}
+\DoxyCodeLine{1160             \textcolor{keywordflow}{return} dist( \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) );}
+\DoxyCodeLine{1161         \}}
+\DoxyCodeLine{1162 }
+\DoxyCodeLine{1169         \textcolor{keyword}{template}<\textcolor{keyword}{typename} RandomIt>}
+\DoxyCodeLine{1170         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a31a49be05e39440606d3cf46f7f3cf8a}{shuffle}}( RandomIt first, RandomIt last ) \{}
+\DoxyCodeLine{1171             std::shuffle( first, last, \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) );}
+\DoxyCodeLine{1172         \}}
+\DoxyCodeLine{1173 }
+\DoxyCodeLine{1180         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Container>}
+\DoxyCodeLine{1181         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a8430730514f85ad1507d99e21d98c042}{shuffle}}( Container\& container ) \{}
+\DoxyCodeLine{1182             \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a31a49be05e39440606d3cf46f7f3cf8a}{shuffle}}( std::begin( container ), std::end( container ) );}
+\DoxyCodeLine{1183         \}}
+\DoxyCodeLine{1184 }
+\DoxyCodeLine{1186         \textcolor{keyword}{static} Engine \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_adc64408ce0d61644598a5888dd79747a}{get\_engine}}( ) \{}
+\DoxyCodeLine{1187             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( );}
+\DoxyCodeLine{1188         \}}
+\DoxyCodeLine{1189 }
+\DoxyCodeLine{1191         \textcolor{keyword}{static} Engine\& \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a50890e8a3745c0cd5b0ae4634dba1cd4}{engine}}() \{}
+\DoxyCodeLine{1192             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}();}
+\DoxyCodeLine{1193         \}}
+\DoxyCodeLine{1194     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1196         \textcolor{keyword}{static} Engine\& \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a6234aeb2479ebb06fd6c271b3fc11dde}{engine\_instance}}( ) \{}
+\DoxyCodeLine{1197             \textcolor{keyword}{thread\_local} Engine \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a50890e8a3745c0cd5b0ae4634dba1cd4}{engine}}\{ Seeder\{ \}( ) \};}
+\DoxyCodeLine{1198             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__thread__local_a50890e8a3745c0cd5b0ae4634dba1cd4}{engine}};}
+\DoxyCodeLine{1199         \}}
+\DoxyCodeLine{1200     \};}
+\DoxyCodeLine{1201 }
+\DoxyCodeLine{1211     \textcolor{keyword}{template}<}
+\DoxyCodeLine{1212         \textcolor{keyword}{typename} Engine,}
+\DoxyCodeLine{1213         \textcolor{keyword}{typename} Seeder = seeder\_default,}
+\DoxyCodeLine{1214         \textcolor{keyword}{template}<\textcolor{keyword}{typename}> \textcolor{keyword}{class }IntegerDist = std::uniform\_int\_distribution,}
+\DoxyCodeLine{1215         \textcolor{keyword}{template}<\textcolor{keyword}{typename}> \textcolor{keyword}{class }RealDist = std::uniform\_real\_distribution,}
+\DoxyCodeLine{1216         \textcolor{keyword}{typename} BoolDist = std::bernoulli\_distribution}
+\DoxyCodeLine{1217     >}
+\DoxyCodeLine{1218     \textcolor{keyword}{class }\mbox{\hyperlink{classeffolkronium_1_1basic__random__local}{basic\_random\_local}} \{}
+\DoxyCodeLine{1219     \textcolor{keyword}{public}:}
+\DoxyCodeLine{1221         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a4b9824803d9d36c9fe2c2c9fc514ceb0}{engine\_type}} = Engine;}
+\DoxyCodeLine{1222 }
+\DoxyCodeLine{1224         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a7e4a4c5680e9e23447b4bfd35d5970b0}{seeder\_type}} = Seeder;}
+\DoxyCodeLine{1225 }
+\DoxyCodeLine{1227         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1228         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a533a4a801ffbbbc6fc310d68f67200ed}{integer\_dist\_t}} = IntegerDist<T>;}
+\DoxyCodeLine{1229 }
+\DoxyCodeLine{1231         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1232         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_af933f9b3ae7dcdfbc36c1f956fc75ea9}{real\_dist\_t}} = RealDist<T>;}
+\DoxyCodeLine{1233 }
+\DoxyCodeLine{1235         \textcolor{keyword}{using} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a1fb13e03ef692ef603de2e4516cfcc7f}{bool\_dist\_t}} = BoolDist;}
+\DoxyCodeLine{1236 }
+\DoxyCodeLine{1238         \textcolor{keyword}{using} \mbox{\hyperlink{structeffolkronium_1_1details_1_1common}{common}} = \mbox{\hyperlink{structeffolkronium_1_1details_1_1common}{details::common}};}
+\DoxyCodeLine{1239 }
+\DoxyCodeLine{1244         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{typename} Engine::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_aebf678465f8c6f31f6a283b064152719}{min}}( ) \{}
+\DoxyCodeLine{1245             \textcolor{keywordflow}{return} Engine::min( );}
+\DoxyCodeLine{1246         \}}
+\DoxyCodeLine{1247 }
+\DoxyCodeLine{1252         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{typename} Engine::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_ad8e2875031dc7f1ba8d5737ec124e8b8}{max}}( ) \{}
+\DoxyCodeLine{1253             \textcolor{keywordflow}{return} Engine::max( );}
+\DoxyCodeLine{1254         \}}
+\DoxyCodeLine{1255 }
+\DoxyCodeLine{1257         \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a0e673ef7b9f1d85d88989b876be88488}{discard}}( \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} z ) \{}
+\DoxyCodeLine{1258             \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}}.discard( z );}
+\DoxyCodeLine{1259         \}}
+\DoxyCodeLine{1260 }
+\DoxyCodeLine{1262         \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a0edfb8e39435d47f1e6e3456f585f59e}{reseed}}( ) \{}
+\DoxyCodeLine{1263             Seeder seeder;}
+\DoxyCodeLine{1264             \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a956736bd897b6e2da48b74e423185e80}{seed}}( seeder( ) );}
+\DoxyCodeLine{1265         \}}
+\DoxyCodeLine{1266 }
+\DoxyCodeLine{1273         \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a956736bd897b6e2da48b74e423185e80}{seed}}( \textcolor{keyword}{const} \textcolor{keyword}{typename} Engine::result\_type value =}
+\DoxyCodeLine{1274                           Engine::default\_seed ) \{}
+\DoxyCodeLine{1275             \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}}.seed( value );}
+\DoxyCodeLine{1276         \}}
+\DoxyCodeLine{1277 }
+\DoxyCodeLine{1284         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Sseq>}
+\DoxyCodeLine{1285         \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a4fba15d6b8092a16b8cb7233fa6406db}{seed}}( Sseq\& seq ) \{}
+\DoxyCodeLine{1286             \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}}.seed( seq );}
+\DoxyCodeLine{1287         \}}
+\DoxyCodeLine{1288 }
+\DoxyCodeLine{1290         \textcolor{keyword}{typename} Engine::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_abe0ce896b5d3b19583a88b78a8903993}{get}}( ) \{}
+\DoxyCodeLine{1291             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}}( );}
+\DoxyCodeLine{1292         \}}
+\DoxyCodeLine{1293 }
+\DoxyCodeLine{1303         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a160bcc33102ec7e9fe08586bd1f874bc}{is\_equal}}( \textcolor{keyword}{const} Engine\& other ) \{}
+\DoxyCodeLine{1304             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}} == other;}
+\DoxyCodeLine{1305         \}}
+\DoxyCodeLine{1306 }
+\DoxyCodeLine{1316         \textcolor{keyword}{template}<\textcolor{keyword}{typename} CharT, \textcolor{keyword}{typename} Traits>}
+\DoxyCodeLine{1317         \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_ad569873f0f686fbd31d6d1984916619f}{serialize}}( std::basic\_ostream<CharT, Traits>\& ost ) \{}
+\DoxyCodeLine{1318             ost << \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}};}
+\DoxyCodeLine{1319         \}}
+\DoxyCodeLine{1320 }
+\DoxyCodeLine{1332         \textcolor{keyword}{template}<\textcolor{keyword}{typename} CharT, \textcolor{keyword}{typename} Traits>}
+\DoxyCodeLine{1333         \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a7a21be5d890fb114599e8e62e20c302d}{deserialize}}( std::basic\_istream<CharT, Traits>\& ist ) \{}
+\DoxyCodeLine{1334             ist >> \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}};}
+\DoxyCodeLine{1335         \}}
+\DoxyCodeLine{1336 }
+\DoxyCodeLine{1346         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1347         \textcolor{keyword}{typename} std::enable\_if<details::is\_uniform\_int<T>::value}
+\DoxyCodeLine{1348             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_abfdc8cb69b93ab759cc98c988986f556}{get}}( T from = std::numeric\_limits<T>::min( ),}
+\DoxyCodeLine{1349                             T to = std::numeric\_limits<T>::max( ) ) \{}
+\DoxyCodeLine{1350             \textcolor{keywordflow}{if}( from < to ) \textcolor{comment}{// Allow range from higher to lower}}
+\DoxyCodeLine{1351                 \textcolor{keywordflow}{return} IntegerDist<T>\{ from, to \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}} );}
+\DoxyCodeLine{1352             \textcolor{keywordflow}{return} IntegerDist<T>\{ to, from \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}} );}
+\DoxyCodeLine{1353         \}}
+\DoxyCodeLine{1354 }
+\DoxyCodeLine{1364         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1365         \textcolor{keyword}{typename} std::enable\_if<details::is\_uniform\_real<T>::value}
+\DoxyCodeLine{1366             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a01fd7b95e071e083f0f35364d39ff822}{get}}( T from = std::numeric\_limits<T>::min( ),}
+\DoxyCodeLine{1367                             T to = std::numeric\_limits<T>::max( ) ) \{}
+\DoxyCodeLine{1368             \textcolor{keywordflow}{if}( from < to ) \textcolor{comment}{// Allow range from higher to lower}}
+\DoxyCodeLine{1369                 \textcolor{keywordflow}{return} RealDist<T>\{ from, to \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}} );}
+\DoxyCodeLine{1370             \textcolor{keywordflow}{return} RealDist<T>\{ to, from \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}} );}
+\DoxyCodeLine{1371         \}}
+\DoxyCodeLine{1372 }
+\DoxyCodeLine{1381         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1382         \textcolor{keyword}{typename} std::enable\_if<details::is\_byte<T>::value}
+\DoxyCodeLine{1383             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a3a1bbdffc2d7cc62a1e4306855764658}{get}}( T from = std::numeric\_limits<T>::min( ),}
+\DoxyCodeLine{1384                             T to = std::numeric\_limits<T>::max( ) ) \{}
+\DoxyCodeLine{1385             \textcolor{comment}{// Choose between short and unsigned short for byte conversion}}
+\DoxyCodeLine{1386             \textcolor{keyword}{using} short\_t = \textcolor{keyword}{typename} std::conditional<std::is\_signed<T>::value,}
+\DoxyCodeLine{1387                 short, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short}>::type;}
+\DoxyCodeLine{1388 }
+\DoxyCodeLine{1389             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}( get<short\_t>( from, to ) );}
+\DoxyCodeLine{1390         \}}
+\DoxyCodeLine{1391 }
+\DoxyCodeLine{1407         \textcolor{keyword}{template}<}
+\DoxyCodeLine{1408             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{1409             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{1410             \textcolor{keyword}{typename} B, }
+\DoxyCodeLine{1411             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type}
+\DoxyCodeLine{1412         >}
+\DoxyCodeLine{1413         \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1414                std::is\_same<Key, common>::value}
+\DoxyCodeLine{1415             \&\& \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__number}{details::is\_supported\_number<A>::value}}}
+\DoxyCodeLine{1416             \&\& \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__number}{details::is\_supported\_number<B>::value}}}
+\DoxyCodeLine{1417             \textcolor{comment}{// Prevent implicit type conversion from singed to unsigned types}}
+\DoxyCodeLine{1418             \&\& std::is\_signed<A>::value != std::is\_unsigned<B>::value}
+\DoxyCodeLine{1419             , C>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a608dc17dd43075e0d35616a992782f44}{get}}( A from = std::numeric\_limits<A>::min( ),}
+\DoxyCodeLine{1420                             B to = std::numeric\_limits<B>::max( ) ) \{}
+\DoxyCodeLine{1421             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_abe0ce896b5d3b19583a88b78a8903993}{get}}( \textcolor{keyword}{static\_cast<}C\textcolor{keyword}{>}( from ), \textcolor{keyword}{static\_cast<}C\textcolor{keyword}{>}( to ) );}
+\DoxyCodeLine{1422         \}}
+\DoxyCodeLine{1423 }
+\DoxyCodeLine{1433         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1434         \textcolor{keyword}{typename} std::enable\_if<details::is\_supported\_character<T>::value}
+\DoxyCodeLine{1435             , T>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a3e8e8149ea02b0d0fd79897a65ba76b6}{get}}(T from = std::numeric\_limits<T>::min(),}
+\DoxyCodeLine{1436                 T to = std::numeric\_limits<T>::max()) \{}
+\DoxyCodeLine{1437             \textcolor{keywordflow}{if} (from < to) \textcolor{comment}{// Allow range from higher to lower}}
+\DoxyCodeLine{1438                 \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(IntegerDist<std::int64\_t>\{ \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(from), \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(to) \}(\mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}}));}
+\DoxyCodeLine{1439             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(IntegerDist<std::int64\_t>\{ \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(to), \textcolor{keyword}{static\_cast<}std::int64\_t\textcolor{keyword}{>}(from) \}(\mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}}));}
+\DoxyCodeLine{1440         \}}
+\DoxyCodeLine{1441 }
+\DoxyCodeLine{1449         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1450         \textcolor{keyword}{typename} std::enable\_if<std::is\_same<T, bool>::value}
+\DoxyCodeLine{1451             , \textcolor{keywordtype}{bool}>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a85d7fe05c648cf6cfd9a682b8066abff}{get}}( \textcolor{keyword}{const} \textcolor{keywordtype}{double} probability = 0.5 ) \{}
+\DoxyCodeLine{1452             assert( 0 <= probability \&\& 1 >= probability ); \textcolor{comment}{// out of [0; 1] range}}
+\DoxyCodeLine{1453             \textcolor{keywordflow}{return} BoolDist\{ probability \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}} );}
+\DoxyCodeLine{1454         \}}
+\DoxyCodeLine{1455 }
+\DoxyCodeLine{1464         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1465         T \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a8f1f43efc627a8e7aef9c8bf953ec9cb}{get}}( std::initializer\_list<T> init\_list ) \{}
+\DoxyCodeLine{1466             assert( 0u != init\_list.size( ) );}
+\DoxyCodeLine{1467             \textcolor{keywordflow}{return} *\mbox{\hyperlink{classeffolkronium_1_1basic__random__local_abe0ce896b5d3b19583a88b78a8903993}{get}}( init\_list.begin( ), init\_list.end( ) );}
+\DoxyCodeLine{1468         \}}
+\DoxyCodeLine{1469 }
+\DoxyCodeLine{1476         \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIt>}
+\DoxyCodeLine{1477         \textcolor{keyword}{typename} std::enable\_if<details::is\_iterator<InputIt>::value}
+\DoxyCodeLine{1478             , InputIt>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a6e57ffc93a88098d24ab4b6a7a110e35}{get}}( InputIt first, InputIt last ) \{}
+\DoxyCodeLine{1479             \textcolor{keyword}{const} \textcolor{keyword}{auto} size = std::distance( first, last );}
+\DoxyCodeLine{1480             \textcolor{keywordflow}{if}( 0 == size ) \textcolor{keywordflow}{return} last;}
+\DoxyCodeLine{1481             \textcolor{keyword}{using} diff\_t = \textcolor{keyword}{typename} std::iterator\_traits<InputIt>::difference\_type;}
+\DoxyCodeLine{1482             \textcolor{keywordflow}{return} std::next( first, get<diff\_t>( 0, size -\/ 1 ) );}
+\DoxyCodeLine{1483         \}}
+\DoxyCodeLine{1484 }
+\DoxyCodeLine{1491         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Container>}
+\DoxyCodeLine{1492         \textcolor{keyword}{auto} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a38e39a40cd9d22a0aaa22f5efe352ec3}{get}}( Container\& container ) -\/> }
+\DoxyCodeLine{1493             \textcolor{keyword}{typename} std::enable\_if<\mbox{\hyperlink{structeffolkronium_1_1details_1_1is__iterator}{details::is\_iterator}}<}
+\DoxyCodeLine{1494                 \textcolor{keyword}{decltype}(std::begin(container))>::value}
+\DoxyCodeLine{1495                 , \textcolor{keyword}{decltype}(std::begin(container))}
+\DoxyCodeLine{1496             >::type \{}
+\DoxyCodeLine{1497             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_abe0ce896b5d3b19583a88b78a8903993}{get}}( std::begin( container ), std::end( container ) );}
+\DoxyCodeLine{1498         \}}
+\DoxyCodeLine{1499 }
+\DoxyCodeLine{1508         \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container, \textcolor{keyword}{typename} A>}
+\DoxyCodeLine{1509         \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1510                 \mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<A>}}>::value}
+\DoxyCodeLine{1511             , Container<A>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_ab87fceb206a1e72d47f3855a1cb1fedf}{get}}(A from, A to, std::size\_t size) \{}
+\DoxyCodeLine{1512             Container<A> container;}
+\DoxyCodeLine{1513 }
+\DoxyCodeLine{1514             container.reserve(size);}
+\DoxyCodeLine{1515             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{1516                 container.insert(std::end(container), \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_abe0ce896b5d3b19583a88b78a8903993}{get}}(from, to));}
+\DoxyCodeLine{1517 }
+\DoxyCodeLine{1518             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1519         \}}
+\DoxyCodeLine{1520 }
+\DoxyCodeLine{1531         \textcolor{keyword}{template}<}
+\DoxyCodeLine{1532             \textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container,}
+\DoxyCodeLine{1533             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{1534             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{1535             \textcolor{keyword}{typename} B,}
+\DoxyCodeLine{1536             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type>}
+\DoxyCodeLine{1537         \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1538                    std::is\_same<Key, common>::value}
+\DoxyCodeLine{1539                 \&\& \mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<A>}}>::value}
+\DoxyCodeLine{1540             , Container<C>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_afba9a736f4df1629a09c9b7b848ba6d2}{get}}(A start, B end, std::size\_t size) \{}
+\DoxyCodeLine{1541             Container<C> container;}
+\DoxyCodeLine{1542 }
+\DoxyCodeLine{1543             container.reserve(size);}
+\DoxyCodeLine{1544             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{1545                 container.insert(std::end(container), get<common>(start, end));}
+\DoxyCodeLine{1546 }
+\DoxyCodeLine{1547             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1548         \}}
+\DoxyCodeLine{1549 }
+\DoxyCodeLine{1557         \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container, \textcolor{keyword}{typename} A>}
+\DoxyCodeLine{1558         \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1559               !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<A>}}>::value}
+\DoxyCodeLine{1560             , Container<A>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a66af4dabe259aaffe50859c0fa46daf7}{get}}(A start, A end, std::size\_t size) \{}
+\DoxyCodeLine{1561             Container<A> container;}
+\DoxyCodeLine{1562 }
+\DoxyCodeLine{1563             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{1564                 container.insert(std::end(container), \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_abe0ce896b5d3b19583a88b78a8903993}{get}}(start, end));}
+\DoxyCodeLine{1565 }
+\DoxyCodeLine{1566             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1567         \}}
+\DoxyCodeLine{1568 }
+\DoxyCodeLine{1578         \textcolor{keyword}{template}<}
+\DoxyCodeLine{1579             \textcolor{keyword}{template}<\textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container,}
+\DoxyCodeLine{1580             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{1581             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{1582             \textcolor{keyword}{typename} B,}
+\DoxyCodeLine{1583             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type>}
+\DoxyCodeLine{1584         \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1585                  std::is\_same<Key, common>::value}
+\DoxyCodeLine{1586               \&\& !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__reserve}{details::has\_reserve<Container<C>}}>::value}
+\DoxyCodeLine{1587             , Container<C>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_ad6a30fb65947c656fd95c875ef85b92d}{get}}(A start, B end, std::size\_t size) \{}
+\DoxyCodeLine{1588             Container<C> container;}
+\DoxyCodeLine{1589 }
+\DoxyCodeLine{1590             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < size; ++i)}
+\DoxyCodeLine{1591                 container.insert(std::end(container), get<common>(start, end));}
+\DoxyCodeLine{1592 }
+\DoxyCodeLine{1593             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1594         \}}
+\DoxyCodeLine{1595 }
+\DoxyCodeLine{1603         \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{typename} AA, std::size\_t NN, \textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container, std::size\_t N, \textcolor{keyword}{typename} A>}
+\DoxyCodeLine{1604         \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1605                !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__insert}{details::has\_insert<Container<A, N>}}>::value}
+\DoxyCodeLine{1606             , Container<A, N>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a7bb05dfa8e4b52736e25a4aa6b63f649}{get}}(A start, A end) \{}
+\DoxyCodeLine{1607             Container<A, N> container = \{\{ 0 \}\};}
+\DoxyCodeLine{1608 }
+\DoxyCodeLine{1609             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < N; ++i)}
+\DoxyCodeLine{1610                 container[i] = \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_abe0ce896b5d3b19583a88b78a8903993}{get}}(start, end);}
+\DoxyCodeLine{1611 }
+\DoxyCodeLine{1612             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1613         \}}
+\DoxyCodeLine{1614 }
+\DoxyCodeLine{1624         \textcolor{keyword}{template}<}
+\DoxyCodeLine{1625             \textcolor{keyword}{template}<\textcolor{keyword}{typename} AA, std::size\_t NN, \textcolor{keyword}{typename}...> \textcolor{keyword}{class }Container,}
+\DoxyCodeLine{1626             std::size\_t N,}
+\DoxyCodeLine{1627             \textcolor{keyword}{typename} Key,}
+\DoxyCodeLine{1628             \textcolor{keyword}{typename} A,}
+\DoxyCodeLine{1629             \textcolor{keyword}{typename} B,}
+\DoxyCodeLine{1630             \textcolor{keyword}{typename} C = \textcolor{keyword}{typename} std::common\_type<A, B>::type>}
+\DoxyCodeLine{1631         \textcolor{keyword}{typename} std::enable\_if<}
+\DoxyCodeLine{1632                   std::is\_same<Key, common>::value}
+\DoxyCodeLine{1633                \&\& !\mbox{\hyperlink{classeffolkronium_1_1details_1_1has__insert}{details::has\_insert<Container<C, N>}}>::value}
+\DoxyCodeLine{1634             , Container<C, N>>::type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a28b50681e977febbde613ca136f19af8}{get}}(A start, B end) \{}
+\DoxyCodeLine{1635             Container<C, N> container = \{\{ 0 \}\};}
+\DoxyCodeLine{1636 }
+\DoxyCodeLine{1637             \textcolor{keywordflow}{for} (std::size\_t i = 0; i < N; ++i)}
+\DoxyCodeLine{1638                 container[i] = get<common>(start, end);}
+\DoxyCodeLine{1639 }
+\DoxyCodeLine{1640             \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{1641         \}}
+\DoxyCodeLine{1642 }
+\DoxyCodeLine{1648         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, std::\textcolor{keywordtype}{size\_t} N>}
+\DoxyCodeLine{1649         T* \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a51fd3f1ab2ac2819bd8e7adc780b618c}{get}}( T( \&array )[ N ] ) \{}
+\DoxyCodeLine{1650             \textcolor{keywordflow}{return} std::addressof( array[ get<std::size\_t>( 0, N -\/ 1 ) ] );}
+\DoxyCodeLine{1651         \}}
+\DoxyCodeLine{1652 }
+\DoxyCodeLine{1661         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Dist, \textcolor{keyword}{typename}... Args>}
+\DoxyCodeLine{1662         \textcolor{keyword}{typename} Dist::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a0629de9e297c09e146cb90171cfe4682}{get}}( Args\&\&... args ) \{}
+\DoxyCodeLine{1663             \textcolor{keywordflow}{return} Dist\{ std::forward<Args>( args )... \}( \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}} );}
+\DoxyCodeLine{1664         \}}
+\DoxyCodeLine{1665 }
+\DoxyCodeLine{1674         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Dist>}
+\DoxyCodeLine{1675         \textcolor{keyword}{typename} Dist::result\_type \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a1df54283d899bc18949540137f933501}{get}}( Dist\& dist ) \{}
+\DoxyCodeLine{1676             \textcolor{keywordflow}{return} dist( \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}} );}
+\DoxyCodeLine{1677         \}}
+\DoxyCodeLine{1678 }
+\DoxyCodeLine{1685         \textcolor{keyword}{template}<\textcolor{keyword}{typename} RandomIt>}
+\DoxyCodeLine{1686         \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a0af1b5bcc5d6b09690651e0715961f8d}{shuffle}}( RandomIt first, RandomIt last ) \{}
+\DoxyCodeLine{1687             std::shuffle( first, last, \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}} );}
+\DoxyCodeLine{1688         \}}
+\DoxyCodeLine{1689 }
+\DoxyCodeLine{1696         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Container>}
+\DoxyCodeLine{1697         \textcolor{keywordtype}{void} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a80ad4a09e62f6fe29a3b0093532fcb17}{shuffle}}( Container\& container ) \{}
+\DoxyCodeLine{1698             \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a0af1b5bcc5d6b09690651e0715961f8d}{shuffle}}( std::begin( container ), std::end( container ) );}
+\DoxyCodeLine{1699         \}}
+\DoxyCodeLine{1700 }
+\DoxyCodeLine{1702         Engine \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_ae59e928c632c648e0661ce78df5a5720}{get\_engine}}( )\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{1703             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}};}
+\DoxyCodeLine{1704         \}}
+\DoxyCodeLine{1705 }
+\DoxyCodeLine{1707         Engine\& \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a2c8d6c6944d8564706a69f079d56318b}{engine}}() \{}
+\DoxyCodeLine{1708             \textcolor{keywordflow}{return} \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}};}
+\DoxyCodeLine{1709         \}}
+\DoxyCodeLine{1710     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1712         \textcolor{keyword}{static} Engine \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a554e75605176a62d443b24171ce9c5e0}{make\_seeded\_engine}}( ) \{}
+\DoxyCodeLine{1713             \textcolor{comment}{// Make seeder instance for seed return by reference like std::seed\_seq}}
+\DoxyCodeLine{1714             \textcolor{keywordflow}{return} Engine\{ Seeder\{ \}( ) \};}
+\DoxyCodeLine{1715         \}}
+\DoxyCodeLine{1716     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1718         Engine \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a33a3f5b3e0608c62f52651248c2c0bd3}{m\_engine}}\{ \mbox{\hyperlink{classeffolkronium_1_1basic__random__local_a554e75605176a62d443b24171ce9c5e0}{make\_seeded\_engine}}( ) \};}
+\DoxyCodeLine{1719     \};}
+\DoxyCodeLine{1720 }
+\DoxyCodeLine{1726     \textcolor{keyword}{using} random\_static = basic\_random\_static<std::mt19937>;}
+\DoxyCodeLine{1727 }
+\DoxyCodeLine{1733     \textcolor{keyword}{using} random\_thread\_local = basic\_random\_thread\_local<std::mt19937>;}
+\DoxyCodeLine{1734 }
+\DoxyCodeLine{1740     \textcolor{keyword}{using} random\_local = basic\_random\_local<std::mt19937>;}
+\DoxyCodeLine{1741 }
+\DoxyCodeLine{1742 \} \textcolor{comment}{// namespace effolkronium}}
+\DoxyCodeLine{1743 }
+\DoxyCodeLine{1744 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef EFFOLKRONIUM\_RANDOM\_HPP}}
+
+\end{DoxyCode}

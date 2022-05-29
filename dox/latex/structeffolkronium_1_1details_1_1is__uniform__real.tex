@@ -1,0 +1,44 @@
+\hypertarget{structeffolkronium_1_1details_1_1is__uniform__real}{}\doxysection{Referencia de la plantilla de la Estructura effolkronium\+::details\+::is\+\_\+uniform\+\_\+real\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}}
+\label{structeffolkronium_1_1details_1_1is__uniform__real}\index{effolkronium::details::is\_uniform\_real$<$ T $>$@{effolkronium::details::is\_uniform\_real$<$ T $>$}}
+
+
+True if type T is applicable by a std\+::uniform\+\_\+real\+\_\+distribution.  
+
+
+
+
+{\ttfamily \#include $<$random.\+hpp$>$}
+
+\doxysubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__uniform__real_aec4410fd8db4862f517a16833d78dd57}{value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$typename T$>$\newline
+struct effolkronium\+::details\+::is\+\_\+uniform\+\_\+real$<$ T $>$}
+True if type T is applicable by a std\+::uniform\+\_\+real\+\_\+distribution. 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{structeffolkronium_1_1details_1_1is__uniform__real_aec4410fd8db4862f517a16833d78dd57}\label{structeffolkronium_1_1details_1_1is__uniform__real_aec4410fd8db4862f517a16833d78dd57}} 
+\index{effolkronium::details::is\_uniform\_real$<$ T $>$@{effolkronium::details::is\_uniform\_real$<$ T $>$}!value@{value}}
+\index{value@{value}!effolkronium::details::is\_uniform\_real$<$ T $>$@{effolkronium::details::is\_uniform\_real$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__uniform__real}{effolkronium\+::details\+::is\+\_\+uniform\+\_\+real}}$<$ T $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{                   std::is\_same<T,       float>::value}
+\DoxyCodeLine{                || std::is\_same<T,      double>::value}
+\DoxyCodeLine{                || std::is\_same<T, long double>::value}
+
+\end{DoxyCode}
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+tools/random.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,43 @@
+\hypertarget{structeffolkronium_1_1details_1_1is__byte}{}\doxysection{Referencia de la plantilla de la Estructura effolkronium\+::details\+::is\+\_\+byte\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}}
+\label{structeffolkronium_1_1details_1_1is__byte}\index{effolkronium::details::is\_byte$<$ T $>$@{effolkronium::details::is\_byte$<$ T $>$}}
+
+
+True if type T is plain byte.  
+
+
+
+
+{\ttfamily \#include $<$random.\+hpp$>$}
+
+\doxysubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__byte_ad6bd1e8adb919443f720ef6ae1952ee1}{value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$typename T$>$\newline
+struct effolkronium\+::details\+::is\+\_\+byte$<$ T $>$}
+True if type T is plain byte. 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{structeffolkronium_1_1details_1_1is__byte_ad6bd1e8adb919443f720ef6ae1952ee1}\label{structeffolkronium_1_1details_1_1is__byte_ad6bd1e8adb919443f720ef6ae1952ee1}} 
+\index{effolkronium::details::is\_byte$<$ T $>$@{effolkronium::details::is\_byte$<$ T $>$}!value@{value}}
+\index{value@{value}!effolkronium::details::is\_byte$<$ T $>$@{effolkronium::details::is\_byte$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__byte}{effolkronium\+::details\+::is\+\_\+byte}}$<$ T $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{                   std::is\_same<T,   signed char>::value}
+\DoxyCodeLine{                || std::is\_same<T, unsigned char>::value}
+
+\end{DoxyCode}
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+tools/random.\+hpp\end{DoxyCompactItemize}

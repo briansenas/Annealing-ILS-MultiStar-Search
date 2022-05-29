@@ -1,0 +1,32 @@
+\hypertarget{Euclidean_8h_source}{}\doxysection{Euclidean.\+h}
+\label{Euclidean_8h_source}\index{tools/Euclidean.h@{tools/Euclidean.h}}
+\mbox{\hyperlink{Euclidean_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef EUCLIDEAN\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define EUCLIDEAN\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}../inc/eigen-\/3.4.0/Eigen/Dense"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../inc/random.hpp"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{29 \textcolor{keyword}{using namespace }Eigen;}
+\DoxyCodeLine{30 \textcolor{keyword}{using namespace }std::chrono;}
+\DoxyCodeLine{31 \textcolor{keyword}{using} Random = effolkronium::random\_static;}
+\DoxyCodeLine{40 \textcolor{keywordtype}{double} \mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{minEuclideanDistance}}(Eigen::RowVectorXd fixed, Eigen::MatrixXd data,Eigen::MatrixXd::Index \&maxRow);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{53 \textcolor{keywordtype}{double} \mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{minEuclideanDistance}}(Eigen::RowVectorXd weigths,Eigen::RowVectorXd fixed, Eigen::MatrixXd data,Eigen::MatrixXd::Index \&maxRow);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{67 \textcolor{keywordtype}{double} \mbox{\hyperlink{Euclidean_8h_a4f5825bcc562c6dabe6c136863aedeca}{ManualEuclideanDistance}}(Eigen::RowVectorXd fixed, Eigen::MatrixXd data,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pos,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \&maxRow);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{82 \textcolor{keywordtype}{double} \mbox{\hyperlink{Euclidean_8h_a4f5825bcc562c6dabe6c136863aedeca}{ManualEuclideanDistance}}(Eigen::RowVectorXd weigths,Eigen::RowVectorXd fixed, Eigen::MatrixXd data,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pos, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \&maxRow);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{99 \textcolor{keywordtype}{double} \mbox{\hyperlink{Euclidean_8h_acdf9d105d2e503df5b99f19eddcaca28}{ManualEuclideanDistanceType}}(Eigen::RowVectorXd fixed, Eigen::MatrixXd data,vector<char>label, \textcolor{keywordtype}{char} type, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pos, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \&maxRow);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{116 \textcolor{keywordtype}{double} \mbox{\hyperlink{Euclidean_8h_acdf9d105d2e503df5b99f19eddcaca28}{ManualEuclideanDistanceType}}(Eigen::RowVectorXd weigths,Eigen::RowVectorXd fixed, Eigen::MatrixXd data,vector<char>label,\textcolor{keywordtype}{char} type,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pos, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \&maxRow);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

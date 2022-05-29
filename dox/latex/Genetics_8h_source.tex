@@ -1,0 +1,140 @@
+\hypertarget{Genetics_8h_source}{}\doxysection{Genetics.\+h}
+\label{Genetics_8h_source}\index{tools/Genetics.h@{tools/Genetics.h}}
+\mbox{\hyperlink{Genetics_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef GENETICS\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define GENETICS\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../inc/eigen-\/3.4.0/Eigen/Dense"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Euclidean_8h}{Euclidean.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mytools_8h}{mytools.h}}"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../inc/random.hpp"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{29 \textcolor{keyword}{using namespace }Eigen;}
+\DoxyCodeLine{30 \textcolor{keyword}{using namespace }std::chrono;}
+\DoxyCodeLine{31 \textcolor{keyword}{using} Random = effolkronium::random\_static;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{/*}}
+\DoxyCodeLine{34 \textcolor{comment}{ * @brief Dado dos padres, añadimos sus columnas y multiplicamos cada valor}}
+\DoxyCodeLine{35 \textcolor{comment}{ * por un valor alpha generado aleatoriamente entre 0 y 1. Esto lo realizamos}}
+\DoxyCodeLine{36 \textcolor{comment}{ * dos veces para generar dos hijos.}}
+\DoxyCodeLine{37 \textcolor{comment}{ * @param parent1 padre número 1.}}
+\DoxyCodeLine{38 \textcolor{comment}{ * @param parent2 padre número 2.}}
+\DoxyCodeLine{39 \textcolor{comment}{ * @param res1 hijo número 1.}}
+\DoxyCodeLine{40 \textcolor{comment}{ * @param res2 hijo número 2.}}
+\DoxyCodeLine{41 \textcolor{comment}{ */}}
+\DoxyCodeLine{42 \textcolor{keywordtype}{void} ArithmeticCross(RowVectorXd parent1, RowVectorXd parent2, RowVectorXd\& res1, RowVectorXd\& res2,\textcolor{keywordtype}{long} \textcolor{keywordtype}{int} seed=-\/1);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{comment}{/*}}
+\DoxyCodeLine{45 \textcolor{comment}{ * @brief Dado dos padres, para cada columna calculamos el valor máximo entre ellos}}
+\DoxyCodeLine{46 \textcolor{comment}{ * y el valor mínimo, con estos valores computamos la distancia y de manera que}}
+\DoxyCodeLine{47 \textcolor{comment}{ * tenemos el intervalo [Mínimo -\/ alpha * Distance, Máximo + alpha * Distancia].}}
+\DoxyCodeLine{48 \textcolor{comment}{ * Ese intervalo se utiliza para generar un número aleatorio para esa columna.}}
+\DoxyCodeLine{49 \textcolor{comment}{ * @param parent1 padre número 1.}}
+\DoxyCodeLine{50 \textcolor{comment}{ * @param parent2 padre número 2.}}
+\DoxyCodeLine{51 \textcolor{comment}{ * @param res1 hijo número 1.}}
+\DoxyCodeLine{52 \textcolor{comment}{ * @param res2 hijo número 2.}}
+\DoxyCodeLine{53 \textcolor{comment}{ * @param alpha valor del blx que multiplica la distancia}}
+\DoxyCodeLine{54 \textcolor{comment}{ * @param seed semilla para el generado de números aleatorios}}
+\DoxyCodeLine{55 \textcolor{comment}{ */}}
+\DoxyCodeLine{56 \textcolor{keywordtype}{void} BLXCross(RowVectorXd parent1, RowVectorXd parent2,RowVectorXd\& res1, RowVectorXd\& res2, \textcolor{keywordtype}{float} alpha=0.3, \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} seed=-\/1);}
+\DoxyCodeLine{57 \textcolor{comment}{/*}}
+\DoxyCodeLine{58 \textcolor{comment}{ * @brief Mutar la matriz de entrada un número determinado de veces y guardar posiciones mutadas en indexGrid.}}
+\DoxyCodeLine{59 \textcolor{comment}{ * @param NP2 Matriz a mutar.}}
+\DoxyCodeLine{60 \textcolor{comment}{ * @param indexGrid Vector de índices mutados.}}
+\DoxyCodeLine{61 \textcolor{comment}{ * @param Mutacion Número de veces a mutar.}}
+\DoxyCodeLine{62 \textcolor{comment}{ */}}
+\DoxyCodeLine{63 \textcolor{keywordtype}{void} Mutate(MatrixXd* NP2, vector<int>\&indexGrid,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Mutacion);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{comment}{/*}}
+\DoxyCodeLine{66 \textcolor{comment}{ * @brief Calcular la reducción y la clasificación de una solución.}}
+\DoxyCodeLine{67 \textcolor{comment}{ * @param data Matriz de datos de entreno.}}
+\DoxyCodeLine{68 \textcolor{comment}{ * @param Tlabel etiquetas de la matriz.}}
+\DoxyCodeLine{69 \textcolor{comment}{ * @param Weights Solución a probar.}}
+\DoxyCodeLine{70 \textcolor{comment}{ * @param right Dónde almacenaremos la tasa de aciertos.}}
+\DoxyCodeLine{71 \textcolor{comment}{ * @param reduct Dónde almacenaremos la tasa de reducción.}}
+\DoxyCodeLine{72 \textcolor{comment}{ */}}
+\DoxyCodeLine{73 \textcolor{keywordtype}{void} \mbox{\hyperlink{Genetics_8h_af63dda46d83d8fb0983d20e98e17b113}{getReductRight}}(MatrixXd data, vector<char> Tlabel, RowVectorXd\& Weights, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \&right, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \&reduct);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{comment}{/*}}
+\DoxyCodeLine{76 \textcolor{comment}{ * @brief Apenas cruzamos la matriz de soluciones barajadas sin ningún criterio}}
+\DoxyCodeLine{77 \textcolor{comment}{ * @param data Matriz de datos}}
+\DoxyCodeLine{78 \textcolor{comment}{ * @param Tlabel vector de etiquetas}}
+\DoxyCodeLine{79 \textcolor{comment}{ * @param P1 Matriz de población inicial}}
+\DoxyCodeLine{80 \textcolor{comment}{ * @param NP2 Matriz de población generada.}}
+\DoxyCodeLine{81 \textcolor{comment}{ * @param GenData Matriz con las puntuaciones}}
+\DoxyCodeLine{82 \textcolor{comment}{ * @param CrossType Tipo de cruze a realizar.}}
+\DoxyCodeLine{83 \textcolor{comment}{ * @param Cruzes Número de cruzes a realizar}}
+\DoxyCodeLine{84 \textcolor{comment}{ * @param Mutación Número de mutaciones a realizar.}}
+\DoxyCodeLine{85 \textcolor{comment}{ */}}
+\DoxyCodeLine{86 \textcolor{keywordtype}{int} randomOnly(MatrixXd data, vector<char> Tlabel, MatrixXd* P1,MatrixXd* NP2,}
+\DoxyCodeLine{87         MatrixXd\& GenData,\textcolor{keywordtype}{int} CrossType, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Cruzes,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Mutacion);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{comment}{/*}}
+\DoxyCodeLine{90 \textcolor{comment}{ * @brief Apenas cruzamos la matriz de soluciones ordendas de mejor a peor sin ningún criterio}}
+\DoxyCodeLine{91 \textcolor{comment}{ * @param data Matriz de datos}}
+\DoxyCodeLine{92 \textcolor{comment}{ * @param Tlabel vector de etiquetas}}
+\DoxyCodeLine{93 \textcolor{comment}{ * @param P1 Matriz de población inicial}}
+\DoxyCodeLine{94 \textcolor{comment}{ * @param NP2 Matriz de población generada.}}
+\DoxyCodeLine{95 \textcolor{comment}{ * @param GenData Matriz con las puntuaciones}}
+\DoxyCodeLine{96 \textcolor{comment}{ * @param CrossType Tipo de cruze a realizar.}}
+\DoxyCodeLine{97 \textcolor{comment}{ * @param Cruzes Número de cruzes a realizar}}
+\DoxyCodeLine{98 \textcolor{comment}{ * @param Mutación Número de mutaciones a realizar.}}
+\DoxyCodeLine{99 \textcolor{comment}{ */}}
+\DoxyCodeLine{100 \textcolor{keywordtype}{int} onlyBestCrossing(MatrixXd data, vector<char> Tlabel, MatrixXd* P1,MatrixXd* NP2,}
+\DoxyCodeLine{101         MatrixXd\& GenData,\textcolor{keywordtype}{int} CrossType, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Cruzes,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Mutacion);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{comment}{/*}}
+\DoxyCodeLine{104 \textcolor{comment}{ * @brief Cruzamos la matriz de soluciones barajada pero nos quedamos con el mejor padre de la pareja.}}
+\DoxyCodeLine{105 \textcolor{comment}{ * @param data Matriz de datos}}
+\DoxyCodeLine{106 \textcolor{comment}{ * @param Tlabel vector de etiquetas}}
+\DoxyCodeLine{107 \textcolor{comment}{ * @param P1 Matriz de población inicial}}
+\DoxyCodeLine{108 \textcolor{comment}{ * @param NP2 Matriz de población generada.}}
+\DoxyCodeLine{109 \textcolor{comment}{ * @param GenData Matriz con las puntuaciones}}
+\DoxyCodeLine{110 \textcolor{comment}{ * @param CrossType Tipo de cruze a realizar.}}
+\DoxyCodeLine{111 \textcolor{comment}{ * @param Cruzes Número de cruzes a realizar}}
+\DoxyCodeLine{112 \textcolor{comment}{ * @param Mutación Número de mutaciones a realizar.}}
+\DoxyCodeLine{113 \textcolor{comment}{ */}}
+\DoxyCodeLine{114 \textcolor{keywordtype}{int} randomCrossKeepBest(MatrixXd data, vector<char> Tlabel, MatrixXd* P1,MatrixXd* NP2,}
+\DoxyCodeLine{115         MatrixXd\& GenData,\textcolor{keywordtype}{int} CrossType, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Cruzes,\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Mutacion);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{comment}{/*}}
+\DoxyCodeLine{118 \textcolor{comment}{ * @brief Data una matriz de datos con sus etiquetas y una matriz de pesos,}}
+\DoxyCodeLine{119 \textcolor{comment}{ * para cada fila de la matriz de pesos computamos el valor resultante del 1NN}}
+\DoxyCodeLine{120 \textcolor{comment}{ * ponderado con los parámetros de reducción y tasa de acierto multiplicados por}}
+\DoxyCodeLine{121 \textcolor{comment}{ * el valor alpha.}}
+\DoxyCodeLine{122 \textcolor{comment}{ * @param data matriz con los datos,}}
+\DoxyCodeLine{123 \textcolor{comment}{ * @param Tlabel vector con las etiquetas,}}
+\DoxyCodeLine{124 \textcolor{comment}{ * @param Solutions matriz con los pesos}}
+\DoxyCodeLine{125 \textcolor{comment}{ * @param alpha Ponderación entre reducción y Tasa de Aciertos.}}
+\DoxyCodeLine{126 \textcolor{comment}{ * @return Devolvemos un vector con la puntuación de cada fila en sus columnas.}}
+\DoxyCodeLine{127 \textcolor{comment}{ */}}
+\DoxyCodeLine{128 RowVectorXd \mbox{\hyperlink{Genetics_8h_a3593e1ce84acf5a770639d6411c98c1e}{getOnlyFit}}(MatrixXd data, vector<char> Tlabel, MatrixXd\& Solutions,\textcolor{keywordtype}{float} alpha=0.5);}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 RowVectorXd \mbox{\hyperlink{Genetics_8h_a3d9f261a5a4362062aa818e13008c788}{getFit}}(MatrixXd data, vector<char> Tlabel, MatrixXd\& Solutions, MatrixXd\& GenData, \textcolor{keywordtype}{float} alpha=0.5);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 RowVectorXd get1Fit(MatrixXd data, vector<char> Tlabel, RowVectorXd\& Weights, \textcolor{keywordtype}{float} alpha=0.5 );}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{comment}{/*}}
+\DoxyCodeLine{135 \textcolor{comment}{ *@brief Aplicamos búqueda local desde 0 hasta max\_eval, con un máximo de vecinos}}
+\DoxyCodeLine{136 \textcolor{comment}{ visitados igual a maxTilBetter;}}
+\DoxyCodeLine{137 \textcolor{comment}{    Los valores que devuelven son: El nuevo peso por return, el valor de fitness}}
+\DoxyCodeLine{138 \textcolor{comment}{    de ese peso y el número de evaluaciones utilizados;}}
+\DoxyCodeLine{139 \textcolor{comment}{ *@param allData Matriz con los datos.}}
+\DoxyCodeLine{140 \textcolor{comment}{ *@param label Etiquetas del vector.}}
+\DoxyCodeLine{141 \textcolor{comment}{ *@param Weight Peso a mejorar.}}
+\DoxyCodeLine{142 \textcolor{comment}{ *@param eval\_num parte de 0 y devuelve el número de evaluaciones obtenidos;}}
+\DoxyCodeLine{143 \textcolor{comment}{ *@param max\_eval número máximo de evaluaciones}}
+\DoxyCodeLine{144 \textcolor{comment}{ *@param fitness puntuación obtenida por los pesos.}}
+\DoxyCodeLine{145 \textcolor{comment}{ *@param alpha ponderación de la función.}}
+\DoxyCodeLine{146 \textcolor{comment}{ */}}
+\DoxyCodeLine{147 RowVectorXd \mbox{\hyperlink{Genetics_8h_af0dbfbb876e5f5a4c163b92614bce384}{LocalSearch}}(MatrixXd allData,vector<char> label, RowVectorXd Weights,}
+\DoxyCodeLine{148 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& eval\_num, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} max\_eval, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} maxTilBetter, vector<float>\& fitness, \textcolor{keywordtype}{float} alpha=0.5, \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} seed=1);}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

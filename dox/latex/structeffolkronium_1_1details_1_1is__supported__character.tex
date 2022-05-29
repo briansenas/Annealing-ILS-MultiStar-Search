@@ -1,0 +1,45 @@
+\hypertarget{structeffolkronium_1_1details_1_1is__supported__character}{}\doxysection{Referencia de la plantilla de la Estructura effolkronium\+::details\+::is\+\_\+supported\+\_\+character\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}}
+\label{structeffolkronium_1_1details_1_1is__supported__character}\index{effolkronium::details::is\_supported\_character$<$ T $>$@{effolkronium::details::is\_supported\_character$<$ T $>$}}
+
+
+True if type T is character type.  
+
+
+
+
+{\ttfamily \#include $<$random.\+hpp$>$}
+
+\doxysubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__character_aa8f8cadb13d18fc5e90cda8799c1ec90}{value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$typename T$>$\newline
+struct effolkronium\+::details\+::is\+\_\+supported\+\_\+character$<$ T $>$}
+True if type T is character type. 
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{structeffolkronium_1_1details_1_1is__supported__character_aa8f8cadb13d18fc5e90cda8799c1ec90}\label{structeffolkronium_1_1details_1_1is__supported__character_aa8f8cadb13d18fc5e90cda8799c1ec90}} 
+\index{effolkronium::details::is\_supported\_character$<$ T $>$@{effolkronium::details::is\_supported\_character$<$ T $>$}!value@{value}}
+\index{value@{value}!effolkronium::details::is\_supported\_character$<$ T $>$@{effolkronium::details::is\_supported\_character$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool \mbox{\hyperlink{structeffolkronium_1_1details_1_1is__supported__character}{effolkronium\+::details\+::is\+\_\+supported\+\_\+character}}$<$ T $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{                   std::is\_same<T, char>::value}
+\DoxyCodeLine{                || std::is\_same<T, wchar\_t>::value}
+\DoxyCodeLine{                || std::is\_same<T, char16\_t>::value}
+\DoxyCodeLine{                || std::is\_same<T, char32\_t>::value}
+
+\end{DoxyCode}
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+tools/random.\+hpp\end{DoxyCompactItemize}

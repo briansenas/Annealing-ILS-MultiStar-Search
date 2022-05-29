@@ -1,0 +1,134 @@
+\hypertarget{mytools_8cpp}{}\doxysection{Referencia del Archivo src/mytools.cpp}
+\label{mytools_8cpp}\index{src/mytools.cpp@{src/mytools.cpp}}
+
+
+Herramientas definidas para la práctica.  
+
+
+{\ttfamily \#include \char`\"{}../tools/mytools.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/eigen-\/3.\+4.\+0/\+Eigen/\+Dense\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../inc/random.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{mytools_8cpp_a180f0653ebd0d5cdf633574b8c8512d3}\label{mytools_8cpp_a180f0653ebd0d5cdf633574b8c8512d3}} 
+using {\bfseries Random} = effolkronium\+::random\+\_\+static
+\end{DoxyCompactItemize}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mytools_8cpp_ad81243b382bfc2358283ab0091c972c3}{fill\+Range}} (vector$<$ int $>$ \&to\+Fill, unsigned int upperlimit)
+\begin{DoxyCompactList}\small\item\em fill\+Range rellena un vector de valores desde 0 hasta upperlimit; \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mytools_8cpp_a29d852399058fecfd4506ac5173a8c2f}{shuffle\+Data}} (Matrix\+Xd \&mat, vector$<$ char $>$ \&label, long int seed)
+\begin{DoxyCompactList}\small\item\em shuffle\+Data utiliza el archivo \char`\"{}random.\+hpp\char`\"{} y la librería Eigen para crear un vector de índices, al cual barajamos y luego utilizamos ese vector para intercambiar posiciones. Dónde el número que aparezca en la posición 0 es el intercambio de 0 con ese número y así. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mytools_8cpp_aef2602b82f6fd849a581fb5b07119ee9}\label{mytools_8cpp_aef2602b82f6fd849a581fb5b07119ee9}} 
+void {\bfseries shuffle\+Fit} (Matrix\+Xd \&mat, Row\+Vector\+Xd \&fitness, long int seed)
+\item 
+\mbox{\Hypertarget{mytools_8cpp_addc56c733eaaa909052dffa97bbd5d3c}\label{mytools_8cpp_addc56c733eaaa909052dffa97bbd5d3c}} 
+void {\bfseries shuffle\+Fit} (Matrix\+Xd \&mat, Matrix\+Xd \&Gen\+Data, long int seed)
+\item 
+\mbox{\Hypertarget{mytools_8cpp_a86e03364eb7819658c05089755f1c627}\label{mytools_8cpp_a86e03364eb7819658c05089755f1c627}} 
+void {\bfseries shuffle\+Only} (Matrix\+Xd \&mat, long int seed)
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{mytools_8cpp_a3176dc33dc79b493d699596ece0e1ef7}{remove\+Row}} (Eigen\+::\+Matrix\+Xd matrix, unsigned int row\+To\+Remove)
+\begin{DoxyCompactList}\small\item\em remove\+Row nos permite quitar una fila de una matrix de entrada (sin modificar la original) y devuelve la matrix resultante modificada. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{mytools_8cpp_a1b897fefb12470c87ac53ec826fe52cb}{remove\+Column}} (Eigen\+::\+Matrix\+Xd matrix, unsigned int col\+To\+Remove)
+\item 
+\mbox{\Hypertarget{mytools_8cpp_ad90131ed09f2c54bcb8540e0292f4848}\label{mytools_8cpp_ad90131ed09f2c54bcb8540e0292f4848}} 
+void {\bfseries get\+Best} (Row\+Vector\+Xd Fitness, vector$<$ int $>$ \&index\+Grid, unsigned int size)
+\item 
+\mbox{\Hypertarget{mytools_8cpp_a2589a7fed467649e3f4ed8585bcd8041}\label{mytools_8cpp_a2589a7fed467649e3f4ed8585bcd8041}} 
+void {\bfseries get\+Best} (Matrix\+Xd Gen\+Data, vector$<$ int $>$ \&index\+Grid, unsigned int size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Herramientas definidas para la práctica. 
+
+\begin{DoxyVersion}{Versión}
+2.\+5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+05/04/2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autor}
+Brian Sena Simons 3º\+A-\/\+A2 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ [...]}
+\DoxyCodeLine{  RowVectorXd Weights = VectorXd::Constant(mat.cols(),1);}
+\DoxyCodeLine{  min = \mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{minEuclideanDistance}}(Weights,mat.row(0), mat.block(row,0,upper\_row -\/ row,mat.cols()),index);}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}Prueba de obtención de clase concreta"{}} << endl;}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}Obteniendo filas tipo g "{}} << endl;}
+\DoxyCodeLine{  MatrixXd typeG = \mbox{\hyperlink{ReadData_8h_a3c2da117b6d8079659b9d6ba6e15fed7}{getClass}}(mat,label,\textcolor{charliteral}{'g'});}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}Filas: "{}} << typeG.rows() << \textcolor{stringliteral}{"{} columnas: "{}} << typeG.cols()  << endl;}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"{}} << endl;}
+\DoxyCodeLine{[...]}
+
+\end{DoxyCode}
+
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+3.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+05/04/2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autor}
+Brian Sena Simons 3º\+A-\/\+A2 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ [...]}
+\DoxyCodeLine{  RowVectorXd Weights = VectorXd::Constant(mat.cols(),1);}
+\DoxyCodeLine{  min = \mbox{\hyperlink{Euclidean_8h_ad065fd64357444d7792b80876fcfa41f}{minEuclideanDistance}}(Weights,mat.row(0), mat.block(row,0,upper\_row -\/ row,mat.cols()),index);}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}Prueba de obtención de clase concreta"{}} << endl;}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}Obteniendo filas tipo g "{}} << endl;}
+\DoxyCodeLine{  MatrixXd typeG = \mbox{\hyperlink{ReadData_8h_a3c2da117b6d8079659b9d6ba6e15fed7}{getClass}}(mat,label,\textcolor{charliteral}{'g'});}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}Filas: "{}} << typeG.rows() << \textcolor{stringliteral}{"{} columnas: "{}} << typeG.cols()  << endl;}
+\DoxyCodeLine{  cout << \textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"{}} << endl;}
+\DoxyCodeLine{[...]}
+
+\end{DoxyCode}
+ 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{mytools_8cpp_ad81243b382bfc2358283ab0091c972c3}\label{mytools_8cpp_ad81243b382bfc2358283ab0091c972c3}} 
+\index{mytools.cpp@{mytools.cpp}!fillRange@{fillRange}}
+\index{fillRange@{fillRange}!mytools.cpp@{mytools.cpp}}
+\doxysubsubsection{\texorpdfstring{fillRange()}{fillRange()}}
+{\footnotesize\ttfamily void fill\+Range (\begin{DoxyParamCaption}\item[{vector$<$ int $>$ \&}]{to\+Fill,  }\item[{unsigned int}]{upperlimit }\end{DoxyParamCaption})}
+
+
+
+fill\+Range rellena un vector de valores desde 0 hasta upperlimit; 
+
+En esta función hacemos un simple \char`\"{}for-\/loop\char`\"{} hasta upperlimit dónde en cada iteración asignamos el valor \char`\"{}i\char`\"{} al vector generando una sucesión de 0-\/upperlimit. \mbox{\Hypertarget{mytools_8cpp_a1b897fefb12470c87ac53ec826fe52cb}\label{mytools_8cpp_a1b897fefb12470c87ac53ec826fe52cb}} 
+\index{mytools.cpp@{mytools.cpp}!removeColumn@{removeColumn}}
+\index{removeColumn@{removeColumn}!mytools.cpp@{mytools.cpp}}
+\doxysubsubsection{\texorpdfstring{removeColumn()}{removeColumn()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd remove\+Column (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xd}]{matrix,  }\item[{unsigned int}]{col\+To\+Remove }\end{DoxyParamCaption})}
+
+La función sobreescribe la columna con los valores que hay después de esa columna. Y Luego hace un resize para cambiar el tamaño original a una columna menos. \mbox{\Hypertarget{mytools_8cpp_a3176dc33dc79b493d699596ece0e1ef7}\label{mytools_8cpp_a3176dc33dc79b493d699596ece0e1ef7}} 
+\index{mytools.cpp@{mytools.cpp}!removeRow@{removeRow}}
+\index{removeRow@{removeRow}!mytools.cpp@{mytools.cpp}}
+\doxysubsubsection{\texorpdfstring{removeRow()}{removeRow()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd remove\+Row (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xd}]{matrix,  }\item[{unsigned int}]{row\+To\+Remove }\end{DoxyParamCaption})}
+
+
+
+remove\+Row nos permite quitar una fila de una matrix de entrada (sin modificar la original) y devuelve la matrix resultante modificada. 
+
+La función sobreescribe la fila con la matrix que hay después de esa fila. Y Luego hace un resize para cambiar el tamaño original a una fila menos. \mbox{\Hypertarget{mytools_8cpp_a29d852399058fecfd4506ac5173a8c2f}\label{mytools_8cpp_a29d852399058fecfd4506ac5173a8c2f}} 
+\index{mytools.cpp@{mytools.cpp}!shuffleData@{shuffleData}}
+\index{shuffleData@{shuffleData}!mytools.cpp@{mytools.cpp}}
+\doxysubsubsection{\texorpdfstring{shuffleData()}{shuffleData()}}
+{\footnotesize\ttfamily void shuffle\+Data (\begin{DoxyParamCaption}\item[{Matrix\+Xd \&}]{mat,  }\item[{vector$<$ char $>$ \&}]{label,  }\item[{long int}]{seed }\end{DoxyParamCaption})}
+
+
+
+shuffle\+Data utiliza el archivo \char`\"{}random.\+hpp\char`\"{} y la librería Eigen para crear un vector de índices, al cual barajamos y luego utilizamos ese vector para intercambiar posiciones. Dónde el número que aparezca en la posición 0 es el intercambio de 0 con ese número y así. 
+
+La idea es un vector de índices a permutar. Dónde el valor de la posición 0 es el índice a permutar con la posición 0. Si vector.\+at(0) = 2, intercambiamos 0 con el 2. 
