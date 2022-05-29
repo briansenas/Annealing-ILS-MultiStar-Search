@@ -124,7 +124,7 @@ int main(int argc, char** argv){
                 BestSolution = NewSolution;
                 best_score = score;
             }
-            progress_bar((x*maxIter+iter) / (folds*maxIter));
+            progress_bar(float((x*maxIter+iter)) / float((folds*maxIter)));
         }
         momentoFin = high_resolution_clock::now();
         tiempo = duration_cast<milliseconds>(momentoFin - momentoInicio);

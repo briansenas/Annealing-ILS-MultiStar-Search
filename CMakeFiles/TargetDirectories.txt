@@ -1,5 +1,5 @@
-/home/briansena/Desktop/P3/CMakeFiles/Recocido.dir
-/home/briansena/Desktop/P3/CMakeFiles/BMB.dir
-/home/briansena/Desktop/P3/CMakeFiles/ILS.dir
-/home/briansena/Desktop/P3/CMakeFiles/edit_cache.dir
-/home/briansena/Desktop/P3/CMakeFiles/rebuild_cache.dir
+/home/briansena/Desktop/BMB/CMakeFiles/Recocido.dir
+/home/briansena/Desktop/BMB/CMakeFiles/BMB.dir
+/home/briansena/Desktop/BMB/CMakeFiles/ILS.dir
+/home/briansena/Desktop/BMB/CMakeFiles/edit_cache.dir
+/home/briansena/Desktop/BMB/CMakeFiles/rebuild_cache.dir

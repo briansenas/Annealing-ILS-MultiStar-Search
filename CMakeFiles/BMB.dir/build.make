@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/briansena/Desktop/P3
+CMAKE_SOURCE_DIR = /home/briansena/Desktop/BMB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/briansena/Desktop/P3
+CMAKE_BINARY_DIR = /home/briansena/Desktop/BMB
 
 # Include any dependencies generated for this target.
 include CMakeFiles/BMB.dir/depend.make
@@ -72,72 +72,72 @@ include CMakeFiles/BMB.dir/flags.make
 CMakeFiles/BMB.dir/src/BMB.cpp.o: CMakeFiles/BMB.dir/flags.make
 CMakeFiles/BMB.dir/src/BMB.cpp.o: src/BMB.cpp
 CMakeFiles/BMB.dir/src/BMB.cpp.o: CMakeFiles/BMB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/P3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BMB.dir/src/BMB.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/BMB.cpp.o -MF CMakeFiles/BMB.dir/src/BMB.cpp.o.d -o CMakeFiles/BMB.dir/src/BMB.cpp.o -c /home/briansena/Desktop/P3/src/BMB.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/BMB/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BMB.dir/src/BMB.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/BMB.cpp.o -MF CMakeFiles/BMB.dir/src/BMB.cpp.o.d -o CMakeFiles/BMB.dir/src/BMB.cpp.o -c /home/briansena/Desktop/BMB/src/BMB.cpp
 
 CMakeFiles/BMB.dir/src/BMB.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BMB.dir/src/BMB.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/P3/src/BMB.cpp > CMakeFiles/BMB.dir/src/BMB.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/BMB/src/BMB.cpp > CMakeFiles/BMB.dir/src/BMB.cpp.i
 
 CMakeFiles/BMB.dir/src/BMB.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BMB.dir/src/BMB.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/P3/src/BMB.cpp -o CMakeFiles/BMB.dir/src/BMB.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/BMB/src/BMB.cpp -o CMakeFiles/BMB.dir/src/BMB.cpp.s
 
 CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o: CMakeFiles/BMB.dir/flags.make
 CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o: src/Util_Euclidean.cpp
 CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o: CMakeFiles/BMB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/P3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o -MF CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o.d -o CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o -c /home/briansena/Desktop/P3/src/Util_Euclidean.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/BMB/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o -MF CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o.d -o CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.o -c /home/briansena/Desktop/BMB/src/Util_Euclidean.cpp
 
 CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/P3/src/Util_Euclidean.cpp > CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/BMB/src/Util_Euclidean.cpp > CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.i
 
 CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/P3/src/Util_Euclidean.cpp -o CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/BMB/src/Util_Euclidean.cpp -o CMakeFiles/BMB.dir/src/Util_Euclidean.cpp.s
 
 CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o: CMakeFiles/BMB.dir/flags.make
 CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o: src/Util_Genetics.cpp
 CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o: CMakeFiles/BMB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/P3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o -MF CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o.d -o CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o -c /home/briansena/Desktop/P3/src/Util_Genetics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/BMB/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o -MF CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o.d -o CMakeFiles/BMB.dir/src/Util_Genetics.cpp.o -c /home/briansena/Desktop/BMB/src/Util_Genetics.cpp
 
 CMakeFiles/BMB.dir/src/Util_Genetics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BMB.dir/src/Util_Genetics.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/P3/src/Util_Genetics.cpp > CMakeFiles/BMB.dir/src/Util_Genetics.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/BMB/src/Util_Genetics.cpp > CMakeFiles/BMB.dir/src/Util_Genetics.cpp.i
 
 CMakeFiles/BMB.dir/src/Util_Genetics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BMB.dir/src/Util_Genetics.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/P3/src/Util_Genetics.cpp -o CMakeFiles/BMB.dir/src/Util_Genetics.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/BMB/src/Util_Genetics.cpp -o CMakeFiles/BMB.dir/src/Util_Genetics.cpp.s
 
 CMakeFiles/BMB.dir/src/Util_mytools.cpp.o: CMakeFiles/BMB.dir/flags.make
 CMakeFiles/BMB.dir/src/Util_mytools.cpp.o: src/Util_mytools.cpp
 CMakeFiles/BMB.dir/src/Util_mytools.cpp.o: CMakeFiles/BMB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/P3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BMB.dir/src/Util_mytools.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/Util_mytools.cpp.o -MF CMakeFiles/BMB.dir/src/Util_mytools.cpp.o.d -o CMakeFiles/BMB.dir/src/Util_mytools.cpp.o -c /home/briansena/Desktop/P3/src/Util_mytools.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/BMB/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BMB.dir/src/Util_mytools.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/Util_mytools.cpp.o -MF CMakeFiles/BMB.dir/src/Util_mytools.cpp.o.d -o CMakeFiles/BMB.dir/src/Util_mytools.cpp.o -c /home/briansena/Desktop/BMB/src/Util_mytools.cpp
 
 CMakeFiles/BMB.dir/src/Util_mytools.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BMB.dir/src/Util_mytools.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/P3/src/Util_mytools.cpp > CMakeFiles/BMB.dir/src/Util_mytools.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/BMB/src/Util_mytools.cpp > CMakeFiles/BMB.dir/src/Util_mytools.cpp.i
 
 CMakeFiles/BMB.dir/src/Util_mytools.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BMB.dir/src/Util_mytools.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/P3/src/Util_mytools.cpp -o CMakeFiles/BMB.dir/src/Util_mytools.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/BMB/src/Util_mytools.cpp -o CMakeFiles/BMB.dir/src/Util_mytools.cpp.s
 
 CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o: CMakeFiles/BMB.dir/flags.make
 CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o: src/Util_ReadData.cpp
 CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o: CMakeFiles/BMB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/P3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o -MF CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o.d -o CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o -c /home/briansena/Desktop/P3/src/Util_ReadData.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/briansena/Desktop/BMB/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o -MF CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o.d -o CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o -c /home/briansena/Desktop/BMB/src/Util_ReadData.cpp
 
 CMakeFiles/BMB.dir/src/Util_ReadData.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BMB.dir/src/Util_ReadData.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/P3/src/Util_ReadData.cpp > CMakeFiles/BMB.dir/src/Util_ReadData.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/briansena/Desktop/BMB/src/Util_ReadData.cpp > CMakeFiles/BMB.dir/src/Util_ReadData.cpp.i
 
 CMakeFiles/BMB.dir/src/Util_ReadData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BMB.dir/src/Util_ReadData.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/P3/src/Util_ReadData.cpp -o CMakeFiles/BMB.dir/src/Util_ReadData.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/briansena/Desktop/BMB/src/Util_ReadData.cpp -o CMakeFiles/BMB.dir/src/Util_ReadData.cpp.s
 
 # Object files for target BMB
 BMB_OBJECTS = \
@@ -157,7 +157,7 @@ bin/BMB: CMakeFiles/BMB.dir/src/Util_mytools.cpp.o
 bin/BMB: CMakeFiles/BMB.dir/src/Util_ReadData.cpp.o
 bin/BMB: CMakeFiles/BMB.dir/build.make
 bin/BMB: CMakeFiles/BMB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/briansena/Desktop/P3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable bin/BMB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/briansena/Desktop/BMB/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable bin/BMB"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BMB.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -169,6 +169,6 @@ CMakeFiles/BMB.dir/clean:
 .PHONY : CMakeFiles/BMB.dir/clean
 
 CMakeFiles/BMB.dir/depend:
-	cd /home/briansena/Desktop/P3 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/briansena/Desktop/P3 /home/briansena/Desktop/P3 /home/briansena/Desktop/P3 /home/briansena/Desktop/P3 /home/briansena/Desktop/P3/CMakeFiles/BMB.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/briansena/Desktop/BMB && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/briansena/Desktop/BMB /home/briansena/Desktop/BMB /home/briansena/Desktop/BMB /home/briansena/Desktop/BMB /home/briansena/Desktop/BMB/CMakeFiles/BMB.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/BMB.dir/depend
 

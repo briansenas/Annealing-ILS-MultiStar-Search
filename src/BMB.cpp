@@ -120,7 +120,7 @@ int main(int argc, char** argv){
                 best_score = score;
             }
             Solution = (RowVectorXd::Random(cols) + RowVectorXd::Constant(cols,1))/2.0;
-            progress_bar((x*maxIter+iter) / (folds*maxIter));
+            progress_bar(float(x*maxIter+iter) / float(folds*maxIter));
         }
         momentoFin = high_resolution_clock::now();
         tiempo = duration_cast<milliseconds>(momentoFin - momentoInicio);

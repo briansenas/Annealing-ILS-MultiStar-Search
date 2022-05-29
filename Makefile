@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/briansena/Desktop/P3
+CMAKE_SOURCE_DIR = /home/briansena/Desktop/BMB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/briansena/Desktop/P3
+CMAKE_BINARY_DIR = /home/briansena/Desktop/BMB
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/briansena/Desktop/P3/CMakeFiles /home/briansena/Desktop/P3//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/briansena/Desktop/BMB/CMakeFiles /home/briansena/Desktop/BMB//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/briansena/Desktop/P3/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/briansena/Desktop/BMB/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
