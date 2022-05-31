@@ -1,7 +1,8 @@
 #!/bin/bash
-if [ $# -lt 2 ]
+if [ $# -lt 3 ]
   then
-    echo "[ERROR]: You must specify whether you want to 0=print, 1=write and a {seed} and if you want to 0=normal,1=shuffle,2=balance the data "
+    echo "[ERROR]: You must specify whether you want to 0=print, 1=write and a {seed}, if you want to 0=normal,1=shuffle,2=balance the data
+    and lastely which method of search you desire 0=LocalSearch 1=SimulatedAnnealing"
     exit
 fi
 # Get Script Directory to later find the bin path
@@ -25,11 +26,17 @@ if [ -z "$3" ]
     exit
 fi
 
+if [ -z "$4" ]
+  then
+    echo "[ERROR]: Couldn't read the searchtype value for some reason"
+    exit
+fi
+
 
 echo "[START-1]: Doing ILS search in ionosphere.arrf"
-$SCRIPT_DIR/../bin/ILS ionosphere.arff b g $1 $2 $3
+$SCRIPT_DIR/../bin/ILS ionosphere.arff b g $1 $2 $3 $4
 echo "[START-2]: Doing ILS search in parkinson.arrf"
-$SCRIPT_DIR/../bin/ILS parkinsons.arff 1 2 $1 $2 $3
+$SCRIPT_DIR/../bin/ILS parkinsons.arff 1 2 $1 $2 $3 $4
 echo "[START-3]: Doing ILS search in spectf-heart.arrf"
-$SCRIPT_DIR/../bin/ILS spectf-heart.arff 1 2 $1 $2 $3
+$SCRIPT_DIR/../bin/ILS spectf-heart.arff 1 2 $1 $2 $3 $4
 

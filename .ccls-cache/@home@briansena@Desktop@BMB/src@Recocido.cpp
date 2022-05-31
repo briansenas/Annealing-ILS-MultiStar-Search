@@ -51,7 +51,7 @@ int main(int argc, char** argv){
         std::string::size_type const p(base_filename.find_last_of('.'));
         std::string file_without_extension = base_filename.substr(0, p);
 
-        string datafilename = "BMB_"+file_without_extension+to_string(seed)+"_"+to_string(shuffle);
+        string datafilename = "Recocido_"+file_without_extension+to_string(seed)+"_"+to_string(shuffle);
         writefile = path+"../results/"+datafilename;
         writefile += ".txt";
         myfile.open(writefile,ios::out|ios::trunc);
@@ -67,19 +67,18 @@ int main(int argc, char** argv){
 
     std::normal_distribution<double> distribution(0.0, sqrt(0.3));
     int cols = allData.cols();
-    unsigned int iter = 0, maxIter = 15, max_evaluations = 1000, eval_num;
-    unsigned int maxTilBetter = 20*cols;
+    unsigned int evaluations = 0, max_evaluations = 15000, index;
+    unsigned int max_vecinos = 10*cols, max_exitos = 0.1*max_vecinos, vecinos,exitos;
 
-    float alpha = 0.5;
-    vector<float> fitness;
     high_resolution_clock::time_point momentoInicio, momentoFin;
     milliseconds tiempo;
 
     MatrixXd data, test, group1, group2;
     vector<char> Tlabel, Ttlabel, label_group1, label_group2;
     RowVectorXd Solution(cols), NewSolution(cols), BestSolution(cols), score(2), old_score(2),best_score(2);
-    vector<int> indexGrid;
-    fillRange(indexGrid,allData.cols());
+
+    float T_0, T_f = 1.0/pow(10,3), beta, mu = 0.3, phi=0.3, M = max_evaluations/max_vecinos,diff, alpha=0.5;
+
     /// Inicializamos todas las variables que vamos a necesitar para almacenar información
     if(shuffle==1){
         cout << "[WARNING]: Data has been shuffled; " << endl;
@@ -96,7 +95,7 @@ int main(int argc, char** argv){
     }
 
     if(myfile.is_open()){
-        myfile << " ### Algoritmo MultiArranque ###\n ";
+        myfile << " ### Algoritmo Enfriamiento Simulado ###\n ";
         myfile << "F\tclasific\treducir \tfitness \ttime\n";
     }
 
@@ -107,22 +106,44 @@ int main(int argc, char** argv){
             getBalancedFold(group1,label_group1,group2,label_group2,data,Tlabel, test, Ttlabel,x,seed);
 
         Solution = (RowVectorXd::Random(cols) + RowVectorXd::Constant(cols,1))/2.0;
-        best_score = old_score = get1Fit(data,Tlabel,Solution,alpha);
+        score = get1Fit(data,Tlabel,Solution);
+        T_0 = ( mu * score.sum()) / (-1*log(phi) );
+        if(T_0 == 0)
+            T_0 = 0.1;
+        if(T_0 <= T_f)
+            T_f = T_0 * pow(10,-3);
+
         momentoInicio = high_resolution_clock::now();
-        BestSolution = Solution;
-        for(iter=0;iter<maxIter;iter++){
-            NewSolution = LocalSearch(data,Tlabel, Solution, eval_num,
-                    max_evaluations,maxTilBetter, fitness, alpha);
-            score(0) = fitness.at(0);
-            score(1) = fitness.at(1);
-            if(best_score.sum() < score.sum()){
-                BestSolution = NewSolution;
-                best_score = score;
-            }
-            Solution = (RowVectorXd::Random(cols) + RowVectorXd::Constant(cols,1))/2.0;
-            fitness.clear();
-            progress_bar(float(x*maxIter+iter) / float(folds*maxIter));
-        }
+        beta = (T_0 - T_f) / (M*T_0*T_f);
+        best_score = old_score = score;
+        evaluations = 1;
+        NewSolution = BestSolution = Solution;
+        while(evaluations<=max_evaluations){
+            vecinos = exitos = 0;
+            while(vecinos<=max_vecinos && exitos<=max_exitos && evaluations<=max_evaluations){
+                index = Random::get<unsigned>(0,cols-1);
+                // Apply move
+                NewSolution[index] += Random::get(distribution);
+
+                score = get1Fit(data,Tlabel,NewSolution,0.5);
+                vecinos++; evaluations++;
+                diff = old_score.sum()-score.sum();
+                if((diff<0.0) || (Random::get(0.0,1.0) <= 1.0/exp(diff/T_0))){
+                    Solution[index] = NewSolution[index];
+                    old_score = score;
+                    vecinos = 0;
+                    exitos++;
+                    if(best_score.sum() < score.sum()){
+                        BestSolution = Solution;
+                        best_score = score;
+                    }
+                }
+                progress_bar(float(x*max_evaluations + evaluations)/float(folds*max_evaluations));
+                NewSolution[index] = Solution[index];
+            }// END WHILE2
+            T_0 = (T_0) / (1+beta*T_0);
+            if(exitos==0) break;
+        } // END WHILE T_0 > T_f
         momentoFin = high_resolution_clock::now();
         tiempo = duration_cast<milliseconds>(momentoFin - momentoInicio);
         best_score = get1Fit(test,Ttlabel, BestSolution,alpha);
@@ -136,7 +157,7 @@ int main(int argc, char** argv){
                     to_string(best_score.sum()) + "\t" + to_string(tiempo.count()) + "\n";
             myfile << std::setw(30) << output;
         }
-    }
+    } // END WHILE CV
     cout << endl;
     return 0;
 }
