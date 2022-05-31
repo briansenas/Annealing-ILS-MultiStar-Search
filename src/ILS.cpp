@@ -51,7 +51,7 @@ int main(int argc, char** argv){
         std::string::size_type const p(base_filename.find_last_of('.'));
         std::string file_without_extension = base_filename.substr(0, p);
 
-        string datafilename = "ILS_"+file_without_extension+to_string(seed);
+        string datafilename = "ILS_"+file_without_extension+to_string(seed)+"_"+to_string(shuffle);
         writefile = path+"../results/"+datafilename;
         writefile += ".txt";
         myfile.open(writefile,ios::out|ios::trunc);
@@ -124,6 +124,7 @@ int main(int argc, char** argv){
                 BestSolution = NewSolution;
                 best_score = score;
             }
+            fitness.clear();
             progress_bar(float((x*maxIter+iter)) / float((folds*maxIter)));
         }
         momentoFin = high_resolution_clock::now();

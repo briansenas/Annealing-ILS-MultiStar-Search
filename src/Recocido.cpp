@@ -67,8 +67,8 @@ int main(int argc, char** argv){
 
     std::normal_distribution<double> distribution(0.0, sqrt(0.3));
     int cols = allData.cols();
-    unsigned int evaluations = 0, max_evaluations = 15000;
-    unsigned int max_vecinos = 1*cols, max_exitos = 0.1*max_vecinos, vecinos,exitos,ran_num;
+    unsigned int evaluations = 0, max_evaluations = 15000, index;
+    unsigned int max_vecinos = 10*cols, max_exitos = 0.1*max_vecinos, vecinos,exitos;
 
     high_resolution_clock::time_point momentoInicio, momentoFin;
     milliseconds tiempo;
@@ -76,8 +76,6 @@ int main(int argc, char** argv){
     MatrixXd data, test, group1, group2;
     vector<char> Tlabel, Ttlabel, label_group1, label_group2;
     RowVectorXd Solution(cols), NewSolution(cols), BestSolution(cols), score(2), old_score(2),best_score(2);
-    vector<int> indexGrid;
-    fillRange(indexGrid,allData.cols());
 
     float T_0, T_f = 1.0/pow(10,3), beta, mu = 0.3, phi=0.3, M = max_evaluations/max_vecinos,diff, alpha=0.5;
 
@@ -101,55 +99,47 @@ int main(int argc, char** argv){
         myfile << "F\tclasific\treducir \tfitness \ttime\n";
     }
 
-    RowVectorXd *p1, *p2,*swapper;
     for(int x=0,folds=5;x<folds;x++){
         if(shuffle!=2)
             getFold(allData,label,data,Tlabel,test,Ttlabel,x);
         else
             getBalancedFold(group1,label_group1,group2,label_group2,data,Tlabel, test, Ttlabel,x,seed);
 
-        do{
-            Solution = (RowVectorXd::Random(cols) + RowVectorXd::Constant(cols,1))/2.0;
-            score = get1Fit(data,Tlabel,Solution);
-            T_0 = ( mu * score.sum()) / (-log(phi) );
-        }while(T_0<=T_f);
+        Solution = (RowVectorXd::Random(cols) + RowVectorXd::Constant(cols,1))/2.0;
+        score = get1Fit(data,Tlabel,Solution);
+        T_0 = ( mu * score.sum()) / (-1*log(phi) );
+        if(T_0 == 0)
+            T_0 = 0.1;
+        if(T_0 <= T_f)
+            T_f = T_0 * pow(10,-3);
 
         momentoInicio = high_resolution_clock::now();
         beta = (T_0 - T_f) / (M*T_0*T_f);
         best_score = old_score = score;
-        ran_num = evaluations = 0;
-        evaluations+=1;
-        BestSolution = Solution;
-        p1 = &Solution;
-        p2 = &NewSolution;
-        while(T_0 > T_f && evaluations<=max_evaluations){
+        evaluations = 1;
+        NewSolution = BestSolution = Solution;
+        while(evaluations<=max_evaluations){
             vecinos = exitos = 0;
-            Random::shuffle(indexGrid);
-            ran_num = 0;
             while(vecinos<=max_vecinos && exitos<=max_exitos && evaluations<=max_evaluations){
-                *p2 = *p1;
+                index = Random::get<unsigned>(0,cols-1);
                 // Apply move
-                (*p2)[indexGrid[ran_num++]] += Random::get(distribution);
-                /// Si hemos modificados volvemos a barajar.
-                if(ran_num>=indexGrid.size()){
-                    Random::shuffle(indexGrid);
-                    ran_num = 0;
-                }
-                score = get1Fit(data,Tlabel,*p2,0.5);
+                NewSolution[index] += Random::get(distribution);
+
+                score = get1Fit(data,Tlabel,NewSolution,0.5);
                 vecinos++; evaluations++;
                 diff = old_score.sum()-score.sum();
-                if((diff<0) or (Random::get(0,1) <= exp((-diff)/(T_0)))){
-                    swapper = p1;
-                    p1 = p2;
-                    p2 = swapper;
+                if((diff<0.0) || (Random::get(0.0,1.0) <= 1.0/exp(diff/T_0))){
+                    Solution[index] = NewSolution[index];
                     old_score = score;
+                    vecinos = 0;
                     exitos++;
-                    if(best_score.sum() < old_score.sum()){
-                        BestSolution = *p1;
-                        best_score = old_score;
+                    if(best_score.sum() < score.sum()){
+                        BestSolution = Solution;
+                        best_score = score;
                     }
                 }
                 progress_bar(float(x*max_evaluations + evaluations)/float(folds*max_evaluations));
+                NewSolution[index] = Solution[index];
             }// END WHILE2
             T_0 = (T_0) / (1+beta*T_0);
             if(exitos==0) break;

@@ -26,9 +26,9 @@ if [ -z "$3" ]
 fi
 
 
-echo "[START-1]: Doing ILS search in ionosphere.arrf"
+echo "[START-1]: Doing SA search in ionosphere.arrf"
 $SCRIPT_DIR/../bin/Recocido ionosphere.arff b g $1 $2 $3
-echo "[START-2]: Doing ILS search in parkinson.arrf"
+echo "[START-2]: Doing SA search in parkinson.arrf"
 $SCRIPT_DIR/../bin/Recocido parkinsons.arff 1 2 $1 $2 $3
-echo "[START-3]: Doing ILS search in spectf-heart.arrf"
+echo "[START-3]: Doing SA search in spectf-heart.arrf"
 $SCRIPT_DIR/../bin/Recocido spectf-heart.arff 1 2 $1 $2 $3

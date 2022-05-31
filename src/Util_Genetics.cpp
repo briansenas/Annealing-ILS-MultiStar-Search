@@ -84,7 +84,7 @@ void BLXCross(RowVectorXd parent1, RowVectorXd parent2,RowVectorXd& res1, RowVec
  * calcula la tasa de clasificación y nos devuelve el valor por los parámetros por
  * pasados por referencia reduct y right.
  */
-void getReductRight(MatrixXd data, vector<char> Tlabel, RowVectorXd& Weights, unsigned int &right, unsigned int &reduct){
+inline void getReductRight(MatrixXd data, vector<char> Tlabel, RowVectorXd& Weights, unsigned int &right, unsigned int &reduct){
         unsigned int i,size, ManualNeighbour;
         reduct = 0;
         for(i=0,size=Weights.cols();i<size;i++){
@@ -203,7 +203,6 @@ unsigned int& eval_num, unsigned int max_eval, unsigned int maxTilBetter, vector
         /// Evaluamos la función.
         reduction_rate = (1-alpha)*(float(reduct)/float(Weights.cols()));
         right_rate = alpha*(float(right)/float(allData.rows()));
-        //function_after = alpha*(right/allData.rows()) + (1-alpha)*(reduct/Weights.cols());
         function_after = right_rate + reduction_rate;
         eval_num++;
 
