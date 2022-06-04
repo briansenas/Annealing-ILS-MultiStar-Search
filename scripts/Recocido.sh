@@ -1,7 +1,8 @@
 #!/bin/bash
 if [ $# -lt 2 ]
   then
-    echo "[ERROR]: You must specify whether you want to 0=print, 1=write and a {seed} and if you want to 0=normal,1=shuffle,2=balance the data "
+    echo "[ERROR]: You must specify whether you want to 0=print, 1=write, a {seed}
+and if you want to 0=normal,1=shuffle,2=balance the data "
     exit
 fi
 # Get Script Directory to later find the bin path

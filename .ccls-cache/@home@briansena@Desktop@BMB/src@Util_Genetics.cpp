@@ -84,7 +84,7 @@ void BLXCross(RowVectorXd parent1, RowVectorXd parent2,RowVectorXd& res1, RowVec
  * calcula la tasa de clasificación y nos devuelve el valor por los parámetros por
  * pasados por referencia reduct y right.
  */
-inline void getReductRight(MatrixXd data, vector<char> Tlabel, RowVectorXd& Weights, unsigned int &right, unsigned int &reduct){
+void getReductRight(MatrixXd data, vector<char> Tlabel, RowVectorXd& Weights, unsigned int &right, unsigned int &reduct){
         unsigned int i,size, ManualNeighbour;
         reduct = 0;
         for(i=0,size=Weights.cols();i<size;i++){

@@ -28,6 +28,7 @@ int main(int argc, char** argv){
     if(argc<=6) {
         cerr << "[ERROR]: Couldn't resolve file name;" << endl;
         cerr << "[EXECUTION]: ./main (filename) (label1) (label2) (0-print,1-write) (seed)[int] (0-Normal, 1-ShuffleData,2-BalanceData)" << endl;
+        cerr << "[EXAMPLE]: ./main parkinsons.arff 1 2 1 150421 0" << endl;
         exit(-1);
     }
     string filename = argv[1];

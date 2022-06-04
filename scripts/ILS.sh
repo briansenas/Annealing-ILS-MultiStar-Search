@@ -1,8 +1,9 @@
 #!/bin/bash
 if [ $# -lt 3 ]
   then
-    echo "[ERROR]: You must specify whether you want to 0=print, 1=write and a {seed}, if you want to 0=normal,1=shuffle,2=balance the data
-    and lastely which method of search you desire 0=LocalSearch 1=SimulatedAnnealing"
+    echo "[ERROR]: You must specify whether you want to 0=print, 1=write,
+a {seed}, if you want to 0=normal,1=shuffle,2=balance the data and lastely
+which method of search you desire 0=LocalSearch 1=SimulatedAnnealing"
     exit
 fi
 # Get Script Directory to later find the bin path

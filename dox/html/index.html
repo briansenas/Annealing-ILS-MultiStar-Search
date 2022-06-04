@@ -87,16 +87,17 @@ Ejecución individual:</h2>
 <h3><a class="anchor" id="autotoc_md6"></a>
 Algoritmo ILS:</h3>
 <ul>
-<li>./ILS (filename) (label1)[char] (label2)[char] (0=Print/1=WriteFile/2=Write+Plot_data) (seed)[-∞,∞] (0=No/1=Shuffle/2=Balanced)<ul>
+<li>./ILS (filename) (label1)[char] (label2)[char] (0=Print/1=WriteFile/2=Write+Plot_data) (seed)[-∞,∞] (0=No/1=Shuffle/2=Balanced) (0=LocalSearch,1=SimulatedAnnealing)<ul>
 <li>Arg1 = filename -&gt; nombre del archivo de datos.</li>
 <li>Arg2 = label1 -&gt; etiqueta del primer grupo del conjunto de datos de tipo char.</li>
 <li>Arg3 = label2 -&gt; etiqueta del segundo grupo del conjunto de datos de tipo char.</li>
 <li>Arg4 = Bus -&gt; 0 es imprimir por pantalla, 1 es escribir a ./results y 2 es escribir también a ./resutls/plots.</li>
 <li>Arg5 = seed -&gt; semilla para el generador aleatorio.</li>
 <li>Arg6 = Preprocesar los datos -&gt; 0 es Normal, 1 es Barajado y 2 es equilibrio de clase.</li>
+<li>Arg7 = Searchtype -&gt; 0 es utilizar la búsqueda local, 1 es utilizar enfrimiamiento simulado.</li>
 </ul>
 </li>
-<li>Análogamente para los demás algoritmos.</li>
+<li>Análogamente para los demás algoritmos con excepción del argumento 7.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Descripción breve del Problema</h2>

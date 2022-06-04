@@ -11,15 +11,16 @@
 ## Ejecución individual:
 ### Algoritmo ILS:
 - ./ILS (filename) (label1)\[char\] (label2)\[char\] (0=Print/1=WriteFile/2=Write+Plot\_data) (seed)[-∞,∞]
-(0=No/1=Shuffle/2=Balanced)
+(0=No/1=Shuffle/2=Balanced) (0=LocalSearch,1=SimulatedAnnealing)
     - Arg1 = filename -> nombre del archivo de datos.
     - Arg2 = label1 -> etiqueta del primer grupo del conjunto de datos de tipo char.
     - Arg3 = label2 -> etiqueta del segundo grupo del conjunto de datos de tipo char.
     - Arg4 = Bus -> 0 es imprimir por pantalla, 1 es escribir a ./results y 2 es escribir también a ./resutls/plots.
     - Arg5 = seed -> semilla para el generador aleatorio.
     - Arg6 = Preprocesar los datos -> 0 es Normal, 1 es Barajado y 2 es equilibrio de clase.
+    - Arg7 = Searchtype -> 0 es utilizar la búsqueda local, 1 es utilizar enfrimiamiento simulado.
 
-- Análogamente para los demás algoritmos.
+- Análogamente para los demás algoritmos con excepción del argumento 7.
 
 ## Descripción breve del Problema
 La idea es comparar distintos tipos de algoritmos para clasificar datos pertenecientes
