@@ -1,0 +1,8 @@
+[WARNING]: Data has been shuffled; 
+ ### Algoritmo Búsqueda Local Reiterada ###
+ F	clasific	reducir 	fitness 	time
+0	0.358974	1.000000	0.679487	5172
+1	0.692308	0.909091	0.800699	5118
+2	0.717949	0.909091	0.813520	5078
+3	0.820513	1.000000	0.910256	5068
+4	0.743590	1.000000	0.871795	5139
